@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SessionStartedEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.session.started"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["REPLAY", "LIVE"]
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recording_id": {
+          "type": "string"
+        },
+        "previous_session_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "reason": {
+          "type": "string",
+          "enum": ["SEEK", "START", "RESTART", "LOOP", "RECONNECT"]
+        }
+      },
+      "required": [
+        "mode",
+        "started_at",
+        "sources",
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "payload"
+  ],
+  "additionalProperties": false
+}
