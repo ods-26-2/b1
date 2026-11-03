@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CameraQualityQuery",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.i6.camera_quality.query"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "query"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "type": "string"
+        }
+      },
+      "required": ["source_id"]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "target", "payload"]
+}

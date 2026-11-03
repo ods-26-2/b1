@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PieceAnalysisEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.i8.piece_analysis"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "artifact_version": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "frame_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "detection_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bbox": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "result": {
+          "type": "string",
+          "enum": ["CONFORMING", "NON_CONFORMING", "ANOMALY", "UNCERTAIN"]
+        },
+        "defect_class": {
+          "type": "string"
+        },
+        "taxonomy_version": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "similarity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "frame_index",
+        "detection_id",
+        "bbox",
+        "result",
+        "taxonomy_version",
+        "confidence",
+        "similarity"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "result": {
+                "const": "NON_CONFORMING"
+              }
+            },
+            "required": ["result"]
+          },
+          "then": {
+            "required": ["defect_class"]
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "source_id",
+    "artifact_version",
+    "payload"
+  ]
+}

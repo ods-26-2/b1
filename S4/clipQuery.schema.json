@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ClipQuery",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s4.clip.query"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "query"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "clip_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [],
+      "oneOf": [
+        {
+          "required": ["clip_id"]
+        },
+        {
+          "required": ["event_id"]
+        }
+      ]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "target", "payload"]
+}

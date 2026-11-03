@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EventMetricsEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s5.event_metrics"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "event_type": {
+          "type": "string"
+        },
+        "zone_id": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "window_start_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "window_end_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "granularity": {
+          "type": "string",
+          "enum": ["1m", "15m", "1h", "1d"]
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "uncertain_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "duration_avg_ms": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "event_type",
+        "window_start_at",
+        "window_end_at",
+        "granularity",
+        "count",
+        "uncertain_count"
+      ]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "payload"]
+}

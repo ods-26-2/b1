@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZoneTransitionEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s1.zone_transition"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "artifact_version": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "track_id": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "zone_id": {
+          "type": "string"
+        },
+        "transition": {
+          "type": "string",
+          "enum": ["ENTER", "EXIT"]
+        },
+        "entered_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dwell_s": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": ["track_id", "class", "zone_id", "transition", "entered_at"],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "transition": {
+                "const": "EXIT"
+              }
+            },
+            "required": ["transition"]
+          },
+          "then": {
+            "required": ["dwell_s"]
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "source_id",
+    "artifact_version",
+    "payload"
+  ]
+}

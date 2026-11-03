@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RulesCommand",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s2.rules.command"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "command"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "artifact_version": {
+          "type": "string"
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rule_id": {
+                "type": "string"
+              },
+              "event_type": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "zone_id": {
+                "type": "string"
+              },
+              "equipment_item": {
+                "type": "string"
+              },
+              "min_confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "uncertain_below": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "min_duration_ms": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "debounce_ms": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "threshold": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "rule_id",
+              "event_type",
+              "min_confidence",
+              "uncertain_below",
+              "min_duration_ms",
+              "debounce_ms"
+            ]
+          }
+        }
+      },
+      "required": ["artifact_version", "rules"]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "target", "payload"]
+}

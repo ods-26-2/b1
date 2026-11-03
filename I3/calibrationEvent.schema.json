@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CalibrationEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.i3.calibration"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "artifact_version": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "valid_from": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "image_width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "image_height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "intrinsics": {
+          "type": "object",
+          "properties": {
+            "fx": {
+              "type": "number"
+            },
+            "fy": {
+              "type": "number"
+            },
+            "cx": {
+              "type": "number"
+            },
+            "cy": {
+              "type": "number"
+            }
+          },
+          "required": ["fx", "fy", "cx", "cy"]
+        },
+        "distortion": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 5,
+          "maxItems": 5
+        },
+        "homography_px_to_m": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "reference_frame": {
+          "type": "object",
+          "properties": {
+            "space_id": {
+              "type": "string"
+            },
+            "origin": {
+              "type": "string"
+            },
+            "axes": {
+              "type": "string"
+            }
+          },
+          "required": ["space_id", "origin", "axes"]
+        },
+        "reprojection_rms_cm": {
+          "type": "number",
+          "minimum": 0
+        },
+        "holdout_points": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "valid_from",
+        "image_width",
+        "image_height",
+        "intrinsics",
+        "distortion",
+        "homography_px_to_m",
+        "reference_frame",
+        "reprojection_rms_cm",
+        "holdout_points"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "source_id",
+    "artifact_version",
+    "payload"
+  ]
+}

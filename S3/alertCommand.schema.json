@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AlertCommand",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s3.alert.command"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "command"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["HIGH", "MEDIUM", "LOW"]
+        },
+        "recipients": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(user|group|role):.+$"
+          }
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["SOUND", "SCREEN", "PUSH"]
+          }
+        },
+        "clip_id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": ["title", "message", "severity", "recipients", "channels"]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "target", "payload"]
+}

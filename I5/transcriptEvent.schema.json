@@ -80,10 +80,8 @@
         "end_at",
         "transcribed_text",
         "normalized_text",
-        "language",
         "confidence",
-        "uncertain",
-        "words"
+        "uncertain"
       ]
     }
   },

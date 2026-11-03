@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReplayCommand",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.p6.replay.command"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "command"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "START",
+            "PAUSE",
+            "RESUME",
+            "SEEK",
+            "LOOP",
+            "SPEED",
+            "STOP",
+            "RESTART"
+          ]
+        },
+        "recording_id": {
+          "type": "string"
+        },
+        "position_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "speed_factor": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "loop": {
+          "type": "boolean"
+        }
+      },
+      "required": ["action", "recording_id"],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "SEEK"
+              }
+            },
+            "required": ["action"]
+          },
+          "then": {
+            "required": ["position_ms"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "SPEED"
+              }
+            },
+            "required": ["action"]
+          },
+          "then": {
+            "required": ["speed_factor"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "LOOP"
+              }
+            },
+            "required": ["action"]
+          },
+          "then": {
+            "required": ["loop"]
+          }
+        }
+      ]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "target", "payload"]
+}

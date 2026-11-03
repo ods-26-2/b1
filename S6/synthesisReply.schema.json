@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SynthesisReply",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s6.synthesis.reply"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "reply"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "correlation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["OK", "ERROR"]
+        },
+        "fps": {
+          "type": "number",
+          "minimum": 0
+        },
+        "frame_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "duration_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "trajectory_ref": {
+          "type": "string",
+          "format": "uri"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sign": {
+                "type": ["string", "null"]
+              },
+              "start_ms": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "end_ms": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "is_transition": {
+                "type": "boolean"
+              }
+            },
+            "required": ["sign", "start_ms", "end_ms", "is_transition"]
+          }
+        },
+        "facial_markers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "marker": {
+                "type": "string"
+              },
+              "start_ms": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "end_ms": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": ["marker", "start_ms", "end_ms"]
+          }
+        },
+        "unknown_signs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "error": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "enum": ["UNKNOWN_LEXICON_VERSION", "EMPTY_SEQUENCE"]
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": ["code", "message"]
+        }
+      },
+      "required": ["status"],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "OK"
+              }
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "required": [
+              "fps",
+              "frame_count",
+              "duration_ms",
+              "trajectory_ref",
+              "segments",
+              "facial_markers",
+              "unknown_signs"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "ERROR"
+              }
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["error"]
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "correlation_id",
+    "payload"
+  ]
+}

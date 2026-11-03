@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EntityEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s2.entity"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "entities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "entity_id": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "position_m": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "space_id": {
+                "type": "string"
+              },
+              "point_px": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "zone_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "source_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "track_refs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "source_id": {
+                      "type": "string"
+                    },
+                    "track_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["source_id", "track_id"]
+                }
+              },
+              "ppe": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "equipment_item": {
+                      "type": "string"
+                    },
+                    "compliance": {
+                      "type": "string",
+                      "enum": ["CORRECT", "INCORRECT", "ABSENT"]
+                    },
+                    "confidence": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    }
+                  },
+                  "required": ["equipment_item", "compliance", "confidence"]
+                }
+              }
+            },
+            "required": [
+              "entity_id",
+              "class",
+              "zone_ids",
+              "source_ids",
+              "track_refs"
+            ]
+          }
+        }
+      },
+      "required": ["entities"]
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "source_id",
+    "payload"
+  ]
+}

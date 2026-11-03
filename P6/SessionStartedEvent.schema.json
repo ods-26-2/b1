@@ -46,7 +46,7 @@
       "required": [
         "mode",
         "started_at",
-        "sources",
+        "sources"
       ],
       "additionalProperties": false
     }

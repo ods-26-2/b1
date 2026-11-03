@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PlateReadEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.i7.plate_read"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "artifact_version": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "frame_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "detection_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "class": {
+          "type": "string"
+        },
+        "plate_layout": {
+          "type": "string",
+          "enum": ["OLD_BR", "MERCOSUL"]
+        },
+        "license_plate": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]{7}$"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "character_confidences": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "minItems": 7,
+          "maxItems": 7
+        },
+        "uncertain": {
+          "type": "boolean"
+        },
+        "bbox": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "frame_index",
+        "class",
+        "plate_layout",
+        "license_plate",
+        "confidence",
+        "character_confidences",
+        "uncertain",
+        "bbox"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "plate_layout": {
+                "const": "OLD_BR"
+              }
+            },
+            "required": ["plate_layout"]
+          },
+          "then": {
+            "properties": {
+              "license_plate": {
+                "pattern": "^[A-Z]{3}[0-9]{4}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "plate_layout": {
+                "const": "MERCOSUL"
+              }
+            },
+            "required": ["plate_layout"]
+          },
+          "then": {
+            "properties": {
+              "license_plate": {
+                "pattern": "^[A-Z]{3}[0-9][A-Z][0-9]{2}$"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "source_id",
+    "artifact_version",
+    "payload"
+  ]
+}

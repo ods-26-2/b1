@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RecordCommand",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.p6.record.command"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "command"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["START", "STOP"]
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recording_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": ["action"],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "START"
+              }
+            },
+            "required": ["action"]
+          },
+          "then": {
+            "required": ["source_ids"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "STOP"
+              }
+            },
+            "required": ["action"]
+          },
+          "then": {
+            "required": ["recording_id"]
+          }
+        }
+      ]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "target", "payload"]
+}

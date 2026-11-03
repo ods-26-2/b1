@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SynthesisCommand",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s6.synthesis.command"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "command"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "glosses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "speed_factor": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "markers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "marker": {
+                "type": "string"
+              },
+              "from_gloss_index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "to_gloss_index": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": ["marker", "from_gloss_index", "to_gloss_index"]
+          }
+        },
+        "lexicon_version": {
+          "type": "string"
+        }
+      },
+      "required": ["glosses", "speed_factor", "lexicon_version"]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "target", "payload"]
+}

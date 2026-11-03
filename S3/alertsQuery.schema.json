@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AlertsQuery",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s3.alerts.query"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "query"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "from_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "to_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": {
+          "type": "string",
+          "enum": ["CREATED", "ACKNOWLEDGED", "MUTED", "CLOSED"]
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["HIGH", "MEDIUM", "LOW"]
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 500
+        }
+      },
+      "required": []
+    }
+  },
+  "required": ["schema", "message_type", "producer", "target", "payload"]
+}

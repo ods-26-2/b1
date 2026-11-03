@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReplayReply",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.p6.replay.reply"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "reply"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "correlation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["OK", "ERROR"]
+        },
+        "recording_id": {
+          "type": "string"
+        },
+        "session_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "state": {
+          "type": "string",
+          "enum": ["PLAYING", "PAUSED", "STOPPED"]
+        },
+        "position_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "speed_factor": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "loop": {
+          "type": "boolean"
+        },
+        "error": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "enum": ["RECORDING_NOT_FOUND", "INVALID_POSITION", "NOT_PLAYING"]
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": ["code", "message"]
+        }
+      },
+      "required": ["status"],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "OK"
+              }
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "required": [
+              "recording_id",
+              "session_id",
+              "state",
+              "position_ms",
+              "speed_factor",
+              "loop"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "ERROR"
+              }
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["error"]
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "correlation_id",
+    "payload"
+  ]
+}

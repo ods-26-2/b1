@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QualifiedEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s2.event"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "artifact_version": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "event_type": {
+          "type": "string"
+        },
+        "rule_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["CONFIRMED", "UNCERTAIN"]
+        },
+        "phase": {
+          "type": "string",
+          "enum": ["STARTED", "UPDATED", "ENDED"]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "entity_id": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "zone_id": {
+          "type": "string"
+        },
+        "equipment_item": {
+          "type": "string"
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "details": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_type",
+        "rule_id",
+        "status",
+        "phase",
+        "confidence",
+        "started_at",
+        "duration_ms",
+        "source_ids"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "source_id",
+    "artifact_version",
+    "payload"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LexiconCaptureCommand",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.i4.lexicon_capture.command"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "command"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "sign_label": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "start_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "signer_id": {
+          "type": "string"
+        }
+      },
+      "required": ["sign_label", "source_id", "start_at", "end_at"]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "target", "payload"]
+}

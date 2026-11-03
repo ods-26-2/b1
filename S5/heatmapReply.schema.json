@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HeatmapReply",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s5.heatmap.reply"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "reply"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "correlation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["OK", "ERROR"]
+        },
+        "grid_width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "grid_height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "cell_size_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "cell_size_px": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "origin": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "cells": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "heatmap_uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "error": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "pattern": "^[A-Z][A-Z0-9_]*$"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": ["code", "message"]
+        }
+      },
+      "required": ["status"],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "OK"
+              }
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["grid_width", "grid_height", "origin"],
+            "allOf": [
+              {
+                "anyOf": [
+                  {
+                    "required": ["cells"]
+                  },
+                  {
+                    "required": ["heatmap_uri"]
+                  }
+                ]
+              },
+              {
+                "anyOf": [
+                  {
+                    "required": ["cell_size_m"]
+                  },
+                  {
+                    "required": ["cell_size_px"]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "ERROR"
+              }
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["error"]
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "correlation_id",
+    "payload"
+  ]
+}

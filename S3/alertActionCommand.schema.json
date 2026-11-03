@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AlertActionCommand",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s3.alert_action.command"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "command"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "alert_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "action": {
+          "type": "string",
+          "enum": ["ACKNOWLEDGE", "MUTE", "CLOSE"]
+        },
+        "actor": {
+          "type": "string",
+          "pattern": "^user:.+$"
+        },
+        "mute_until": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": ["alert_id", "action", "actor"],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "MUTE"
+              }
+            },
+            "required": ["action"]
+          },
+          "then": {
+            "required": ["mute_until"]
+          }
+        }
+      ]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "target", "payload"]
+}

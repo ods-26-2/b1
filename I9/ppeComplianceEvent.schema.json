@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PpeComplianceEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.i9.ppe_compliance"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "artifact_version": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "frame_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "detection_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bbox": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "calibrated": {
+          "type": "boolean"
+        },
+        "catalog_version": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "equipment_item": {
+                "type": "string"
+              },
+              "compliance": {
+                "type": "string",
+                "enum": ["CORRECT", "INCORRECT", "ABSENT"]
+              },
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "bbox": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "minItems": 4,
+                "maxItems": 4
+              }
+            },
+            "required": ["equipment_item", "compliance", "confidence"]
+          }
+        },
+        "uncertain": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "frame_index",
+        "detection_id",
+        "bbox",
+        "calibrated",
+        "catalog_version",
+        "items",
+        "uncertain"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "source_id",
+    "artifact_version",
+    "payload"
+  ]
+}

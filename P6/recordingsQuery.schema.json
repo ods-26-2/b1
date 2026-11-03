@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RecordingsQuery",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.p6.recordings.query"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "query"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "from_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "to_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": []
+    }
+  },
+  "required": ["schema", "message_type", "producer", "target", "payload"]
+}

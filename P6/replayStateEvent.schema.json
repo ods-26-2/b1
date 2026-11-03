@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReplayStateEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.p6.replay.state"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "recording_id": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string",
+          "enum": ["PLAYING", "PAUSED", "STOPPED"]
+        },
+        "position_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "duration_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "speed_factor": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "loop": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "recording_id",
+        "state",
+        "position_ms",
+        "duration_ms",
+        "speed_factor",
+        "loop"
+      ]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "payload"]
+}

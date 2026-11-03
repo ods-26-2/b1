@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ArtifactPublishedEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.artifact.published"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "artifact_version": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "MODEL",
+            "CALIBRATION",
+            "ZONES",
+            "RULES",
+            "ROUTING",
+            "PPE_CATALOG",
+            "DEFECT_TAXONOMY",
+            "LEXICON",
+            "KEYPOINT_SEQUENCE"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "hash_sha256": {
+          "type": "string"
+        },
+        "valid_from": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "schema_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_version",
+        "kind",
+        "owner",
+        "uri",
+        "hash_sha256",
+        "valid_from",
+        "schema_version"
+      ]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "payload"]
+}

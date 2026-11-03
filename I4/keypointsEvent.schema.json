@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KeypointsEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.i4.keypoints"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "artifact_version": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "frame_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "image_width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "image_height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "coordinates": {
+          "type": "string",
+          "const": "NORMALIZED"
+        },
+        "body": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "anyOf": [
+            {
+              "maxItems": 0
+            },
+            {
+              "minItems": 33,
+              "maxItems": 33
+            }
+          ]
+        },
+        "left_hand": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "minItems": 21,
+          "maxItems": 21
+        },
+        "right_hand": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "minItems": 21,
+          "maxItems": 21
+        },
+        "face": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "minItems": 92,
+          "maxItems": 92
+        }
+      },
+      "required": [
+        "frame_index",
+        "image_width",
+        "image_height",
+        "coordinates",
+        "body"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "artifact_version",
+    "payload"
+  ]
+}

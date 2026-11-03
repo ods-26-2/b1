@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ZoneMetricsEvent",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s5.zone_metrics"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "event"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "zone_id": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "space_id": {
+          "type": "string"
+        },
+        "window_start_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "window_end_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "granularity": {
+          "type": "string",
+          "enum": ["1m", "15m", "1h", "1d"]
+        },
+        "total_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "occupancy_peak": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "occupancy_avg": {
+          "type": "number",
+          "minimum": 0
+        },
+        "dwell_avg_s": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "zone_id",
+        "window_start_at",
+        "window_end_at",
+        "granularity",
+        "total_count",
+        "occupancy_peak",
+        "occupancy_avg",
+        "dwell_avg_s"
+      ]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "payload"]
+}

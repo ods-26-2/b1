@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CameraQualityReply",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.i6.camera_quality.reply"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "reply"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "correlation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["OK", "ERROR"]
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "measured_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "blur_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "illumination": {
+          "type": "string",
+          "enum": ["UNDER_EXPOSED", "ADEQUATE", "OVER_EXPOSED"]
+        },
+        "pitch_deg": {
+          "type": "number"
+        },
+        "yaw_deg": {
+          "type": "number"
+        },
+        "roll_deg": {
+          "type": "number"
+        },
+        "error": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "enum": ["SOURCE_NOT_FOUND", "NO_FRAME"]
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": ["code", "message"]
+        }
+      },
+      "required": ["status"],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "OK"
+              }
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["source_id", "measured_at", "blur_score", "illumination"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "ERROR"
+              }
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["error"]
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "message_type",
+    "producer",
+    "correlation_id",
+    "payload"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HeatmapQuery",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ods.s5.heatmap.query"
+    },
+    "message_type": {
+      "type": "string",
+      "const": "query"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "space_id": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "period_start_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "period_end_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "cell_size_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "cell_size_px": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": ["period_start_at", "period_end_at"],
+      "oneOf": [
+        {
+          "required": ["space_id", "cell_size_m"]
+        },
+        {
+          "required": ["source_id", "cell_size_px"]
+        }
+      ]
+    }
+  },
+  "required": ["schema", "message_type", "producer", "target", "payload"]
+}
