@@ -1,0 +1,7 @@
+# gerada no build por setup.py a partir dos schemas do b1
+src/_schemas/
+build/
+dist/
+*.egg-info/
+__pycache__/
+.pytest_cache/

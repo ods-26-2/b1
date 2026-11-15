@@ -16,5 +16,13 @@ dev = ["pytest"]
 [project.scripts]
 ods-validar = "ods_validador.__main__:main"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+# Os arquivos ficam soltos em src/; instalam como o pacote "ods_validador".
+[tool.setuptools]
+packages = ["ods_validador"]
+
+[tool.setuptools.package-dir]
+ods_validador = "src"
+
+# _schemas/ é gerada pelo setup.py a partir do repositório b1 (não vai ao git)
+[tool.setuptools.package-data]
+ods_validador = ["_schemas/**/*.json"]
