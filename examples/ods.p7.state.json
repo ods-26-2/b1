@@ -1,0 +1,185 @@
+{
+  "topic": "ods.p7.state",
+  "schema_file": "P7/actuatorStateEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.p7.state",
+      "message_type": "event",
+      "producer": "x",
+      "source_id": "x",
+      "payload": {
+        "pan_deg": 0,
+        "tilt_deg": 0,
+        "state": "IDLE",
+        "is_homed": false
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.p7.state",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.p7.state",
+        "message_type": "event",
+        "source_id": "x",
+        "payload": {
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.p7.state",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.p7.state",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-pan_deg",
+      "message": {
+        "schema": "ods.p7.state",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-tilt_deg",
+      "message": {
+        "schema": "ods.p7.state",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "pan_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-state",
+      "message": {
+        "schema": "ods.p7.state",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-is_homed",
+      "message": {
+        "schema": "ods.p7.state",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.p7.state",
+        "message_type": "event",
+        "producer": 123,
+        "source_id": "x",
+        "payload": {
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.p7.state",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

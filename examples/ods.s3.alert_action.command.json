@@ -1,0 +1,161 @@
+{
+  "topic": "ods.s3.alert_action.command",
+  "schema_file": "S3/alertActionCommand.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s3.alert_action.command",
+      "message_type": "command",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+        "action": "ACKNOWLEDGE",
+        "actor": "user:ana"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "action": "ACKNOWLEDGE",
+          "actor": "user:ana"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s3.alert_action.command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "action": "ACKNOWLEDGE",
+          "actor": "user:ana"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s3.alert_action.command",
+        "message_type": "command",
+        "target": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "action": "ACKNOWLEDGE",
+          "actor": "user:ana"
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.s3.alert_action.command",
+        "message_type": "command",
+        "producer": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "action": "ACKNOWLEDGE",
+          "actor": "user:ana"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s3.alert_action.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-alert_id",
+      "message": {
+        "schema": "ods.s3.alert_action.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "action": "ACKNOWLEDGE",
+          "actor": "user:ana"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-action",
+      "message": {
+        "schema": "ods.s3.alert_action.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "actor": "user:ana"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-actor",
+      "message": {
+        "schema": "ods.s3.alert_action.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "action": "ACKNOWLEDGE"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s3.alert_action.command",
+        "message_type": "command",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "action": "ACKNOWLEDGE",
+          "actor": "user:ana"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "action": "ACKNOWLEDGE",
+          "actor": "user:ana"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s3.alert_action.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

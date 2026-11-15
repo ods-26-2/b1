@@ -1,0 +1,140 @@
+{
+  "topic": "ods.s3.alert.reply",
+  "schema_file": "S3/alertReply.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s3.alert.reply",
+      "message_type": "reply",
+      "producer": "x",
+      "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+      "payload": {
+        "status": "OK",
+        "alert_id": "123e4567-e89b-42d3-a456-426614174000"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s3.alert.reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s3.alert.reply",
+        "message_type": "reply",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "sem-correlation_id",
+      "message": {
+        "schema": "ods.s3.alert.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "payload": {
+          "status": "OK",
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s3.alert.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000"
+      }
+    },
+    {
+      "caso": "payload-sem-status",
+      "message": {
+        "schema": "ods.s3.alert.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s3.alert.reply",
+        "message_type": "reply",
+        "producer": 123,
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s3.alert.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    },
+    {
+      "caso": "correlation_id-nao-e-uuid",
+      "message": {
+        "schema": "ods.s3.alert.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "isto-nao-e-uuid",
+        "payload": {
+          "status": "OK",
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    }
+  ]
+}

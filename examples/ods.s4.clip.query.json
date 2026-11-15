@@ -1,0 +1,108 @@
+{
+  "topic": "ods.s4.clip.query",
+  "schema_file": "S4/clipQuery.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s4.clip.query",
+      "message_type": "query",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "clip_id": "123e4567-e89b-42d3-a456-426614174000"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s4.clip.query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s4.clip.query",
+        "message_type": "query",
+        "target": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.s4.clip.query",
+        "message_type": "query",
+        "producer": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s4.clip.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s4.clip.query",
+        "message_type": "query",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s4.clip.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

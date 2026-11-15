@@ -1,0 +1,5 @@
+node_modules/
+dist/
+*.tgz
+# gerado por scripts/gerar-schemas.mjs a partir de ../schemas
+src/generated/

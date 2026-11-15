@@ -1,0 +1,267 @@
+{
+  "topic": "ods.artifact.published",
+  "schema_file": "B5/artifactPublishedEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.artifact.published",
+      "message_type": "event",
+      "producer": "x",
+      "payload": {
+        "artifact_id": "x",
+        "artifact_version": "x",
+        "kind": "MODEL",
+        "owner": "x",
+        "uri": "x",
+        "hash_sha256": "x",
+        "valid_from": "2026-11-14T12:00:00Z",
+        "schema_version": "x"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "uri": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.artifact.published",
+        "producer": "x",
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "uri": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_type": "event",
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "uri": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_type": "event",
+        "producer": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-artifact_id",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "uri": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-artifact_version",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "artifact_id": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "uri": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-kind",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "owner": "x",
+          "uri": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-owner",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "uri": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-uri",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-hash_sha256",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "uri": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-valid_from",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "uri": "x",
+          "hash_sha256": "x",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-schema_version",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "uri": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_type": "event",
+        "producer": 123,
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "uri": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "uri": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_type": "event",
+        "producer": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

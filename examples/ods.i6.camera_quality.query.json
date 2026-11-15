@@ -1,0 +1,118 @@
+{
+  "topic": "ods.i6.camera_quality.query",
+  "schema_file": "I6/cameraQualityQuery.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i6.camera_quality.query",
+      "message_type": "query",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "source_id": "x"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i6.camera_quality.query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i6.camera_quality.query",
+        "message_type": "query",
+        "target": "x",
+        "payload": {
+          "source_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.i6.camera_quality.query",
+        "message_type": "query",
+        "producer": "x",
+        "payload": {
+          "source_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i6.camera_quality.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-source_id",
+      "message": {
+        "schema": "ods.i6.camera_quality.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {}
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i6.camera_quality.query",
+        "message_type": "query",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "source_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i6.camera_quality.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

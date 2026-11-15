@@ -1,0 +1,127 @@
+{
+  "topic": "ods.p6.record.command",
+  "schema_file": "P6/recordCommand.schema.json",
+  "valid": [
+    {
+      "schema": "ods.p6.record.command",
+      "message_type": "command",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "action": "START",
+        "source_ids": []
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "action": "START",
+          "source_ids": []
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.p6.record.command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "action": "START",
+          "source_ids": []
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.p6.record.command",
+        "message_type": "command",
+        "target": "x",
+        "payload": {
+          "action": "START",
+          "source_ids": []
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.p6.record.command",
+        "message_type": "command",
+        "producer": "x",
+        "payload": {
+          "action": "START",
+          "source_ids": []
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.p6.record.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-action",
+      "message": {
+        "schema": "ods.p6.record.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_ids": []
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.p6.record.command",
+        "message_type": "command",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "action": "START",
+          "source_ids": []
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "action": "START",
+          "source_ids": []
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.p6.record.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

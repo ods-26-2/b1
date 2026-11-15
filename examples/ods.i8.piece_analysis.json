@@ -1,0 +1,373 @@
+{
+  "topic": "ods.i8.piece_analysis",
+  "schema_file": "I8/pieceAnalysisEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i8.piece_analysis",
+      "message_type": "event",
+      "producer": "x",
+      "source_id": "x",
+      "artifact_version": "x",
+      "payload": {
+        "frame_index": 0,
+        "detection_id": 0,
+        "bbox": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "result": "CONFORMING",
+        "taxonomy_version": "x",
+        "confidence": 0,
+        "similarity": 0
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "result": "CONFORMING",
+          "taxonomy_version": "x",
+          "confidence": 0,
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "result": "CONFORMING",
+          "taxonomy_version": "x",
+          "confidence": 0,
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "result": "CONFORMING",
+          "taxonomy_version": "x",
+          "confidence": 0,
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "result": "CONFORMING",
+          "taxonomy_version": "x",
+          "confidence": 0,
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "result": "CONFORMING",
+          "taxonomy_version": "x",
+          "confidence": 0,
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-frame_index",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "result": "CONFORMING",
+          "taxonomy_version": "x",
+          "confidence": 0,
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-detection_id",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "result": "CONFORMING",
+          "taxonomy_version": "x",
+          "confidence": 0,
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-bbox",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "result": "CONFORMING",
+          "taxonomy_version": "x",
+          "confidence": 0,
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-result",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "taxonomy_version": "x",
+          "confidence": 0,
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-taxonomy_version",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "result": "CONFORMING",
+          "confidence": 0,
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-confidence",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "result": "CONFORMING",
+          "taxonomy_version": "x",
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-similarity",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "result": "CONFORMING",
+          "taxonomy_version": "x",
+          "confidence": 0
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "producer": 123,
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "result": "CONFORMING",
+          "taxonomy_version": "x",
+          "confidence": 0,
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "result": "CONFORMING",
+          "taxonomy_version": "x",
+          "confidence": 0,
+          "similarity": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i8.piece_analysis",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

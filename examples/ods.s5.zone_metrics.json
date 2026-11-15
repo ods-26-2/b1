@@ -1,0 +1,267 @@
+{
+  "topic": "ods.s5.zone_metrics",
+  "schema_file": "S5/zoneMetricsEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s5.zone_metrics",
+      "message_type": "event",
+      "producer": "x",
+      "payload": {
+        "zone_id": "x",
+        "window_start_at": "2026-11-14T12:00:00Z",
+        "window_end_at": "2026-11-14T12:00:00Z",
+        "granularity": "1m",
+        "total_count": 0,
+        "occupancy_peak": 0,
+        "occupancy_avg": 0,
+        "dwell_avg_s": 0
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "zone_id": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "total_count": 0,
+          "occupancy_peak": 0,
+          "occupancy_avg": 0,
+          "dwell_avg_s": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "producer": "x",
+        "payload": {
+          "zone_id": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "total_count": 0,
+          "occupancy_peak": 0,
+          "occupancy_avg": 0,
+          "dwell_avg_s": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "message_type": "event",
+        "payload": {
+          "zone_id": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "total_count": 0,
+          "occupancy_peak": 0,
+          "occupancy_avg": 0,
+          "dwell_avg_s": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "message_type": "event",
+        "producer": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-zone_id",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "total_count": 0,
+          "occupancy_peak": 0,
+          "occupancy_avg": 0,
+          "dwell_avg_s": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-window_start_at",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "zone_id": "x",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "total_count": 0,
+          "occupancy_peak": 0,
+          "occupancy_avg": 0,
+          "dwell_avg_s": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-window_end_at",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "zone_id": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "total_count": 0,
+          "occupancy_peak": 0,
+          "occupancy_avg": 0,
+          "dwell_avg_s": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-granularity",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "zone_id": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "total_count": 0,
+          "occupancy_peak": 0,
+          "occupancy_avg": 0,
+          "dwell_avg_s": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-total_count",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "zone_id": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "occupancy_peak": 0,
+          "occupancy_avg": 0,
+          "dwell_avg_s": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-occupancy_peak",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "zone_id": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "total_count": 0,
+          "occupancy_avg": 0,
+          "dwell_avg_s": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-occupancy_avg",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "zone_id": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "total_count": 0,
+          "occupancy_peak": 0,
+          "dwell_avg_s": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-dwell_avg_s",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "zone_id": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "total_count": 0,
+          "occupancy_peak": 0,
+          "occupancy_avg": 0
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "message_type": "event",
+        "producer": 123,
+        "payload": {
+          "zone_id": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "total_count": 0,
+          "occupancy_peak": 0,
+          "occupancy_avg": 0,
+          "dwell_avg_s": 0
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "zone_id": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "total_count": 0,
+          "occupancy_peak": 0,
+          "occupancy_avg": 0,
+          "dwell_avg_s": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s5.zone_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

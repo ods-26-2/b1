@@ -1,0 +1,185 @@
+{
+  "topic": "ods.i4.lexicon_capture.command",
+  "schema_file": "I4/lexiconCaptureCommand.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i4.lexicon_capture.command",
+      "message_type": "command",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "sign_label": "x",
+        "source_id": "x",
+        "start_at": "2026-11-14T12:00:00Z",
+        "end_at": "2026-11-14T12:00:00Z"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "sign_label": "x",
+          "source_id": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "sign_label": "x",
+          "source_id": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.command",
+        "message_type": "command",
+        "target": "x",
+        "payload": {
+          "sign_label": "x",
+          "source_id": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.command",
+        "message_type": "command",
+        "producer": "x",
+        "payload": {
+          "sign_label": "x",
+          "source_id": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-sign_label",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-source_id",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "sign_label": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-start_at",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "sign_label": "x",
+          "source_id": "x",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-end_at",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "sign_label": "x",
+          "source_id": "x",
+          "start_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.command",
+        "message_type": "command",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "sign_label": "x",
+          "source_id": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "sign_label": "x",
+          "source_id": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

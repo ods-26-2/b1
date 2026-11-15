@@ -1,0 +1,241 @@
+{
+  "topic": "ods.s1.zone_transition",
+  "schema_file": "S1/zoneTransitionEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s1.zone_transition",
+      "message_type": "event",
+      "producer": "x",
+      "source_id": "x",
+      "artifact_version": "x",
+      "payload": {
+        "track_id": "x",
+        "class": "x",
+        "zone_id": "x",
+        "transition": "ENTER",
+        "entered_at": "2026-11-14T12:00:00Z"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "track_id": "x",
+          "class": "x",
+          "zone_id": "x",
+          "transition": "ENTER",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "track_id": "x",
+          "class": "x",
+          "zone_id": "x",
+          "transition": "ENTER",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "message_type": "event",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "track_id": "x",
+          "class": "x",
+          "zone_id": "x",
+          "transition": "ENTER",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "track_id": "x",
+          "class": "x",
+          "zone_id": "x",
+          "transition": "ENTER",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "track_id": "x",
+          "class": "x",
+          "zone_id": "x",
+          "transition": "ENTER",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-track_id",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "class": "x",
+          "zone_id": "x",
+          "transition": "ENTER",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-class",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "track_id": "x",
+          "zone_id": "x",
+          "transition": "ENTER",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-zone_id",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "track_id": "x",
+          "class": "x",
+          "transition": "ENTER",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-transition",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "track_id": "x",
+          "class": "x",
+          "zone_id": "x",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-entered_at",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "track_id": "x",
+          "class": "x",
+          "zone_id": "x",
+          "transition": "ENTER"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "message_type": "event",
+        "producer": 123,
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "track_id": "x",
+          "class": "x",
+          "zone_id": "x",
+          "transition": "ENTER",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "track_id": "x",
+          "class": "x",
+          "zone_id": "x",
+          "transition": "ENTER",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

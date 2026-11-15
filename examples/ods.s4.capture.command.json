@@ -1,0 +1,157 @@
+{
+  "topic": "ods.s4.capture.command",
+  "schema_file": "S4/captureCommand.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s4.capture.command",
+      "message_type": "command",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "source_id": "x",
+        "media_type": "CLIP",
+        "start_at": "2026-11-14T12:00:00Z",
+        "end_at": "2026-11-14T12:00:00Z"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "media_type": "CLIP",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s4.capture.command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "media_type": "CLIP",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s4.capture.command",
+        "message_type": "command",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "media_type": "CLIP",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.s4.capture.command",
+        "message_type": "command",
+        "producer": "x",
+        "payload": {
+          "source_id": "x",
+          "media_type": "CLIP",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s4.capture.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-source_id",
+      "message": {
+        "schema": "ods.s4.capture.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "media_type": "CLIP",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-media_type",
+      "message": {
+        "schema": "ods.s4.capture.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s4.capture.command",
+        "message_type": "command",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "media_type": "CLIP",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "media_type": "CLIP",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s4.capture.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

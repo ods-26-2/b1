@@ -1,0 +1,139 @@
+{
+  "topic": "ods.i2.tracks",
+  "schema_file": "I2/tracksEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i2.tracks",
+      "message_type": "event",
+      "producer": "x",
+      "artifact_version": "x",
+      "payload": {
+        "frame_index": 0,
+        "tracks": []
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "tracks": []
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i2.tracks",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "tracks": []
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i2.tracks",
+        "message_type": "event",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "tracks": []
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.i2.tracks",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "frame_index": 0,
+          "tracks": []
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i2.tracks",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-frame_index",
+      "message": {
+        "schema": "ods.i2.tracks",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "tracks": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-tracks",
+      "message": {
+        "schema": "ods.i2.tracks",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i2.tracks",
+        "message_type": "event",
+        "producer": 123,
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "tracks": []
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "tracks": []
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i2.tracks",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "topic": "ods.i1.detections",
+  "schema_file": "I1/detectionsEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i1.detections",
+      "message_type": "event",
+      "producer": "x",
+      "artifact_version": "x",
+      "payload": {
+        "frame_index": 0,
+        "image_width": 1,
+        "image_height": 1,
+        "detections": []
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "detections": []
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i1.detections",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "detections": []
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i1.detections",
+        "message_type": "event",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "detections": []
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.i1.detections",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "detections": []
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i1.detections",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-frame_index",
+      "message": {
+        "schema": "ods.i1.detections",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "image_width": 1,
+          "image_height": 1,
+          "detections": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-image_width",
+      "message": {
+        "schema": "ods.i1.detections",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_height": 1,
+          "detections": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-image_height",
+      "message": {
+        "schema": "ods.i1.detections",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "detections": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-detections",
+      "message": {
+        "schema": "ods.i1.detections",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i1.detections",
+        "message_type": "event",
+        "producer": 123,
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "detections": []
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "detections": []
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i1.detections",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "topic": "ods.p6.replay.command",
+  "schema_file": "P6/replayCommand.schema.json",
+  "valid": [
+    {
+      "schema": "ods.p6.replay.command",
+      "message_type": "command",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "action": "START",
+        "recording_id": "x"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "action": "START",
+          "recording_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.p6.replay.command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "action": "START",
+          "recording_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.p6.replay.command",
+        "message_type": "command",
+        "target": "x",
+        "payload": {
+          "action": "START",
+          "recording_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.p6.replay.command",
+        "message_type": "command",
+        "producer": "x",
+        "payload": {
+          "action": "START",
+          "recording_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.p6.replay.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-action",
+      "message": {
+        "schema": "ods.p6.replay.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "recording_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-recording_id",
+      "message": {
+        "schema": "ods.p6.replay.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "action": "START"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.p6.replay.command",
+        "message_type": "command",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "action": "START",
+          "recording_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "action": "START",
+          "recording_id": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.p6.replay.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

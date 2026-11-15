@@ -1,0 +1,185 @@
+{
+  "topic": "ods.i4.lexicon_capture.reply",
+  "schema_file": "I4/lexiconCaptureReply.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i4.lexicon_capture.reply",
+      "message_type": "reply",
+      "producer": "x",
+      "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+      "payload": {
+        "status": "OK",
+        "sign_label": "x",
+        "captured_from": "2026-11-14T12:00:00Z",
+        "captured_until": "2026-11-14T12:00:00Z",
+        "fps": 0,
+        "frame_count": 0,
+        "sequence_ref": "https://exemplo.local/recurso"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "sign_label": "x",
+          "captured_from": "2026-11-14T12:00:00Z",
+          "captured_until": "2026-11-14T12:00:00Z",
+          "fps": 0,
+          "frame_count": 0,
+          "sequence_ref": "https://exemplo.local/recurso"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "sign_label": "x",
+          "captured_from": "2026-11-14T12:00:00Z",
+          "captured_until": "2026-11-14T12:00:00Z",
+          "fps": 0,
+          "frame_count": 0,
+          "sequence_ref": "https://exemplo.local/recurso"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.reply",
+        "message_type": "reply",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "sign_label": "x",
+          "captured_from": "2026-11-14T12:00:00Z",
+          "captured_until": "2026-11-14T12:00:00Z",
+          "fps": 0,
+          "frame_count": 0,
+          "sequence_ref": "https://exemplo.local/recurso"
+        }
+      }
+    },
+    {
+      "caso": "sem-correlation_id",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "payload": {
+          "status": "OK",
+          "sign_label": "x",
+          "captured_from": "2026-11-14T12:00:00Z",
+          "captured_until": "2026-11-14T12:00:00Z",
+          "fps": 0,
+          "frame_count": 0,
+          "sequence_ref": "https://exemplo.local/recurso"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000"
+      }
+    },
+    {
+      "caso": "payload-sem-status",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "sign_label": "x",
+          "captured_from": "2026-11-14T12:00:00Z",
+          "captured_until": "2026-11-14T12:00:00Z",
+          "fps": 0,
+          "frame_count": 0,
+          "sequence_ref": "https://exemplo.local/recurso"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.reply",
+        "message_type": "reply",
+        "producer": 123,
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "sign_label": "x",
+          "captured_from": "2026-11-14T12:00:00Z",
+          "captured_until": "2026-11-14T12:00:00Z",
+          "fps": 0,
+          "frame_count": 0,
+          "sequence_ref": "https://exemplo.local/recurso"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "sign_label": "x",
+          "captured_from": "2026-11-14T12:00:00Z",
+          "captured_until": "2026-11-14T12:00:00Z",
+          "fps": 0,
+          "frame_count": 0,
+          "sequence_ref": "https://exemplo.local/recurso"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    },
+    {
+      "caso": "correlation_id-nao-e-uuid",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "isto-nao-e-uuid",
+        "payload": {
+          "status": "OK",
+          "sign_label": "x",
+          "captured_from": "2026-11-14T12:00:00Z",
+          "captured_until": "2026-11-14T12:00:00Z",
+          "fps": 0,
+          "frame_count": 0,
+          "sequence_ref": "https://exemplo.local/recurso"
+        }
+      }
+    }
+  ]
+}

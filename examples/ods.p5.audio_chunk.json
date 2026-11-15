@@ -1,0 +1,309 @@
+{
+  "topic": "ods.p5.audio_chunk",
+  "schema_file": "P5/audioChunkEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.p5.audio_chunk",
+      "producer": "x",
+      "captured_at": "2026-11-14T12:00:00Z",
+      "source_id": "x",
+      "session_id": "123e4567-e89b-42d3-a456-426614174000",
+      "payload": {
+        "chunk_index": 0,
+        "sample_rate": 1,
+        "channels": 1,
+        "sample_format": "x",
+        "duration_ms": 1
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "sem-captured_at",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "sem-session_id",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000"
+      }
+    },
+    {
+      "caso": "payload-sem-chunk_index",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-sample_rate",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-channels",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-sample_format",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-duration_ms",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": 123,
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    },
+    {
+      "caso": "captured_at-data-invalida",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "ontem as 10h",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "captured_at-sem-fuso",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "captured_at-so-data",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "2026-11-14",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "caso": "session_id-nao-e-uuid",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "isto-nao-e-uuid",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    }
+  ]
+}

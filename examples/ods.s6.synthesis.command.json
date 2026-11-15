@@ -1,0 +1,161 @@
+{
+  "topic": "ods.s6.synthesis.command",
+  "schema_file": "S6/synthesisCommand.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s6.synthesis.command",
+      "message_type": "command",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "glosses": [],
+        "speed_factor": 1,
+        "lexicon_version": "x"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "glosses": [],
+          "speed_factor": 1,
+          "lexicon_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s6.synthesis.command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "glosses": [],
+          "speed_factor": 1,
+          "lexicon_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s6.synthesis.command",
+        "message_type": "command",
+        "target": "x",
+        "payload": {
+          "glosses": [],
+          "speed_factor": 1,
+          "lexicon_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.s6.synthesis.command",
+        "message_type": "command",
+        "producer": "x",
+        "payload": {
+          "glosses": [],
+          "speed_factor": 1,
+          "lexicon_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s6.synthesis.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-glosses",
+      "message": {
+        "schema": "ods.s6.synthesis.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "speed_factor": 1,
+          "lexicon_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-speed_factor",
+      "message": {
+        "schema": "ods.s6.synthesis.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "glosses": [],
+          "lexicon_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-lexicon_version",
+      "message": {
+        "schema": "ods.s6.synthesis.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "glosses": [],
+          "speed_factor": 1
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s6.synthesis.command",
+        "message_type": "command",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "glosses": [],
+          "speed_factor": 1,
+          "lexicon_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "glosses": [],
+          "speed_factor": 1,
+          "lexicon_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s6.synthesis.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

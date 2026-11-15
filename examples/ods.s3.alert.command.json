@@ -1,0 +1,211 @@
+{
+  "topic": "ods.s3.alert.command",
+  "schema_file": "S3/alertCommand.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s3.alert.command",
+      "message_type": "command",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "title": "x",
+        "message": "x",
+        "severity": "HIGH",
+        "recipients": [],
+        "channels": []
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": []
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s3.alert.command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": []
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s3.alert.command",
+        "message_type": "command",
+        "target": "x",
+        "payload": {
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": []
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.s3.alert.command",
+        "message_type": "command",
+        "producer": "x",
+        "payload": {
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": []
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s3.alert.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-title",
+      "message": {
+        "schema": "ods.s3.alert.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-message",
+      "message": {
+        "schema": "ods.s3.alert.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "title": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-severity",
+      "message": {
+        "schema": "ods.s3.alert.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "title": "x",
+          "message": "x",
+          "recipients": [],
+          "channels": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-recipients",
+      "message": {
+        "schema": "ods.s3.alert.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "channels": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-channels",
+      "message": {
+        "schema": "ods.s3.alert.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": []
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s3.alert.command",
+        "message_type": "command",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": []
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": []
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s3.alert.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "topic": "ods.p6.replay.state",
+  "schema_file": "P6/replayStateEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.p6.replay.state",
+      "message_type": "event",
+      "producer": "x",
+      "payload": {
+        "recording_id": "x",
+        "state": "PLAYING",
+        "position_ms": 0,
+        "duration_ms": 0,
+        "speed_factor": 1,
+        "loop": false
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "recording_id": "x",
+          "state": "PLAYING",
+          "position_ms": 0,
+          "duration_ms": 0,
+          "speed_factor": 1,
+          "loop": false
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.p6.replay.state",
+        "producer": "x",
+        "payload": {
+          "recording_id": "x",
+          "state": "PLAYING",
+          "position_ms": 0,
+          "duration_ms": 0,
+          "speed_factor": 1,
+          "loop": false
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.p6.replay.state",
+        "message_type": "event",
+        "payload": {
+          "recording_id": "x",
+          "state": "PLAYING",
+          "position_ms": 0,
+          "duration_ms": 0,
+          "speed_factor": 1,
+          "loop": false
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.p6.replay.state",
+        "message_type": "event",
+        "producer": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-recording_id",
+      "message": {
+        "schema": "ods.p6.replay.state",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "state": "PLAYING",
+          "position_ms": 0,
+          "duration_ms": 0,
+          "speed_factor": 1,
+          "loop": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-state",
+      "message": {
+        "schema": "ods.p6.replay.state",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "recording_id": "x",
+          "position_ms": 0,
+          "duration_ms": 0,
+          "speed_factor": 1,
+          "loop": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-position_ms",
+      "message": {
+        "schema": "ods.p6.replay.state",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "recording_id": "x",
+          "state": "PLAYING",
+          "duration_ms": 0,
+          "speed_factor": 1,
+          "loop": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-duration_ms",
+      "message": {
+        "schema": "ods.p6.replay.state",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "recording_id": "x",
+          "state": "PLAYING",
+          "position_ms": 0,
+          "speed_factor": 1,
+          "loop": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-speed_factor",
+      "message": {
+        "schema": "ods.p6.replay.state",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "recording_id": "x",
+          "state": "PLAYING",
+          "position_ms": 0,
+          "duration_ms": 0,
+          "loop": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-loop",
+      "message": {
+        "schema": "ods.p6.replay.state",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "recording_id": "x",
+          "state": "PLAYING",
+          "position_ms": 0,
+          "duration_ms": 0,
+          "speed_factor": 1
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.p6.replay.state",
+        "message_type": "event",
+        "producer": 123,
+        "payload": {
+          "recording_id": "x",
+          "state": "PLAYING",
+          "position_ms": 0,
+          "duration_ms": 0,
+          "speed_factor": 1,
+          "loop": false
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "recording_id": "x",
+          "state": "PLAYING",
+          "position_ms": 0,
+          "duration_ms": 0,
+          "speed_factor": 1,
+          "loop": false
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.p6.replay.state",
+        "message_type": "event",
+        "producer": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

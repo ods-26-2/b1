@@ -1,0 +1,139 @@
+{
+  "topic": "ods.s2.rules.command",
+  "schema_file": "S2/rulesCommand.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s2.rules.command",
+      "message_type": "command",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "artifact_version": "x",
+        "rules": []
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "artifact_version": "x",
+          "rules": []
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s2.rules.command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "artifact_version": "x",
+          "rules": []
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s2.rules.command",
+        "message_type": "command",
+        "target": "x",
+        "payload": {
+          "artifact_version": "x",
+          "rules": []
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.s2.rules.command",
+        "message_type": "command",
+        "producer": "x",
+        "payload": {
+          "artifact_version": "x",
+          "rules": []
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s2.rules.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-artifact_version",
+      "message": {
+        "schema": "ods.s2.rules.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "rules": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-rules",
+      "message": {
+        "schema": "ods.s2.rules.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "artifact_version": "x"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s2.rules.command",
+        "message_type": "command",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "artifact_version": "x",
+          "rules": []
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "artifact_version": "x",
+          "rules": []
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s2.rules.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

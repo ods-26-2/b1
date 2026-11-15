@@ -1,0 +1,185 @@
+{
+  "topic": "ods.s5.metrics.query",
+  "schema_file": "S5/metricsQuery.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s5.metrics.query",
+      "message_type": "query",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "metric": "ZONE",
+        "period_start_at": "2026-11-14T12:00:00Z",
+        "period_end_at": "2026-11-14T12:00:00Z",
+        "granularity": "1m"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "metric": "ZONE",
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s5.metrics.query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "metric": "ZONE",
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s5.metrics.query",
+        "message_type": "query",
+        "target": "x",
+        "payload": {
+          "metric": "ZONE",
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m"
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.s5.metrics.query",
+        "message_type": "query",
+        "producer": "x",
+        "payload": {
+          "metric": "ZONE",
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s5.metrics.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-metric",
+      "message": {
+        "schema": "ods.s5.metrics.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-period_start_at",
+      "message": {
+        "schema": "ods.s5.metrics.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "metric": "ZONE",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-period_end_at",
+      "message": {
+        "schema": "ods.s5.metrics.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "metric": "ZONE",
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-granularity",
+      "message": {
+        "schema": "ods.s5.metrics.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "metric": "ZONE",
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s5.metrics.query",
+        "message_type": "query",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "metric": "ZONE",
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "metric": "ZONE",
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s5.metrics.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

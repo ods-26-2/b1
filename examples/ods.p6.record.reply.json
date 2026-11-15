@@ -1,0 +1,158 @@
+{
+  "topic": "ods.p6.record.reply",
+  "schema_file": "P6/recordReply.schema.json",
+  "valid": [
+    {
+      "schema": "ods.p6.record.reply",
+      "message_type": "reply",
+      "producer": "x",
+      "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+      "payload": {
+        "status": "OK",
+        "recording_id": "x",
+        "started_at": "2026-11-14T12:00:00Z",
+        "ended_at": "2026-11-14T12:00:00Z"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "recording_id": "x",
+          "started_at": "2026-11-14T12:00:00Z",
+          "ended_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.p6.record.reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "recording_id": "x",
+          "started_at": "2026-11-14T12:00:00Z",
+          "ended_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.p6.record.reply",
+        "message_type": "reply",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "recording_id": "x",
+          "started_at": "2026-11-14T12:00:00Z",
+          "ended_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-correlation_id",
+      "message": {
+        "schema": "ods.p6.record.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "payload": {
+          "status": "OK",
+          "recording_id": "x",
+          "started_at": "2026-11-14T12:00:00Z",
+          "ended_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.p6.record.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000"
+      }
+    },
+    {
+      "caso": "payload-sem-status",
+      "message": {
+        "schema": "ods.p6.record.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "recording_id": "x",
+          "started_at": "2026-11-14T12:00:00Z",
+          "ended_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.p6.record.reply",
+        "message_type": "reply",
+        "producer": 123,
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "recording_id": "x",
+          "started_at": "2026-11-14T12:00:00Z",
+          "ended_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "recording_id": "x",
+          "started_at": "2026-11-14T12:00:00Z",
+          "ended_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.p6.record.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    },
+    {
+      "caso": "correlation_id-nao-e-uuid",
+      "message": {
+        "schema": "ods.p6.record.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "isto-nao-e-uuid",
+        "payload": {
+          "status": "OK",
+          "recording_id": "x",
+          "started_at": "2026-11-14T12:00:00Z",
+          "ended_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "topic": "ods.i4.sign",
+  "schema_file": "I4/signEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i4.sign",
+      "message_type": "event",
+      "producer": "x",
+      "artifact_version": "x",
+      "payload": {
+        "sign": "x",
+        "confidence": 0,
+        "start_at": "2026-11-14T12:00:00Z",
+        "end_at": "2026-11-14T12:00:00Z"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "sign": "x",
+          "confidence": 0,
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i4.sign",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "sign": "x",
+          "confidence": 0,
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i4.sign",
+        "message_type": "event",
+        "artifact_version": "x",
+        "payload": {
+          "sign": "x",
+          "confidence": 0,
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.i4.sign",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "sign": "x",
+          "confidence": 0,
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i4.sign",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-sign",
+      "message": {
+        "schema": "ods.i4.sign",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "confidence": 0,
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-confidence",
+      "message": {
+        "schema": "ods.i4.sign",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "sign": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-start_at",
+      "message": {
+        "schema": "ods.i4.sign",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "sign": "x",
+          "confidence": 0,
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-end_at",
+      "message": {
+        "schema": "ods.i4.sign",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "sign": "x",
+          "confidence": 0,
+          "start_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i4.sign",
+        "message_type": "event",
+        "producer": 123,
+        "artifact_version": "x",
+        "payload": {
+          "sign": "x",
+          "confidence": 0,
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "sign": "x",
+          "confidence": 0,
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i4.sign",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

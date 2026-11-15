@@ -1,0 +1,373 @@
+{
+  "topic": "ods.i9.ppe_compliance",
+  "schema_file": "I9/ppeComplianceEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i9.ppe_compliance",
+      "message_type": "event",
+      "producer": "x",
+      "source_id": "x",
+      "artifact_version": "x",
+      "payload": {
+        "frame_index": 0,
+        "detection_id": 0,
+        "bbox": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "calibrated": false,
+        "catalog_version": "x",
+        "items": [],
+        "uncertain": false
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-frame_index",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-detection_id",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-bbox",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-calibrated",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-catalog_version",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-items",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-uncertain",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": []
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "producer": 123,
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

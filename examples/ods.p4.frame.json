@@ -1,0 +1,343 @@
+{
+  "topic": "ods.p4.frame",
+  "schema_file": "P4/frameEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.p4.frame",
+      "producer": "x",
+      "captured_at": "2026-11-14T12:00:00Z",
+      "source_id": "x",
+      "session_id": "123e4567-e89b-42d3-a456-426614174000",
+      "payload": {
+        "frame_index": 0,
+        "image_width": 1,
+        "image_height": 1,
+        "pixel_format": "x",
+        "fps": 0,
+        "raw": false
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.p4.frame",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "sem-captured_at",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "sem-session_id",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000"
+      }
+    },
+    {
+      "caso": "payload-sem-frame_index",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-image_width",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-image_height",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-pixel_format",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-fps",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-raw",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": 123,
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    },
+    {
+      "caso": "captured_at-data-invalida",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "ontem as 10h",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "captured_at-sem-fuso",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "captured_at-so-data",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    },
+    {
+      "caso": "session_id-nao-e-uuid",
+      "message": {
+        "schema": "ods.p4.frame",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "isto-nao-e-uuid",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "pixel_format": "x",
+          "fps": 0,
+          "raw": false
+        }
+      }
+    }
+  ]
+}

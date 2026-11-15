@@ -1,0 +1,211 @@
+{
+  "topic": "ods.i4.keypoints",
+  "schema_file": "I4/keypointsEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i4.keypoints",
+      "message_type": "event",
+      "producer": "x",
+      "artifact_version": "x",
+      "payload": {
+        "frame_index": 0,
+        "image_width": 1,
+        "image_height": 1,
+        "coordinates": "NORMALIZED",
+        "body": []
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "coordinates": "NORMALIZED",
+          "body": []
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i4.keypoints",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "coordinates": "NORMALIZED",
+          "body": []
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i4.keypoints",
+        "message_type": "event",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "coordinates": "NORMALIZED",
+          "body": []
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.i4.keypoints",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "coordinates": "NORMALIZED",
+          "body": []
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i4.keypoints",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-frame_index",
+      "message": {
+        "schema": "ods.i4.keypoints",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "image_width": 1,
+          "image_height": 1,
+          "coordinates": "NORMALIZED",
+          "body": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-image_width",
+      "message": {
+        "schema": "ods.i4.keypoints",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_height": 1,
+          "coordinates": "NORMALIZED",
+          "body": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-image_height",
+      "message": {
+        "schema": "ods.i4.keypoints",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "coordinates": "NORMALIZED",
+          "body": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-coordinates",
+      "message": {
+        "schema": "ods.i4.keypoints",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "body": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-body",
+      "message": {
+        "schema": "ods.i4.keypoints",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "coordinates": "NORMALIZED"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i4.keypoints",
+        "message_type": "event",
+        "producer": 123,
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "coordinates": "NORMALIZED",
+          "body": []
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "image_width": 1,
+          "image_height": 1,
+          "coordinates": "NORMALIZED",
+          "body": []
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i4.keypoints",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

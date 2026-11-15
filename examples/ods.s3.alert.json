@@ -1,0 +1,301 @@
+{
+  "topic": "ods.s3.alert",
+  "schema_file": "S3/alertEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s3.alert",
+      "message_type": "event",
+      "producer": "x",
+      "artifact_version": "x",
+      "payload": {
+        "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+        "title": "x",
+        "message": "x",
+        "severity": "HIGH",
+        "recipients": [],
+        "channels": [],
+        "state": "CREATED",
+        "created_at": "2026-11-14T12:00:00Z"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": [],
+          "state": "CREATED",
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s3.alert",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": [],
+          "state": "CREATED",
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "artifact_version": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": [],
+          "state": "CREATED",
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": [],
+          "state": "CREATED",
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-alert_id",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": [],
+          "state": "CREATED",
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-title",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": [],
+          "state": "CREATED",
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-message",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "title": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": [],
+          "state": "CREATED",
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-severity",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "title": "x",
+          "message": "x",
+          "recipients": [],
+          "channels": [],
+          "state": "CREATED",
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-recipients",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "channels": [],
+          "state": "CREATED",
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-channels",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "state": "CREATED",
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-state",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": [],
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-created_at",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": [],
+          "state": "CREATED"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "producer": 123,
+        "artifact_version": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": [],
+          "state": "CREATED",
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "alert_id": "123e4567-e89b-42d3-a456-426614174000",
+          "title": "x",
+          "message": "x",
+          "severity": "HIGH",
+          "recipients": [],
+          "channels": [],
+          "state": "CREATED",
+          "created_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s3.alert",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

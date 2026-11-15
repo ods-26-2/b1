@@ -1,0 +1,532 @@
+{
+  "topic": "ods.i7.plate_read",
+  "schema_file": "I7/plateReadEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i7.plate_read",
+      "message_type": "event",
+      "producer": "x",
+      "source_id": "x",
+      "artifact_version": "x",
+      "payload": {
+        "frame_index": 0,
+        "class": "x",
+        "plate_layout": "OLD_BR",
+        "license_plate": "ABC1234",
+        "confidence": 0,
+        "character_confidences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uncertain": false,
+        "bbox": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-frame_index",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-class",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-plate_layout",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-license_plate",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-confidence",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-character_confidences",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-uncertain",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-bbox",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": 123,
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "class": "x",
+          "plate_layout": "OLD_BR",
+          "license_plate": "ABC1234",
+          "confidence": 0,
+          "character_confidences": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "uncertain": false,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i7.plate_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

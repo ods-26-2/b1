@@ -1,0 +1,94 @@
+{
+  "topic": "ods.s3.alerts.query",
+  "schema_file": "S3/alertsQuery.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s3.alerts.query",
+      "message_type": "query",
+      "producer": "x",
+      "target": "x",
+      "payload": {}
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {}
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s3.alerts.query",
+        "producer": "x",
+        "target": "x",
+        "payload": {}
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s3.alerts.query",
+        "message_type": "query",
+        "target": "x",
+        "payload": {}
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.s3.alerts.query",
+        "message_type": "query",
+        "producer": "x",
+        "payload": {}
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s3.alerts.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s3.alerts.query",
+        "message_type": "query",
+        "producer": 123,
+        "target": "x",
+        "payload": {}
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {}
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s3.alerts.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

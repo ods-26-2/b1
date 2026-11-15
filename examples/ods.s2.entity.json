@@ -1,0 +1,118 @@
+{
+  "topic": "ods.s2.entity",
+  "schema_file": "S2/entityEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s2.entity",
+      "message_type": "event",
+      "producer": "x",
+      "source_id": "x",
+      "payload": {
+        "entities": []
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "entities": []
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s2.entity",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "entities": []
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s2.entity",
+        "message_type": "event",
+        "source_id": "x",
+        "payload": {
+          "entities": []
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.s2.entity",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "entities": []
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s2.entity",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-entities",
+      "message": {
+        "schema": "ods.s2.entity",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {}
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s2.entity",
+        "message_type": "event",
+        "producer": 123,
+        "source_id": "x",
+        "payload": {
+          "entities": []
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "entities": []
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s2.entity",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

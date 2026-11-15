@@ -1,0 +1,271 @@
+{
+  "topic": "ods.i5.transcript",
+  "schema_file": "I5/transcriptEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i5.transcript",
+      "message_type": "event",
+      "producer": "x",
+      "source_id": "x",
+      "artifact_version": "x",
+      "payload": {
+        "start_at": "2026-11-14T12:00:00Z",
+        "end_at": "2026-11-14T12:00:00Z",
+        "transcribed_text": "x",
+        "normalized_text": "x",
+        "confidence": 0,
+        "uncertain": false
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_type": "event",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-start_at",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-end_at",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-transcribed_text",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "normalized_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-normalized_text",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-confidence",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-uncertain",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "confidence": 0
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_type": "event",
+        "producer": 123,
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "topic": "ods.s5.event_metrics",
+  "schema_file": "S5/eventMetricsEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s5.event_metrics",
+      "message_type": "event",
+      "producer": "x",
+      "payload": {
+        "event_type": "x",
+        "window_start_at": "2026-11-14T12:00:00Z",
+        "window_end_at": "2026-11-14T12:00:00Z",
+        "granularity": "1m",
+        "count": 0,
+        "uncertain_count": 0
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "event_type": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "count": 0,
+          "uncertain_count": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s5.event_metrics",
+        "producer": "x",
+        "payload": {
+          "event_type": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "count": 0,
+          "uncertain_count": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s5.event_metrics",
+        "message_type": "event",
+        "payload": {
+          "event_type": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "count": 0,
+          "uncertain_count": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s5.event_metrics",
+        "message_type": "event",
+        "producer": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-event_type",
+      "message": {
+        "schema": "ods.s5.event_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "count": 0,
+          "uncertain_count": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-window_start_at",
+      "message": {
+        "schema": "ods.s5.event_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "event_type": "x",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "count": 0,
+          "uncertain_count": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-window_end_at",
+      "message": {
+        "schema": "ods.s5.event_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "event_type": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "count": 0,
+          "uncertain_count": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-granularity",
+      "message": {
+        "schema": "ods.s5.event_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "event_type": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "count": 0,
+          "uncertain_count": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-count",
+      "message": {
+        "schema": "ods.s5.event_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "event_type": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "uncertain_count": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-uncertain_count",
+      "message": {
+        "schema": "ods.s5.event_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "event_type": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "count": 0
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s5.event_metrics",
+        "message_type": "event",
+        "producer": 123,
+        "payload": {
+          "event_type": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "count": 0,
+          "uncertain_count": 0
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "event_type": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "count": 0,
+          "uncertain_count": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s5.event_metrics",
+        "message_type": "event",
+        "producer": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

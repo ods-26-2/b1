@@ -1,0 +1,205 @@
+{
+  "topic": "ods.p7.move.reply",
+  "schema_file": "P7/moveReply.schema.json",
+  "valid": [
+    {
+      "schema": "ods.p7.move.reply",
+      "message_type": "reply",
+      "producer": "x",
+      "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+      "payload": {
+        "status": "OK",
+        "source_id": "x",
+        "pan_deg": 0,
+        "tilt_deg": 0,
+        "state": "IDLE",
+        "is_homed": false
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "source_id": "x",
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.p7.move.reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "source_id": "x",
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.p7.move.reply",
+        "message_type": "reply",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "source_id": "x",
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "sem-correlation_id",
+      "message": {
+        "schema": "ods.p7.move.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "payload": {
+          "status": "OK",
+          "source_id": "x",
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.p7.move.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000"
+      }
+    },
+    {
+      "caso": "payload-sem-status",
+      "message": {
+        "schema": "ods.p7.move.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "source_id": "x",
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.p7.move.reply",
+        "message_type": "reply",
+        "producer": 123,
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "source_id": "x",
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "source_id": "x",
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.p7.move.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    },
+    {
+      "caso": "correlation_id-nao-e-uuid",
+      "message": {
+        "schema": "ods.p7.move.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "isto-nao-e-uuid",
+        "payload": {
+          "status": "OK",
+          "source_id": "x",
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "caso": "erro-sem-bloco-error",
+      "message": {
+        "schema": "ods.p7.move.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "ERROR"
+        }
+      }
+    },
+    {
+      "caso": "status-desconhecido",
+      "message": {
+        "schema": "ods.p7.move.reply",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "TALVEZ",
+          "source_id": "x",
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    }
+  ]
+}

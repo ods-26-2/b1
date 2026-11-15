@@ -1,0 +1,213 @@
+{
+  "topic": "ods.s1.zone_occupancy",
+  "schema_file": "S1/zoneOccupancyEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s1.zone_occupancy",
+      "message_type": "event",
+      "producer": "x",
+      "source_id": "x",
+      "artifact_version": "x",
+      "payload": {
+        "zone_id": "x",
+        "count": 0,
+        "count_by_class": {},
+        "track_ids": []
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "zone_id": "x",
+          "count": 0,
+          "count_by_class": {},
+          "track_ids": []
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s1.zone_occupancy",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "zone_id": "x",
+          "count": 0,
+          "count_by_class": {},
+          "track_ids": []
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s1.zone_occupancy",
+        "message_type": "event",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "zone_id": "x",
+          "count": 0,
+          "count_by_class": {},
+          "track_ids": []
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.s1.zone_occupancy",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "zone_id": "x",
+          "count": 0,
+          "count_by_class": {},
+          "track_ids": []
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.s1.zone_occupancy",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "zone_id": "x",
+          "count": 0,
+          "count_by_class": {},
+          "track_ids": []
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s1.zone_occupancy",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-zone_id",
+      "message": {
+        "schema": "ods.s1.zone_occupancy",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "count": 0,
+          "count_by_class": {},
+          "track_ids": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-count",
+      "message": {
+        "schema": "ods.s1.zone_occupancy",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "zone_id": "x",
+          "count_by_class": {},
+          "track_ids": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-count_by_class",
+      "message": {
+        "schema": "ods.s1.zone_occupancy",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "zone_id": "x",
+          "count": 0,
+          "track_ids": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-track_ids",
+      "message": {
+        "schema": "ods.s1.zone_occupancy",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "zone_id": "x",
+          "count": 0,
+          "count_by_class": {}
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s1.zone_occupancy",
+        "message_type": "event",
+        "producer": 123,
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "zone_id": "x",
+          "count": 0,
+          "count_by_class": {},
+          "track_ids": []
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "zone_id": "x",
+          "count": 0,
+          "count_by_class": {},
+          "track_ids": []
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s1.zone_occupancy",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

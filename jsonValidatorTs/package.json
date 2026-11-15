@@ -1,0 +1,34 @@
+{
+  "name": "ods-validador",
+  "version": "0.1.0",
+  "description": "Validador de mensagens do barramento ODS 2026/2 (JSON Schemas da Especificação 1.0)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "ods-validar": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "gerar": "node scripts/gerar-schemas.mjs",
+    "prebuild": "node scripts/gerar-schemas.mjs",
+    "build": "tsc",
+    "pretest": "npm run build",
+    "test": "node --test",
+    "pack": "npm run build && npm pack"
+  },
+  "license": "UNLICENSED",
+  "private": false,
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1"
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "topic": "ods.i6.code_read",
+  "schema_file": "I6/codeReadEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i6.code_read",
+      "message_type": "event",
+      "producer": "x",
+      "source_id": "x",
+      "artifact_version": "x",
+      "payload": {
+        "frame_index": 0,
+        "code_type": "QR_CODE",
+        "decoded_data": "x",
+        "bbox": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "code_type": "QR_CODE",
+          "decoded_data": "x",
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i6.code_read",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "code_type": "QR_CODE",
+          "decoded_data": "x",
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i6.code_read",
+        "message_type": "event",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "code_type": "QR_CODE",
+          "decoded_data": "x",
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.i6.code_read",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "code_type": "QR_CODE",
+          "decoded_data": "x",
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.i6.code_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "frame_index": 0,
+          "code_type": "QR_CODE",
+          "decoded_data": "x",
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i6.code_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-frame_index",
+      "message": {
+        "schema": "ods.i6.code_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "code_type": "QR_CODE",
+          "decoded_data": "x",
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-code_type",
+      "message": {
+        "schema": "ods.i6.code_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "decoded_data": "x",
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-decoded_data",
+      "message": {
+        "schema": "ods.i6.code_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "code_type": "QR_CODE",
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-bbox",
+      "message": {
+        "schema": "ods.i6.code_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "code_type": "QR_CODE",
+          "decoded_data": "x"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i6.code_read",
+        "message_type": "event",
+        "producer": 123,
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "code_type": "QR_CODE",
+          "decoded_data": "x",
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "code_type": "QR_CODE",
+          "decoded_data": "x",
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i6.code_read",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

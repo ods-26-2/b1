@@ -1,0 +1,869 @@
+{
+  "topic": "ods.i3.calibration",
+  "schema_file": "I3/calibrationEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.i3.calibration",
+      "message_type": "event",
+      "producer": "x",
+      "source_id": "x",
+      "artifact_version": "x",
+      "payload": {
+        "valid_from": "2026-11-14T12:00:00Z",
+        "image_width": 1,
+        "image_height": 1,
+        "intrinsics": {
+          "fx": 0,
+          "fy": 0,
+          "cx": 0,
+          "cy": 0
+        },
+        "distortion": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "homography_px_to_m": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "reference_frame": {
+          "space_id": "x",
+          "origin": "x",
+          "axes": "x"
+        },
+        "reprojection_rms_cm": 0,
+        "holdout_points": 0
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-artifact_version",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-valid_from",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-image_width",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-image_height",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-intrinsics",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-distortion",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-homography_px_to_m",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-reference_frame",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-reprojection_rms_cm",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-holdout_points",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": 123,
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

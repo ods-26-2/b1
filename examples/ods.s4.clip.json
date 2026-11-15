@@ -1,0 +1,269 @@
+{
+  "topic": "ods.s4.clip",
+  "schema_file": "S4/clipEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s4.clip",
+      "message_type": "event",
+      "producer": "x",
+      "source_id": "x",
+      "payload": {
+        "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+        "media_type": "CLIP",
+        "media_uri": "x",
+        "start_at": "2026-11-14T12:00:00Z",
+        "end_at": "2026-11-14T12:00:00Z",
+        "hash_sha256": "x",
+        "expires_at": "2026-11-14T12:00:00Z"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+          "media_type": "CLIP",
+          "media_uri": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "hash_sha256": "x",
+          "expires_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s4.clip",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+          "media_type": "CLIP",
+          "media_uri": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "hash_sha256": "x",
+          "expires_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s4.clip",
+        "message_type": "event",
+        "source_id": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+          "media_type": "CLIP",
+          "media_uri": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "hash_sha256": "x",
+          "expires_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-source_id",
+      "message": {
+        "schema": "ods.s4.clip",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+          "media_type": "CLIP",
+          "media_uri": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "hash_sha256": "x",
+          "expires_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s4.clip",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-clip_id",
+      "message": {
+        "schema": "ods.s4.clip",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "media_type": "CLIP",
+          "media_uri": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "hash_sha256": "x",
+          "expires_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-media_type",
+      "message": {
+        "schema": "ods.s4.clip",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+          "media_uri": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "hash_sha256": "x",
+          "expires_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-media_uri",
+      "message": {
+        "schema": "ods.s4.clip",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+          "media_type": "CLIP",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "hash_sha256": "x",
+          "expires_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-start_at",
+      "message": {
+        "schema": "ods.s4.clip",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+          "media_type": "CLIP",
+          "media_uri": "x",
+          "end_at": "2026-11-14T12:00:00Z",
+          "hash_sha256": "x",
+          "expires_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-end_at",
+      "message": {
+        "schema": "ods.s4.clip",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+          "media_type": "CLIP",
+          "media_uri": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "hash_sha256": "x",
+          "expires_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-hash_sha256",
+      "message": {
+        "schema": "ods.s4.clip",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+          "media_type": "CLIP",
+          "media_uri": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "expires_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-expires_at",
+      "message": {
+        "schema": "ods.s4.clip",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+          "media_type": "CLIP",
+          "media_uri": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "hash_sha256": "x"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s4.clip",
+        "message_type": "event",
+        "producer": 123,
+        "source_id": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+          "media_type": "CLIP",
+          "media_uri": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "hash_sha256": "x",
+          "expires_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "clip_id": "123e4567-e89b-42d3-a456-426614174000",
+          "media_type": "CLIP",
+          "media_uri": "x",
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "hash_sha256": "x",
+          "expires_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s4.clip",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

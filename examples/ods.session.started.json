@@ -1,0 +1,137 @@
+{
+  "topic": "ods.session.started",
+  "schema_file": "P6/SessionStartedEvent.schema.json",
+  "valid": [
+    {
+      "schema": "ods.session.started",
+      "message_type": "event",
+      "producer": "x",
+      "payload": {
+        "mode": "REPLAY",
+        "started_at": "2026-11-14T12:00:00Z",
+        "sources": []
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "mode": "REPLAY",
+          "started_at": "2026-11-14T12:00:00Z",
+          "sources": []
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.session.started",
+        "producer": "x",
+        "payload": {
+          "mode": "REPLAY",
+          "started_at": "2026-11-14T12:00:00Z",
+          "sources": []
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.session.started",
+        "message_type": "event",
+        "payload": {
+          "mode": "REPLAY",
+          "started_at": "2026-11-14T12:00:00Z",
+          "sources": []
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.session.started",
+        "message_type": "event",
+        "producer": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-mode",
+      "message": {
+        "schema": "ods.session.started",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "started_at": "2026-11-14T12:00:00Z",
+          "sources": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-started_at",
+      "message": {
+        "schema": "ods.session.started",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "mode": "REPLAY",
+          "sources": []
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-sources",
+      "message": {
+        "schema": "ods.session.started",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "mode": "REPLAY",
+          "started_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.session.started",
+        "message_type": "event",
+        "producer": 123,
+        "payload": {
+          "mode": "REPLAY",
+          "started_at": "2026-11-14T12:00:00Z",
+          "sources": []
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "mode": "REPLAY",
+          "started_at": "2026-11-14T12:00:00Z",
+          "sources": []
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.session.started",
+        "message_type": "event",
+        "producer": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

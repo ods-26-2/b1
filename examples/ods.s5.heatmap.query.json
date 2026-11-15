@@ -1,0 +1,157 @@
+{
+  "topic": "ods.s5.heatmap.query",
+  "schema_file": "S5/heatmapQuery.schema.json",
+  "valid": [
+    {
+      "schema": "ods.s5.heatmap.query",
+      "message_type": "query",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "period_start_at": "2026-11-14T12:00:00Z",
+        "period_end_at": "2026-11-14T12:00:00Z",
+        "space_id": "x",
+        "cell_size_m": 1
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "space_id": "x",
+          "cell_size_m": 1
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.s5.heatmap.query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "space_id": "x",
+          "cell_size_m": 1
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.s5.heatmap.query",
+        "message_type": "query",
+        "target": "x",
+        "payload": {
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "space_id": "x",
+          "cell_size_m": 1
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.s5.heatmap.query",
+        "message_type": "query",
+        "producer": "x",
+        "payload": {
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "space_id": "x",
+          "cell_size_m": 1
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.s5.heatmap.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-period_start_at",
+      "message": {
+        "schema": "ods.s5.heatmap.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "space_id": "x",
+          "cell_size_m": 1
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-period_end_at",
+      "message": {
+        "schema": "ods.s5.heatmap.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "space_id": "x",
+          "cell_size_m": 1
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.s5.heatmap.query",
+        "message_type": "query",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "space_id": "x",
+          "cell_size_m": 1
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "space_id": "x",
+          "cell_size_m": 1
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.s5.heatmap.query",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "topic": "ods.p7.move.command",
+  "schema_file": "P7/moveCommand.schema.json",
+  "valid": [
+    {
+      "schema": "ods.p7.move.command",
+      "message_type": "command",
+      "producer": "x",
+      "target": "x",
+      "payload": {
+        "source_id": "x",
+        "pan_deg": -90,
+        "tilt_deg": -45
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "caso": "sem-schema",
+      "message": {
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "pan_deg": -90,
+          "tilt_deg": -45
+        }
+      }
+    },
+    {
+      "caso": "sem-message_type",
+      "message": {
+        "schema": "ods.p7.move.command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "pan_deg": -90,
+          "tilt_deg": -45
+        }
+      }
+    },
+    {
+      "caso": "sem-producer",
+      "message": {
+        "schema": "ods.p7.move.command",
+        "message_type": "command",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "pan_deg": -90,
+          "tilt_deg": -45
+        }
+      }
+    },
+    {
+      "caso": "sem-target",
+      "message": {
+        "schema": "ods.p7.move.command",
+        "message_type": "command",
+        "producer": "x",
+        "payload": {
+          "source_id": "x",
+          "pan_deg": -90,
+          "tilt_deg": -45
+        }
+      }
+    },
+    {
+      "caso": "sem-payload",
+      "message": {
+        "schema": "ods.p7.move.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x"
+      }
+    },
+    {
+      "caso": "payload-sem-source_id",
+      "message": {
+        "schema": "ods.p7.move.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "pan_deg": -90,
+          "tilt_deg": -45
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-pan_deg",
+      "message": {
+        "schema": "ods.p7.move.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "tilt_deg": -45
+        }
+      }
+    },
+    {
+      "caso": "payload-sem-tilt_deg",
+      "message": {
+        "schema": "ods.p7.move.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "pan_deg": -90
+        }
+      }
+    },
+    {
+      "caso": "producer-tipo-errado",
+      "message": {
+        "schema": "ods.p7.move.command",
+        "message_type": "command",
+        "producer": 123,
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "pan_deg": -90,
+          "tilt_deg": -45
+        }
+      }
+    },
+    {
+      "caso": "schema-trocado",
+      "message": {
+        "schema": "ods.outro.topico",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "pan_deg": -90,
+          "tilt_deg": -45
+        }
+      }
+    },
+    {
+      "caso": "payload-nao-objeto",
+      "message": {
+        "schema": "ods.p7.move.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": "texto"
+      }
+    },
+    {
+      "caso": "raiz-array",
+      "message": []
+    },
+    {
+      "caso": "pan-fora-do-limite",
+      "message": {
+        "schema": "ods.p7.move.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "pan_deg": 91,
+          "tilt_deg": -45
+        }
+      }
+    },
+    {
+      "caso": "tilt-fora-do-limite",
+      "message": {
+        "schema": "ods.p7.move.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "pan_deg": -90,
+          "tilt_deg": 46
+        }
+      }
+    },
+    {
+      "caso": "velocidade-zero",
+      "message": {
+        "schema": "ods.p7.move.command",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x",
+          "pan_deg": -90,
+          "tilt_deg": -45,
+          "speed_deg_s": 0
+        }
+      }
+    }
+  ]
+}
