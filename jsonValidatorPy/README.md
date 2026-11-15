@@ -14,7 +14,7 @@ git clone https://github.com/ods-26-2/b1.git
 pip install ./b1/jsonValidatorPy
 ```
 
-No `pip install`, o `setup.py` copia `../*/*.schema.json` para dentro do
+No `pip install`, o `setup.py` copia `../schemas/*/*.schema.json` para dentro do
 pacote e grava o commit do `b1` de onde vieram. Para distribuir sem exigir o
 clone, gere o wheel uma vez e entregue o arquivo às equipes:
 
@@ -69,10 +69,11 @@ ods-validar --info                    # de onde vêm os schemas
 ## Onde os schemas são procurados
 
 Nesta ordem: argumento `Validator("pasta")`; variável `ODS_SCHEMAS_DIR`;
-cópia embutida no pacote; o próprio clone do `b1` (quando o código roda de
-dentro dele). Os dois primeiros servem para testar um schema ainda não
-publicado. O tópico é o `properties.schema.const` de cada schema; nome de
-arquivo e pasta não entram na busca, mas só `*.schema.json` é lido.
+a pasta `schemas/` do clone do `b1` (quando o código roda de dentro dele, como
+na instalação editável); cópia embutida no pacote (quem instalou o wheel). Os
+dois primeiros servem para testar um schema ainda não publicado. O tópico é o
+`properties.schema.const` de cada schema; nome de arquivo e pasta não entram
+na busca, mas só `*.schema.json` é lido.
 
 ## Desenvolvimento e testes
 

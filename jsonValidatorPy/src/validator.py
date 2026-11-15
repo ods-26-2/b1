@@ -6,8 +6,9 @@ que é o nome do tópico. O nome do arquivo e da pasta não importam.
 Onde os schemas são procurados, nesta ordem:
   1. argumento ``Validator("pasta")``
   2. variável de ambiente ``ODS_SCHEMAS_DIR``
-  3. cópia embutida no pacote (gerada no build a partir do repositório b1)
-  4. o próprio repositório b1, quando o código roda de dentro do clone
+  3. ``schemas/`` do repositório b1, quando o código roda de dentro do clone
+     (instalação editável): assim nunca se usa uma cópia velha
+  4. cópia embutida no pacote (gerada no build), para quem instalou o wheel
 """
 from __future__ import annotations
 
@@ -38,12 +39,12 @@ def _resolver_pasta(pasta: str | os.PathLike | None) -> tuple[Path, str]:
     env = os.environ.get(ENV_PASTA)
     if env:
         return Path(env), ENV_PASTA
+    # <repo b1>/jsonValidatorPy/src/validator.py -> parents[2] = <repo b1>
+    schemas = Path(__file__).resolve().parents[2] / "schemas"
+    if any(schemas.glob("*/" + PADRAO_ARQUIVO)):
+        return schemas, "repositório"
     if any(PASTA_EMBUTIDA.rglob(PADRAO_ARQUIVO)):
         return PASTA_EMBUTIDA, "pacote"
-    # <repo b1>/jsonValidatorPy/src/validator.py -> parents[2] = <repo b1>
-    repo = Path(__file__).resolve().parents[2]
-    if any(repo.glob("*/" + PADRAO_ARQUIVO)):
-        return repo, "repositório"
     raise ValueError(
         f"schemas não encontrados: informe a pasta ou defina {ENV_PASTA}"
     )

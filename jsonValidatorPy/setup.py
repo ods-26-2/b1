@@ -1,10 +1,10 @@
 """Embute os schemas do repositório b1 dentro do pacote (build time).
 
 Fluxo: ``pip install ./jsonValidatorPy`` ou ``pip wheel`` a partir do clone
-copiam ``../*/*.schema.json`` para ``src/_schemas`` e gravam ``VERSAO.json``
+copiam ``../schemas/*/*.schema.json`` para ``src/_schemas`` e gravam ``VERSAO.json``
 com o commit do b1. Quem instala o wheel não precisa de mais nada.
 
-Se ``../`` não tiver schemas (build a partir de um sdist), usa a cópia que o
+Se ``../schemas`` não tiver schemas (build a partir de um sdist), usa a cópia que o
 sdist já trouxe em ``src/_schemas``.
 """
 import datetime
@@ -18,6 +18,7 @@ from setuptools.command.build_py import build_py
 
 AQUI = Path(__file__).resolve().parent
 REPO = AQUI.parent
+SCHEMAS = REPO / "schemas"
 DESTINO = AQUI / "src" / "_schemas"
 
 
@@ -32,12 +33,12 @@ def _git(*args):
 
 
 def sincronizar_schemas():
-    origem = sorted(REPO.glob("*/*.schema.json"))
+    origem = sorted(SCHEMAS.glob("*/*.schema.json"))
     if not origem:
         if any(DESTINO.rglob("*.schema.json")):
             return  # vindo de um sdist: a cópia já está aqui
         raise SystemExit(
-            "setup.py: nenhum *.schema.json em ../ nem em src/_schemas. "
+            "setup.py: nenhum *.schema.json em ../schemas nem em src/_schemas. "
             "Rode o build de dentro do clone do repositório b1."
         )
     shutil.rmtree(DESTINO, ignore_errors=True)
