@@ -1,6 +1,3 @@
-// Embute os schemas do repositório b1 no pacote (build time).
-// Lê ../schemas/*/*.schema.json e gera src/generated/schemas.ts com os
-// schemas e o commit do b1. O pacote final não depende de arquivos externos.
 import { execSync } from "node:child_process";
 import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";

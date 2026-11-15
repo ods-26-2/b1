@@ -1,15 +1,3 @@
-"""Validador de mensagens do barramento (entregável B1 da TRA-1).
-
-A chave de busca é o valor de ``properties.schema.const`` de cada schema,
-que é o nome do tópico. O nome do arquivo e da pasta não importam.
-
-Onde os schemas são procurados, nesta ordem:
-  1. argumento ``Validator("pasta")``
-  2. variável de ambiente ``ODS_SCHEMAS_DIR``
-  3. ``schemas/`` do repositório b1, quando o código roda de dentro do clone
-     (instalação editável): assim nunca se usa uma cópia velha
-  4. cópia embutida no pacote (gerada no build), para quem instalou o wheel
-"""
 from __future__ import annotations
 
 import json

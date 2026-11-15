@@ -1,14 +1,3 @@
-/**
- * Validador de mensagens do barramento (entregável B1 da TRA-1).
- *
- * A chave de busca é o valor de properties.schema.const de cada schema, que é
- * o nome do tópico. Nome de arquivo e pasta não importam.
- *
- * Onde os schemas são procurados, nesta ordem:
- *   1. opção { dir } do construtor
- *   2. variável de ambiente ODS_SCHEMAS_DIR
- *   3. cópia embutida no pacote (gerada no build a partir do repositório b1)
- */
 import Ajv2020, { ErrorObject, ValidateFunction } from "ajv/dist/2020";
 import addFormats from "ajv-formats";
 import { SCHEMAS, VERSAO } from "./generated/schemas";
@@ -25,7 +14,6 @@ export class ContractError extends Error {
 }
 
 export interface ValidatorOptions {
-  /** Pasta com os schemas; tem prioridade sobre a cópia embutida. */
   dir?: string;
 }
 
@@ -156,10 +144,7 @@ export class Validator {
 
 export type Enviar = (topico: string, dados: Buffer) => unknown | Promise<unknown>;
 
-/**
- * Valida e só então envia. Mensagem inválida nunca chega ao broker.
- * `enviar(topico, bytes)` é qualquer função que publica no Kafka (pode ser async).
- */
+
 export async function publish(
   enviar: Enviar,
   validador: Validator,

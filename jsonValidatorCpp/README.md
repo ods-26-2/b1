@@ -4,10 +4,6 @@ Valida mensagens do barramento contra os JSON Schemas da Especificação 1.0
 (pasta `schemas/` deste repositório). A mensagem fora do contrato é barrada
 **antes** de chegar ao Kafka. Mesma API das bibliotecas Python e TypeScript.
 
-Os schemas são **embutidos na biblioteca** em tempo de build, em um cabeçalho
-gerado. O programa não procura arquivo nenhum em tempo de execução, o que
-evita problema de caminho na Jetson.
-
 Requer C++17 e CMake 3.16 ou mais novo. Dependências, baixadas pelo CMake se
 não existirem no sistema: [nlohmann/json](https://github.com/nlohmann/json)
 3.11.3 e [json-schema-validator](https://github.com/pboettch/json-schema-validator)
@@ -21,19 +17,6 @@ Com o clone do `b1` ao lado do código do componente:
 add_subdirectory(caminho/para/b1/jsonValidatorCpp ods)
 target_link_libraries(meu_componente PRIVATE ods::validador)
 ```
-
-Ou, sem clone fixo, pelo `FetchContent`:
-
-```cmake
-include(FetchContent)
-FetchContent_Declare(ods GIT_REPOSITORY https://github.com/ods-26-2/b1.git
-                         GIT_TAG main SOURCE_SUBDIR jsonValidatorCpp)
-FetchContent_MakeAvailable(ods)
-target_link_libraries(meu_componente PRIVATE ods::validador)
-```
-
-(Testei o `add_subdirectory`; o `FetchContent` usa o mesmo `CMakeLists.txt`,
-mas não o testei contra o GitHub porque estas alterações ainda não estão lá.)
 
 Os schemas embutidos são os de `../schemas` do clone no momento do build. Para
 outra pasta: `-DODS_SCHEMAS_DIR=/caminho`. Offline (Jetson sem internet),
@@ -121,7 +104,6 @@ confere que `uuid` e `date-time` são checados de verdade.
 
 ## Limites conhecidos
 
-- Valida **uma** mensagem. Regras entre mensagens (`correlation_id` da reply,
-  lacuna em `sequence`) ficam para a TRA-2.
+- Valida **uma** mensagem.
 - Schemas sem `additionalProperties: false` aceitam campos desconhecidos.
 - Só há build com CMake; não gera pacote instalável (`install`/`find_package`).
