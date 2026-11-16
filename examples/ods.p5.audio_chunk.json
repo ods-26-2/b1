@@ -19,7 +19,7 @@
   ],
   "invalid": [
     {
-      "caso": "sem-schema",
+      "case": "missing-schema",
       "message": {
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
@@ -35,7 +35,7 @@
       }
     },
     {
-      "caso": "sem-producer",
+      "case": "missing-producer",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "captured_at": "2026-11-14T12:00:00Z",
@@ -51,7 +51,7 @@
       }
     },
     {
-      "caso": "sem-captured_at",
+      "case": "missing-captured_at",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -67,7 +67,7 @@
       }
     },
     {
-      "caso": "sem-source_id",
+      "case": "missing-source_id",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -83,7 +83,7 @@
       }
     },
     {
-      "caso": "sem-session_id",
+      "case": "missing-session_id",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -99,7 +99,7 @@
       }
     },
     {
-      "caso": "sem-payload",
+      "case": "missing-payload",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -109,7 +109,7 @@
       }
     },
     {
-      "caso": "payload-sem-chunk_index",
+      "case": "payload-missing-chunk_index",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -125,7 +125,7 @@
       }
     },
     {
-      "caso": "payload-sem-sample_rate",
+      "case": "payload-missing-sample_rate",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -141,7 +141,7 @@
       }
     },
     {
-      "caso": "payload-sem-channels",
+      "case": "payload-missing-channels",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -157,7 +157,7 @@
       }
     },
     {
-      "caso": "payload-sem-sample_format",
+      "case": "payload-missing-sample_format",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -173,7 +173,7 @@
       }
     },
     {
-      "caso": "payload-sem-duration_ms",
+      "case": "payload-missing-duration_ms",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -189,7 +189,7 @@
       }
     },
     {
-      "caso": "producer-tipo-errado",
+      "case": "producer-wrong-type",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": 123,
@@ -206,7 +206,7 @@
       }
     },
     {
-      "caso": "schema-trocado",
+      "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
         "producer": "x",
@@ -223,7 +223,7 @@
       }
     },
     {
-      "caso": "payload-nao-objeto",
+      "case": "payload-not-object",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -234,11 +234,11 @@
       }
     },
     {
-      "caso": "raiz-array",
+      "case": "root-array",
       "message": []
     },
     {
-      "caso": "captured_at-data-invalida",
+      "case": "captured_at-invalid-date",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -255,7 +255,7 @@
       }
     },
     {
-      "caso": "captured_at-sem-fuso",
+      "case": "captured_at-no-timezone",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -272,7 +272,7 @@
       }
     },
     {
-      "caso": "captured_at-so-data",
+      "case": "captured_at-date-only",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",
@@ -289,7 +289,7 @@
       }
     },
     {
-      "caso": "session_id-nao-e-uuid",
+      "case": "session_id-not-uuid",
       "message": {
         "schema": "ods.p5.audio_chunk",
         "producer": "x",

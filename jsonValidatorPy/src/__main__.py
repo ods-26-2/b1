@@ -1,4 +1,3 @@
-"""ods-validar [--schemas PASTA] arquivo.json [...]  (use - para stdin)"""
 import argparse
 import json
 import sys
@@ -7,38 +6,42 @@ from . import Validator
 
 
 def main(argv=None) -> int:
-    ap = argparse.ArgumentParser(prog="ods-validar")
-    ap.add_argument("--schemas", help="pasta dos schemas (ou ODS_SCHEMAS_DIR)")
-    ap.add_argument("--topico", help="força o tópico (padrão: campo 'schema')")
-    ap.add_argument("--info", action="store_true", help="mostra de onde vêm os schemas")
-    ap.add_argument("arquivos", nargs="*")
-    a = ap.parse_args(argv)
-    val = Validator(a.schemas)
-    if a.info:
-        for k, v in val.schemas_version.items():
-            print(f"{k}: {v}")
-        if not a.arquivos:
+    parser = argparse.ArgumentParser(prog="ods-validate")
+    parser.add_argument("--schemas", help="pasta dos schemas (ou ODS_SCHEMAS_DIR)")
+    parser.add_argument("--topic", help="força o tópico (padrão: campo 'schema')")
+    parser.add_argument("--info", action="store_true", help="mostra de onde vêm os schemas")
+    parser.add_argument("files", nargs="*", help="arquivos JSON (- para stdin)")
+    args = parser.parse_args(argv)
+    validator = Validator(args.schemas)
+    if args.info:
+        for key, value in validator.schemas_version.items():
+            print(f"{key}: {value}")
+        if not args.files:
             return 0
-    if not a.arquivos:
-        ap.error("informe ao menos um arquivo (ou use --info)")
-    rc = 0
-    for nome in a.arquivos:
-        txt = sys.stdin.read() if nome == "-" else open(nome, encoding="utf-8").read()
+    if not args.files:
+        parser.error("informe ao menos um arquivo (ou use --info)")
+    status = 0
+    for name in args.files:
+        text = sys.stdin.read() if name == "-" else open(name, encoding="utf-8").read()
         try:
-            msg = json.loads(txt)
+            message = json.loads(text)
         except json.JSONDecodeError as e:
-            print(f"{nome}: JSON inválido ({e})")
-            rc = 1
+            print(f"{name}: JSON inválido ({e})")
+            status = 1
             continue
-        erros = val.validar(a.topico, msg) if a.topico else val.validar_mensagem(msg)
-        if erros:
-            rc = 1
-            print(f"{nome}: INVÁLIDA")
-            for e in erros:
+        errors = (
+            validator.find_errors(args.topic, message)
+            if args.topic
+            else validator.find_message_errors(message)
+        )
+        if errors:
+            status = 1
+            print(f"{name}: INVÁLIDA")
+            for e in errors:
                 print("  -", e)
         else:
-            print(f"{nome}: ok")
-    return rc
+            print(f"{name}: ok")
+    return status
 
 
 if __name__ == "__main__":

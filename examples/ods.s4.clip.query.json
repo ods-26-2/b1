@@ -14,7 +14,7 @@
   ],
   "invalid": [
     {
-      "caso": "sem-schema",
+      "case": "missing-schema",
       "message": {
         "message_type": "query",
         "producer": "x",
@@ -25,7 +25,7 @@
       }
     },
     {
-      "caso": "sem-message_type",
+      "case": "missing-message_type",
       "message": {
         "schema": "ods.s4.clip.query",
         "producer": "x",
@@ -36,7 +36,7 @@
       }
     },
     {
-      "caso": "sem-producer",
+      "case": "missing-producer",
       "message": {
         "schema": "ods.s4.clip.query",
         "message_type": "query",
@@ -47,7 +47,7 @@
       }
     },
     {
-      "caso": "sem-target",
+      "case": "missing-target",
       "message": {
         "schema": "ods.s4.clip.query",
         "message_type": "query",
@@ -58,7 +58,7 @@
       }
     },
     {
-      "caso": "sem-payload",
+      "case": "missing-payload",
       "message": {
         "schema": "ods.s4.clip.query",
         "message_type": "query",
@@ -67,7 +67,7 @@
       }
     },
     {
-      "caso": "producer-tipo-errado",
+      "case": "producer-wrong-type",
       "message": {
         "schema": "ods.s4.clip.query",
         "message_type": "query",
@@ -79,7 +79,7 @@
       }
     },
     {
-      "caso": "schema-trocado",
+      "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
         "message_type": "query",
@@ -91,7 +91,7 @@
       }
     },
     {
-      "caso": "payload-nao-objeto",
+      "case": "payload-not-object",
       "message": {
         "schema": "ods.s4.clip.query",
         "message_type": "query",
@@ -101,7 +101,7 @@
       }
     },
     {
-      "caso": "raiz-array",
+      "case": "root-array",
       "message": []
     }
   ]

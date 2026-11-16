@@ -16,7 +16,7 @@
   ],
   "invalid": [
     {
-      "caso": "sem-schema",
+      "case": "missing-schema",
       "message": {
         "message_type": "event",
         "producer": "x",
@@ -29,7 +29,7 @@
       }
     },
     {
-      "caso": "sem-message_type",
+      "case": "missing-message_type",
       "message": {
         "schema": "ods.s1.position",
         "producer": "x",
@@ -42,7 +42,7 @@
       }
     },
     {
-      "caso": "sem-producer",
+      "case": "missing-producer",
       "message": {
         "schema": "ods.s1.position",
         "message_type": "event",
@@ -55,7 +55,7 @@
       }
     },
     {
-      "caso": "sem-source_id",
+      "case": "missing-source_id",
       "message": {
         "schema": "ods.s1.position",
         "message_type": "event",
@@ -68,7 +68,7 @@
       }
     },
     {
-      "caso": "sem-artifact_version",
+      "case": "missing-artifact_version",
       "message": {
         "schema": "ods.s1.position",
         "message_type": "event",
@@ -81,7 +81,7 @@
       }
     },
     {
-      "caso": "sem-payload",
+      "case": "missing-payload",
       "message": {
         "schema": "ods.s1.position",
         "message_type": "event",
@@ -91,7 +91,7 @@
       }
     },
     {
-      "caso": "payload-sem-frame_index",
+      "case": "payload-missing-frame_index",
       "message": {
         "schema": "ods.s1.position",
         "message_type": "event",
@@ -104,7 +104,7 @@
       }
     },
     {
-      "caso": "payload-sem-positions",
+      "case": "payload-missing-positions",
       "message": {
         "schema": "ods.s1.position",
         "message_type": "event",
@@ -117,7 +117,7 @@
       }
     },
     {
-      "caso": "producer-tipo-errado",
+      "case": "producer-wrong-type",
       "message": {
         "schema": "ods.s1.position",
         "message_type": "event",
@@ -131,7 +131,7 @@
       }
     },
     {
-      "caso": "schema-trocado",
+      "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
         "message_type": "event",
@@ -145,7 +145,7 @@
       }
     },
     {
-      "caso": "payload-nao-objeto",
+      "case": "payload-not-object",
       "message": {
         "schema": "ods.s1.position",
         "message_type": "event",
@@ -156,7 +156,7 @@
       }
     },
     {
-      "caso": "raiz-array",
+      "case": "root-array",
       "message": []
     }
   ]

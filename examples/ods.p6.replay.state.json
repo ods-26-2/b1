@@ -18,7 +18,7 @@
   ],
   "invalid": [
     {
-      "caso": "sem-schema",
+      "case": "missing-schema",
       "message": {
         "message_type": "event",
         "producer": "x",
@@ -33,7 +33,7 @@
       }
     },
     {
-      "caso": "sem-message_type",
+      "case": "missing-message_type",
       "message": {
         "schema": "ods.p6.replay.state",
         "producer": "x",
@@ -48,7 +48,7 @@
       }
     },
     {
-      "caso": "sem-producer",
+      "case": "missing-producer",
       "message": {
         "schema": "ods.p6.replay.state",
         "message_type": "event",
@@ -63,7 +63,7 @@
       }
     },
     {
-      "caso": "sem-payload",
+      "case": "missing-payload",
       "message": {
         "schema": "ods.p6.replay.state",
         "message_type": "event",
@@ -71,7 +71,7 @@
       }
     },
     {
-      "caso": "payload-sem-recording_id",
+      "case": "payload-missing-recording_id",
       "message": {
         "schema": "ods.p6.replay.state",
         "message_type": "event",
@@ -86,7 +86,7 @@
       }
     },
     {
-      "caso": "payload-sem-state",
+      "case": "payload-missing-state",
       "message": {
         "schema": "ods.p6.replay.state",
         "message_type": "event",
@@ -101,7 +101,7 @@
       }
     },
     {
-      "caso": "payload-sem-position_ms",
+      "case": "payload-missing-position_ms",
       "message": {
         "schema": "ods.p6.replay.state",
         "message_type": "event",
@@ -116,7 +116,7 @@
       }
     },
     {
-      "caso": "payload-sem-duration_ms",
+      "case": "payload-missing-duration_ms",
       "message": {
         "schema": "ods.p6.replay.state",
         "message_type": "event",
@@ -131,7 +131,7 @@
       }
     },
     {
-      "caso": "payload-sem-speed_factor",
+      "case": "payload-missing-speed_factor",
       "message": {
         "schema": "ods.p6.replay.state",
         "message_type": "event",
@@ -146,7 +146,7 @@
       }
     },
     {
-      "caso": "payload-sem-loop",
+      "case": "payload-missing-loop",
       "message": {
         "schema": "ods.p6.replay.state",
         "message_type": "event",
@@ -161,7 +161,7 @@
       }
     },
     {
-      "caso": "producer-tipo-errado",
+      "case": "producer-wrong-type",
       "message": {
         "schema": "ods.p6.replay.state",
         "message_type": "event",
@@ -177,7 +177,7 @@
       }
     },
     {
-      "caso": "schema-trocado",
+      "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
         "message_type": "event",
@@ -193,7 +193,7 @@
       }
     },
     {
-      "caso": "payload-nao-objeto",
+      "case": "payload-not-object",
       "message": {
         "schema": "ods.p6.replay.state",
         "message_type": "event",
@@ -202,7 +202,7 @@
       }
     },
     {
-      "caso": "raiz-array",
+      "case": "root-array",
       "message": []
     }
   ]

@@ -21,7 +21,7 @@
   ],
   "invalid": [
     {
-      "caso": "sem-schema",
+      "case": "missing-schema",
       "message": {
         "message_type": "reply",
         "producer": "x",
@@ -39,7 +39,7 @@
       }
     },
     {
-      "caso": "sem-message_type",
+      "case": "missing-message_type",
       "message": {
         "schema": "ods.s6.synthesis.reply",
         "producer": "x",
@@ -57,7 +57,7 @@
       }
     },
     {
-      "caso": "sem-producer",
+      "case": "missing-producer",
       "message": {
         "schema": "ods.s6.synthesis.reply",
         "message_type": "reply",
@@ -75,7 +75,7 @@
       }
     },
     {
-      "caso": "sem-correlation_id",
+      "case": "missing-correlation_id",
       "message": {
         "schema": "ods.s6.synthesis.reply",
         "message_type": "reply",
@@ -93,7 +93,7 @@
       }
     },
     {
-      "caso": "sem-payload",
+      "case": "missing-payload",
       "message": {
         "schema": "ods.s6.synthesis.reply",
         "message_type": "reply",
@@ -102,7 +102,7 @@
       }
     },
     {
-      "caso": "payload-sem-status",
+      "case": "payload-missing-status",
       "message": {
         "schema": "ods.s6.synthesis.reply",
         "message_type": "reply",
@@ -120,7 +120,7 @@
       }
     },
     {
-      "caso": "producer-tipo-errado",
+      "case": "producer-wrong-type",
       "message": {
         "schema": "ods.s6.synthesis.reply",
         "message_type": "reply",
@@ -139,7 +139,7 @@
       }
     },
     {
-      "caso": "schema-trocado",
+      "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
         "message_type": "reply",
@@ -158,7 +158,7 @@
       }
     },
     {
-      "caso": "payload-nao-objeto",
+      "case": "payload-not-object",
       "message": {
         "schema": "ods.s6.synthesis.reply",
         "message_type": "reply",
@@ -168,11 +168,11 @@
       }
     },
     {
-      "caso": "raiz-array",
+      "case": "root-array",
       "message": []
     },
     {
-      "caso": "correlation_id-nao-e-uuid",
+      "case": "correlation_id-not-uuid",
       "message": {
         "schema": "ods.s6.synthesis.reply",
         "message_type": "reply",

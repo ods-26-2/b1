@@ -20,7 +20,7 @@
   ],
   "invalid": [
     {
-      "caso": "sem-schema",
+      "case": "missing-schema",
       "message": {
         "message_type": "event",
         "producer": "x",
@@ -37,7 +37,7 @@
       }
     },
     {
-      "caso": "sem-message_type",
+      "case": "missing-message_type",
       "message": {
         "schema": "ods.i5.transcript",
         "producer": "x",
@@ -54,7 +54,7 @@
       }
     },
     {
-      "caso": "sem-producer",
+      "case": "missing-producer",
       "message": {
         "schema": "ods.i5.transcript",
         "message_type": "event",
@@ -71,7 +71,7 @@
       }
     },
     {
-      "caso": "sem-source_id",
+      "case": "missing-source_id",
       "message": {
         "schema": "ods.i5.transcript",
         "message_type": "event",
@@ -88,7 +88,7 @@
       }
     },
     {
-      "caso": "sem-artifact_version",
+      "case": "missing-artifact_version",
       "message": {
         "schema": "ods.i5.transcript",
         "message_type": "event",
@@ -105,7 +105,7 @@
       }
     },
     {
-      "caso": "sem-payload",
+      "case": "missing-payload",
       "message": {
         "schema": "ods.i5.transcript",
         "message_type": "event",
@@ -115,7 +115,7 @@
       }
     },
     {
-      "caso": "payload-sem-start_at",
+      "case": "payload-missing-start_at",
       "message": {
         "schema": "ods.i5.transcript",
         "message_type": "event",
@@ -132,7 +132,7 @@
       }
     },
     {
-      "caso": "payload-sem-end_at",
+      "case": "payload-missing-end_at",
       "message": {
         "schema": "ods.i5.transcript",
         "message_type": "event",
@@ -149,7 +149,7 @@
       }
     },
     {
-      "caso": "payload-sem-transcribed_text",
+      "case": "payload-missing-transcribed_text",
       "message": {
         "schema": "ods.i5.transcript",
         "message_type": "event",
@@ -166,7 +166,7 @@
       }
     },
     {
-      "caso": "payload-sem-normalized_text",
+      "case": "payload-missing-normalized_text",
       "message": {
         "schema": "ods.i5.transcript",
         "message_type": "event",
@@ -183,7 +183,7 @@
       }
     },
     {
-      "caso": "payload-sem-confidence",
+      "case": "payload-missing-confidence",
       "message": {
         "schema": "ods.i5.transcript",
         "message_type": "event",
@@ -200,7 +200,7 @@
       }
     },
     {
-      "caso": "payload-sem-uncertain",
+      "case": "payload-missing-uncertain",
       "message": {
         "schema": "ods.i5.transcript",
         "message_type": "event",
@@ -217,7 +217,7 @@
       }
     },
     {
-      "caso": "producer-tipo-errado",
+      "case": "producer-wrong-type",
       "message": {
         "schema": "ods.i5.transcript",
         "message_type": "event",
@@ -235,7 +235,7 @@
       }
     },
     {
-      "caso": "schema-trocado",
+      "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
         "message_type": "event",
@@ -253,7 +253,7 @@
       }
     },
     {
-      "caso": "payload-nao-objeto",
+      "case": "payload-not-object",
       "message": {
         "schema": "ods.i5.transcript",
         "message_type": "event",
@@ -264,7 +264,7 @@
       }
     },
     {
-      "caso": "raiz-array",
+      "case": "root-array",
       "message": []
     }
   ]

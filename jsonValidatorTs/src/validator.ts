@@ -1,13 +1,13 @@
 import Ajv2020, { ErrorObject, ValidateFunction } from "ajv/dist/2020";
 import addFormats from "ajv-formats";
-import { SCHEMAS, VERSAO } from "./generated/schemas";
+import { SCHEMAS, VERSION } from "./generated/schemas";
 
-export const ENV_PASTA = "ODS_SCHEMAS_DIR";
-const SUFIXO = ".schema.json";
+export const ENV_SCHEMAS_DIR = "ODS_SCHEMAS_DIR";
+const SUFFIX = ".schema.json";
 
 export class ContractError extends Error {
-  constructor(public readonly topico: string | null, public readonly erros: string[]) {
-    super(`${topico}: ${erros.join("; ")}`);
+  constructor(public readonly topic: string | null, public readonly errors: string[]) {
+    super(`${topic}: ${errors.join("; ")}`);
     this.name = "ContractError";
     Object.setPrototypeOf(this, ContractError.prototype);
   }
@@ -18,140 +18,136 @@ export interface ValidatorOptions {
 }
 
 interface Item {
-  arquivo: string;
+  file: string;
   schema: any;
 }
 
-function lerPasta(dir: string): { itens: Item[]; versao: Record<string, unknown> } {
+function readDirectory(dir: string): { items: Item[]; version: Record<string, unknown> } {
   // require tardio: o resto da biblioteca não depende de fs (serve a bundlers)
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const fs = require("node:fs") as typeof import("node:fs");
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const path = require("node:path") as typeof import("node:path");
-  const achados: string[] = [];
-  const andar = (d: string) => {
-    for (const nome of fs.readdirSync(d).sort()) {
-      const p = path.join(d, nome);
-      if (fs.statSync(p).isDirectory()) andar(p);
-      else if (nome.endsWith(SUFIXO)) achados.push(p);
+  const found: string[] = [];
+  const walk = (current: string) => {
+    for (const name of fs.readdirSync(current).sort()) {
+      const full = path.join(current, name);
+      if (fs.statSync(full).isDirectory()) walk(full);
+      else if (name.endsWith(SUFFIX)) found.push(full);
     }
   };
-  andar(dir);
-  const itens = achados.map((p) => ({
-    arquivo: path.relative(dir, p).split(path.sep).join("/"),
-    schema: JSON.parse(fs.readFileSync(p, "utf8")),
+  walk(dir);
+  const items = found.map((full) => ({
+    file: path.relative(dir, full).split(path.sep).join("/"),
+    schema: JSON.parse(fs.readFileSync(full, "utf8")),
   }));
-  const meta = path.join(dir, "VERSAO.json");
-  const versao = fs.existsSync(meta) ? JSON.parse(fs.readFileSync(meta, "utf8")) : {};
-  return { itens, versao };
+  const meta = path.join(dir, "VERSION.json");
+  const version = fs.existsSync(meta) ? JSON.parse(fs.readFileSync(meta, "utf8")) : {};
+  return { items, version };
 }
 
-function formatar(e: ErrorObject): string {
-  const base = e.instancePath.replace(/^\//, "");
-  const onde = base === "" ? "(raiz)" : base;
-  return `${onde}: ${e.message ?? "inválido"}`;
+function formatError(e: ErrorObject): string {
+  const path = e.instancePath.replace(/^\//, "");
+  return `${path === "" ? "(raiz)" : path}: ${e.message ?? "inválido"}`;
+}
+
+function schemaField(message: unknown): unknown {
+  return typeof message === "object" && message !== null && !Array.isArray(message)
+    ? (message as any).schema
+    : undefined;
 }
 
 export class Validator {
-  readonly origem: string;
-  readonly pasta: string | null;
-  private readonly porTopico = new Map<string, ValidateFunction>();
-  private readonly arquivoDe = new Map<string, string>();
+  readonly origin: string;
+  readonly directory: string | null;
+  private readonly byTopic = new Map<string, ValidateFunction>();
+  private readonly fileOf = new Map<string, string>();
   private readonly meta: Record<string, unknown>;
 
-  constructor(opcoes: ValidatorOptions = {}) {
-    const env = typeof process !== "undefined" ? process.env[ENV_PASTA] : undefined;
-    let itens: Item[];
-    if (opcoes.dir) {
-      ({ itens, versao: this.meta } = lerPasta(opcoes.dir));
-      this.origem = "argumento";
-      this.pasta = opcoes.dir;
+  constructor(options: ValidatorOptions = {}) {
+    const env = typeof process !== "undefined" ? process.env[ENV_SCHEMAS_DIR] : undefined;
+    let items: Item[];
+    if (options.dir) {
+      ({ items, version: this.meta } = readDirectory(options.dir));
+      this.origin = "argument";
+      this.directory = options.dir;
     } else if (env) {
-      ({ itens, versao: this.meta } = lerPasta(env));
-      this.origem = ENV_PASTA;
-      this.pasta = env;
+      ({ items, version: this.meta } = readDirectory(env));
+      this.origin = ENV_SCHEMAS_DIR;
+      this.directory = env;
     } else {
-      itens = SCHEMAS as Item[];
-      this.meta = { ...VERSAO };
-      this.origem = "pacote";
-      this.pasta = null;
+      items = SCHEMAS as Item[];
+      this.meta = { ...VERSION };
+      this.origin = "package";
+      this.directory = null;
     }
-    if (itens.length === 0) {
-      throw new Error(`nenhum *${SUFIXO} em ${this.pasta ?? "(pacote)"}`);
+    if (items.length === 0) {
+      throw new Error(`nenhum *${SUFFIX} em ${this.directory ?? "(pacote)"}`);
     }
 
-    // strict: schemas com palavra desconhecida falham na carga, não em silêncio.
-    // strictTypes/strictRequired off: os schemas usam type em lista e `then.required`
-    // de campos definidos no nível acima; ambos são JSON Schema válido.
+    // strictTypes/strictRequired desligados: os schemas usam type em lista e
+    // then.required de campos definidos no nível acima, ambos válidos
     const ajv = new Ajv2020({ allErrors: true, strict: true, strictTypes: false, strictRequired: false });
-    addFormats(ajv); // faz uuid, date-time e uri valerem de verdade
-    for (const { arquivo, schema } of itens) {
-      const topico: unknown = schema?.properties?.schema?.const;
-      if (typeof topico !== "string" || topico === "") {
-        throw new Error(`${arquivo}: sem properties.schema.const`);
+    addFormats(ajv); // sem isso, uuid e date-time não seriam validados
+    for (const { file, schema } of items) {
+      const topic: unknown = schema?.properties?.schema?.const;
+      if (typeof topic !== "string" || topic === "") {
+        throw new Error(`${file}: sem properties.schema.const`);
       }
-      if (this.porTopico.has(topico)) {
-        throw new Error(`tópico duplicado ${topico}: ${this.arquivoDe.get(topico)} e ${arquivo}`);
+      if (this.byTopic.has(topic)) {
+        throw new Error(`tópico duplicado ${topic}: ${this.fileOf.get(topic)} e ${file}`);
       }
-      this.porTopico.set(topico, ajv.compile(schema));
-      this.arquivoDe.set(topico, arquivo);
+      this.byTopic.set(topic, ajv.compile(schema));
+      this.fileOf.set(topic, file);
     }
   }
 
-  get topicos(): string[] {
-    return [...this.porTopico.keys()].sort();
+  get topics(): string[] {
+    return [...this.byTopic.keys()].sort();
   }
 
-  /** De onde vieram os schemas e, no pacote, de qual commit do b1. */
   get schemasVersion(): Record<string, unknown> {
     return {
-      origem: this.origem,
-      pasta: this.pasta,
-      quantidade: this.porTopico.size,
+      origin: this.origin,
+      directory: this.directory,
+      count: this.byTopic.size,
       ...this.meta,
     };
   }
 
-  /** Devolve a lista de erros. Lista vazia = mensagem válida. */
-  validar(topico: string, mensagem: unknown): string[] {
-    const v = this.porTopico.get(topico);
-    if (!v) return [`tópico desconhecido: ${topico}`];
-    if (v(mensagem)) return [];
-    return [...(v.errors ?? [])].map(formatar).sort();
+  findErrors(topic: string, message: unknown): string[] {
+    const validate = this.byTopic.get(topic);
+    if (!validate) return [`tópico desconhecido: ${topic}`];
+    if (validate(message)) return [];
+    return [...(validate.errors ?? [])].map(formatError).sort();
   }
 
-  /** Descobre o tópico pelo campo "schema" da própria mensagem. */
-  validarMensagem(mensagem: unknown): string[] {
-    const t = (mensagem as any)?.schema;
-    if (typeof mensagem !== "object" || mensagem === null || Array.isArray(mensagem) || t === undefined) {
-      return ["(raiz): mensagem sem o campo 'schema'"];
-    }
-    return this.validar(String(t), mensagem);
+  findMessageErrors(message: unknown): string[] {
+    const topic = schemaField(message);
+    if (topic === undefined) return ["(raiz): mensagem sem o campo 'schema'"];
+    return this.findErrors(String(topic), message);
   }
 
-  /** Levanta ContractError se inválida. Devolve o tópico. */
-  validate(mensagem: unknown, topico?: string): string {
-    const t =
-      topico ??
-      (typeof mensagem === "object" && mensagem !== null && !Array.isArray(mensagem)
-        ? (mensagem as any).schema
-        : undefined);
-    const erros = typeof t === "string" ? this.validar(t, mensagem) : ["(raiz): mensagem sem o campo 'schema'"];
-    if (erros.length > 0) throw new ContractError(typeof t === "string" ? t : null, erros);
-    return t as string;
+  validate(message: unknown, topic?: string): string {
+    const resolved = topic ?? schemaField(message);
+    const errors =
+      typeof resolved === "string"
+        ? this.findErrors(resolved, message)
+        : ["(raiz): mensagem sem o campo 'schema'"];
+    if (errors.length > 0) throw new ContractError(typeof resolved === "string" ? resolved : null, errors);
+    return resolved as string;
   }
 }
 
-export type Enviar = (topico: string, dados: Buffer) => unknown | Promise<unknown>;
-
+export type Send = (topic: string, data: Buffer) => unknown | Promise<unknown>;
 
 export async function publish(
-  enviar: Enviar,
-  validador: Validator,
-  mensagem: unknown,
-  topico?: string,
+  send: Send,
+  validator: Validator,
+  message: unknown,
+  topic?: string,
 ): Promise<string> {
-  const t = validador.validate(mensagem, topico);
-  await enviar(t, Buffer.from(JSON.stringify(mensagem), "utf8"));
-  return t;
+  const resolved = validator.validate(message, topic);
+  await send(resolved, Buffer.from(JSON.stringify(message), "utf8"));
+  return resolved;
 }

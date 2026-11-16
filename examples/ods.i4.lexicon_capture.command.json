@@ -17,7 +17,7 @@
   ],
   "invalid": [
     {
-      "caso": "sem-schema",
+      "case": "missing-schema",
       "message": {
         "message_type": "command",
         "producer": "x",
@@ -31,7 +31,7 @@
       }
     },
     {
-      "caso": "sem-message_type",
+      "case": "missing-message_type",
       "message": {
         "schema": "ods.i4.lexicon_capture.command",
         "producer": "x",
@@ -45,7 +45,7 @@
       }
     },
     {
-      "caso": "sem-producer",
+      "case": "missing-producer",
       "message": {
         "schema": "ods.i4.lexicon_capture.command",
         "message_type": "command",
@@ -59,7 +59,7 @@
       }
     },
     {
-      "caso": "sem-target",
+      "case": "missing-target",
       "message": {
         "schema": "ods.i4.lexicon_capture.command",
         "message_type": "command",
@@ -73,7 +73,7 @@
       }
     },
     {
-      "caso": "sem-payload",
+      "case": "missing-payload",
       "message": {
         "schema": "ods.i4.lexicon_capture.command",
         "message_type": "command",
@@ -82,7 +82,7 @@
       }
     },
     {
-      "caso": "payload-sem-sign_label",
+      "case": "payload-missing-sign_label",
       "message": {
         "schema": "ods.i4.lexicon_capture.command",
         "message_type": "command",
@@ -96,7 +96,7 @@
       }
     },
     {
-      "caso": "payload-sem-source_id",
+      "case": "payload-missing-source_id",
       "message": {
         "schema": "ods.i4.lexicon_capture.command",
         "message_type": "command",
@@ -110,7 +110,7 @@
       }
     },
     {
-      "caso": "payload-sem-start_at",
+      "case": "payload-missing-start_at",
       "message": {
         "schema": "ods.i4.lexicon_capture.command",
         "message_type": "command",
@@ -124,7 +124,7 @@
       }
     },
     {
-      "caso": "payload-sem-end_at",
+      "case": "payload-missing-end_at",
       "message": {
         "schema": "ods.i4.lexicon_capture.command",
         "message_type": "command",
@@ -138,7 +138,7 @@
       }
     },
     {
-      "caso": "producer-tipo-errado",
+      "case": "producer-wrong-type",
       "message": {
         "schema": "ods.i4.lexicon_capture.command",
         "message_type": "command",
@@ -153,7 +153,7 @@
       }
     },
     {
-      "caso": "schema-trocado",
+      "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
         "message_type": "command",
@@ -168,7 +168,7 @@
       }
     },
     {
-      "caso": "payload-nao-objeto",
+      "case": "payload-not-object",
       "message": {
         "schema": "ods.i4.lexicon_capture.command",
         "message_type": "command",
@@ -178,7 +178,7 @@
       }
     },
     {
-      "caso": "raiz-array",
+      "case": "root-array",
       "message": []
     }
   ]

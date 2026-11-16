@@ -9,84 +9,86 @@ import { fileURLToPath } from "node:url";
 
 const require = createRequire(import.meta.url);
 const { Validator, ContractError, publish } = require("../dist");
-const aqui = dirname(fileURLToPath(import.meta.url));
-const repo = join(aqui, "..", "..");
-const exemplo = (t) => JSON.parse(readFileSync(join(repo, "examples", `${t}.json`), "utf8")).valid[0];
-const val = new Validator();
+const here = dirname(fileURLToPath(import.meta.url));
+const repo = join(here, "..", "..");
+const cli = join(here, "..", "dist", "cli.js");
+const example = (topic) => JSON.parse(readFileSync(join(repo, "examples", `${topic}.json`), "utf8")).valid[0];
+const validator = new Validator();
 
 test("carrega os schemas embutidos", () => {
-  assert.equal(val.origem, "pacote");
-  assert.equal(val.topicos.length, 56);
-  assert.equal(val.schemasVersion.quantidade, 56);
-  assert.ok(val.schemasVersion.gerado_em);
+  assert.equal(validator.origin, "package");
+  assert.equal(validator.topics.length, 56);
+  assert.equal(validator.schemasVersion.count, 56);
+  assert.ok(validator.schemasVersion.generated_at);
 });
 
 test("tópico desconhecido e mensagem sem schema", () => {
-  assert.match(val.validar("ods.nao.existe", {})[0], /desconhecido/);
-  assert.ok(val.validarMensagem({ producer: "x" }).length > 0);
-  assert.ok(val.validarMensagem([]).length > 0);
+  assert.match(validator.findErrors("ods.nao.existe", {})[0], /desconhecido/);
+  assert.ok(validator.findMessageErrors({ producer: "x" }).length > 0);
+  assert.ok(validator.findMessageErrors([]).length > 0);
 });
 
-// Sem a checagem de formato, estes dois passariam em silêncio.
+// sem a checagem de formato, estes dois passariam em silêncio
 test("uuid e date-time são checados de verdade", () => {
-  const reply = exemplo("ods.p7.move.reply");
+  const reply = example("ods.p7.move.reply");
   reply.correlation_id = "isto-nao-e-uuid";
-  assert.ok(val.validar("ods.p7.move.reply", reply).length > 0);
-  const frame = exemplo("ods.p4.frame");
+  assert.ok(validator.findErrors("ods.p7.move.reply", reply).length > 0);
+  const frame = example("ods.p4.frame");
   frame.captured_at = "ontem às 10h";
-  assert.ok(val.validar("ods.p4.frame", frame).length > 0);
+  assert.ok(validator.findErrors("ods.p4.frame", frame).length > 0);
 });
 
 test("os erros apontam o caminho do campo", () => {
-  const m = exemplo("ods.p7.move.command");
-  m.payload.pan_deg = 120;
-  const erros = val.validar("ods.p7.move.command", m);
-  assert.ok(erros.some((e) => e.startsWith("payload/pan_deg:")), erros.join("|"));
+  const message = example("ods.p7.move.command");
+  message.payload.pan_deg = 120;
+  const errors = validator.findErrors("ods.p7.move.command", message);
+  assert.ok(errors.some((e) => e.startsWith("payload/pan_deg:")), errors.join("|"));
 });
 
-test("validate levanta ContractError", () => {
-  const m = exemplo("ods.p7.move.command");
-  assert.equal(val.validate(m), "ods.p7.move.command");
-  m.payload.pan_deg = 500;
-  assert.throws(() => val.validate(m), (e) => e instanceof ContractError && e.erros.length > 0 && e.topico === "ods.p7.move.command");
+test("validate lança ContractError", () => {
+  const message = example("ods.p7.move.command");
+  assert.equal(validator.validate(message), "ods.p7.move.command");
+  message.payload.pan_deg = 500;
+  assert.throws(
+    () => validator.validate(message),
+    (e) => e instanceof ContractError && e.errors.length > 0 && e.topic === "ods.p7.move.command",
+  );
 });
 
 test("publish valida antes de enviar", async () => {
-  const enviados = [];
-  const ok = exemplo("ods.p7.move.command");
-  await publish(async (t, b) => enviados.push([t, b]), val, ok);
-  assert.equal(enviados[0][0], "ods.p7.move.command");
-  assert.ok(Buffer.isBuffer(enviados[0][1]));
-  const ruim = structuredClone(ok);
-  ruim.payload.pan_deg = 500;
-  await assert.rejects(publish(async (t, b) => enviados.push([t, b]), val, ruim), ContractError);
-  assert.equal(enviados.length, 1); // a inválida não foi enviada
+  const sent = [];
+  const valid = example("ods.p7.move.command");
+  await publish(async (t, b) => sent.push([t, b]), validator, valid);
+  assert.equal(sent[0][0], "ods.p7.move.command");
+  assert.ok(Buffer.isBuffer(sent[0][1]));
+  const invalid = structuredClone(valid);
+  invalid.payload.pan_deg = 500;
+  await assert.rejects(publish(async (t, b) => sent.push([t, b]), validator, invalid), ContractError);
+  assert.equal(sent.length, 1);
 });
 
 test("opção dir vence a cópia embutida; pasta vazia dá erro claro", () => {
-  assert.equal(new Validator({ dir: join(repo, "schemas") }).origem, "argumento");
+  assert.equal(new Validator({ dir: join(repo, "schemas") }).origin, "argument");
   assert.throws(() => new Validator({ dir: mkdtempSync(join(tmpdir(), "ods-")) }), /nenhum/);
 });
 
 test("variável ODS_SCHEMAS_DIR vence a cópia embutida", () => {
-  const cli = join(aqui, "..", "dist", "cli.js");
   const out = execFileSync("node", [cli, "--info"], {
     env: { ...process.env, ODS_SCHEMAS_DIR: join(repo, "schemas") },
   }).toString();
-  assert.match(out, /origem: ODS_SCHEMAS_DIR/);
+  assert.match(out, /origin: ODS_SCHEMAS_DIR/);
 });
 
 test("CLI: exit 0 para válida, 1 para inválida", () => {
-  const cli = join(aqui, "..", "dist", "cli.js");
   const dir = mkdtempSync(join(tmpdir(), "ods-"));
-  const bom = join(dir, "bom.json");
-  const ruim = join(dir, "ruim.json");
-  const m = exemplo("ods.p7.move.command");
-  writeFileSync(bom, JSON.stringify(m));
-  m.payload.pan_deg = 120;
-  writeFileSync(ruim, JSON.stringify(m));
-  assert.equal(spawnSync("node", [cli, bom]).status, 0);
-  const r = spawnSync("node", [cli, ruim]);
-  assert.equal(r.status, 1);
-  assert.match(r.stdout.toString(), /pan_deg/);
+  const good = join(dir, "good.json");
+  const bad = join(dir, "bad.json");
+  const message = example("ods.p7.move.command");
+  writeFileSync(good, JSON.stringify(message));
+  message.payload.pan_deg = 120;
+  writeFileSync(bad, JSON.stringify(message));
+  assert.equal(spawnSync("node", [cli, good]).status, 0);
+  const result = spawnSync("node", [cli, bad]);
+  assert.equal(result.status, 1);
+  assert.match(result.stdout.toString(), /pan_deg/);
 });

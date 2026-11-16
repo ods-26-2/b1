@@ -1,4 +1,4 @@
-# ods-validador
+# ods-validator
 
 Valida mensagens do barramento contra os JSON Schemas da Especificação 1.0
 (este repositório, `b1`). Entregável B1 da TRA-1: a mensagem fora do contrato
@@ -19,8 +19,8 @@ pacote e grava o commit do `b1` de onde vieram. Para distribuir sem exigir o
 clone, gere o wheel uma vez e entregue o arquivo às equipes:
 
 ```bash
-pip wheel ./b1/jsonValidatorPy --no-deps -w dist/    # -> dist/ods_validador-*.whl
-pip install dist/ods_validador-*.whl                 # nas equipes / imagens
+pip wheel ./b1/jsonValidatorPy --no-deps -w dist/    # -> dist/ods_validator-*.whl
+pip install dist/ods_validator-*.whl                 # nas equipes / imagens
 ```
 
 Mudou um schema? Gere um novo wheel. A versão do contrato que cada
@@ -29,13 +29,13 @@ componente usa é a do wheel instalado.
 ## Usar
 
 ```python
-from ods_validador import Validator, publish, ContractError
+from ods_validator import Validator, publish, ContractError
 
 val = Validator()                         # usa os schemas do pacote
-val.validar("ods.p7.move.command", msg)   # [] se válida, senão lista de erros
-val.validar_mensagem(msg)                 # descobre o tópico pelo campo "schema"
+val.find_errors("ods.p7.move.command", msg)   # [] se válida, senão lista de erros
+val.find_message_errors(msg)                 # descobre o tópico pelo campo "schema"
 val.validate(msg)                         # levanta ContractError se inválida
-val.schemas_version                       # origem, commit do b1, quantidade
+val.schemas_version                       # origin, commit do b1, count
 ```
 
 ### Sem mudar o jeito de publicar
@@ -49,26 +49,26 @@ producer.send("ods.p7.move.command", payload_bytes)   # como já era
 
 ### Ou publicar já com validação
 
-`publish` aceita qualquer função `enviar(topico, bytes)`.
+`publish` aceita qualquer função `send(topic, bytes)`.
 
 ```python
 publish(lambda t, b: producer.send(t, b), val, msg)      # kafka-python
 publish(lambda t, b: producer.produce(t, b), val, msg)   # confluent-kafka
 ```
 
-Mensagem inválida levanta `ContractError` (com `.erros`) e nada é enviado.
+Mensagem inválida levanta `ContractError` (com `.errors`) e nada é enviado.
 
 ### Linha de comando
 
 ```bash
-ods-validar mensagem.json             # exit 0 = válida, 1 = inválida
-ods-validar --topico ods.p4.frame -   # lê da entrada padrão
-ods-validar --info                    # de onde vêm os schemas
+ods-validate mensagem.json             # exit 0 = válida, 1 = inválida
+ods-validate --topic ods.p4.frame -   # lê da entrada padrão
+ods-validate --info                    # de onde vêm os schemas
 ```
 
 ## Onde os schemas são procurados
 
-Nesta ordem: argumento `Validator("pasta")`; variável `ODS_SCHEMAS_DIR`;
+Nesta ordem: argumento `Validator("caminho/dos/schemas")`; variável `ODS_SCHEMAS_DIR`;
 a pasta `schemas/` do clone do `b1` (quando o código roda de dentro dele, como
 na instalação editável); cópia embutida no pacote (quem instalou o wheel). Os
 dois primeiros servem para testar um schema ainda não publicado. O tópico é o

@@ -1,4 +1,3 @@
-// ods-validar [--schemas PASTA] [--topico T] [--info] arquivo.json [...]  (- = stdin)
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -6,61 +5,62 @@
 #include "ods/validator.hpp"
 
 int main(int argc, char** argv) {
-  std::string schemas, topico;
+  std::string schemas, topic;
   bool info = false;
-  std::vector<std::string> arquivos;
+  std::vector<std::string> files;
   for (int i = 1; i < argc; ++i) {
-    const std::string a = argv[i];
-    if (a == "--schemas" && i + 1 < argc) schemas = argv[++i];
-    else if (a == "--topico" && i + 1 < argc) topico = argv[++i];
-    else if (a == "--info") info = true;
-    else arquivos.push_back(a);
+    const std::string arg = argv[i];
+    if (arg == "--schemas" && i + 1 < argc) schemas = argv[++i];
+    else if (arg == "--topic" && i + 1 < argc) topic = argv[++i];
+    else if (arg == "--info") info = true;
+    else files.push_back(arg);
   }
   try {
-    ods::Validator val(schemas);
+    ods::Validator validator(schemas);
     if (info) {
-      // guardar numa variável: items() de um temporário ficaria apontando para memória liberada
-      const nlohmann::json versao = val.schemas_version();
-      for (const auto& kv : versao.items())
+      // items() de um temporário apontaria para memória liberada
+      const nlohmann::json version = validator.schemas_version();
+      for (const auto& kv : version.items())
         std::cout << kv.key() << ": "
                   << (kv.value().is_string() ? kv.value().get<std::string>() : kv.value().dump())
                   << "\n";
-      if (arquivos.empty()) return 0;
+      if (files.empty()) return 0;
     }
-    if (arquivos.empty()) {
+    if (files.empty()) {
       std::cerr << "informe ao menos um arquivo (ou use --info)\n";
       return 2;
     }
-    int rc = 0;
-    for (const auto& nome : arquivos) {
+    int status = 0;
+    for (const auto& name : files) {
       std::ostringstream ss;
-      if (nome == "-") {
+      if (name == "-") {
         ss << std::cin.rdbuf();
       } else {
-        std::ifstream in(nome, std::ios::binary);
+        std::ifstream in(name, std::ios::binary);
         if (!in) {
-          std::cout << nome << ": não consegui abrir\n";
-          rc = 1;
+          std::cout << name << ": não consegui abrir\n";
+          status = 1;
           continue;
         }
         ss << in.rdbuf();
       }
-      nlohmann::json msg = nlohmann::json::parse(ss.str(), nullptr, false);
-      if (msg.is_discarded()) {
-        std::cout << nome << ": JSON inválido\n";
-        rc = 1;
+      nlohmann::json message = nlohmann::json::parse(ss.str(), nullptr, false);
+      if (message.is_discarded()) {
+        std::cout << name << ": JSON inválido\n";
+        status = 1;
         continue;
       }
-      const auto erros = topico.empty() ? val.validar_mensagem(msg) : val.validar(topico, msg);
-      if (erros.empty()) {
-        std::cout << nome << ": ok\n";
+      const auto errors =
+          topic.empty() ? validator.find_message_errors(message) : validator.find_errors(topic, message);
+      if (errors.empty()) {
+        std::cout << name << ": ok\n";
       } else {
-        rc = 1;
-        std::cout << nome << ": INVÁLIDA\n";
-        for (const auto& e : erros) std::cout << "  - " << e << "\n";
+        status = 1;
+        std::cout << name << ": INVÁLIDA\n";
+        for (const auto& e : errors) std::cout << "  - " << e << "\n";
       }
     }
-    return rc;
+    return status;
   } catch (const std::exception& e) {
     std::cerr << "erro: " << e.what() << "\n";
     return 2;

@@ -18,7 +18,7 @@
   ],
   "invalid": [
     {
-      "caso": "sem-schema",
+      "case": "missing-schema",
       "message": {
         "message_type": "event",
         "producer": "x",
@@ -33,7 +33,7 @@
       }
     },
     {
-      "caso": "sem-message_type",
+      "case": "missing-message_type",
       "message": {
         "schema": "ods.s5.event_metrics",
         "producer": "x",
@@ -48,7 +48,7 @@
       }
     },
     {
-      "caso": "sem-producer",
+      "case": "missing-producer",
       "message": {
         "schema": "ods.s5.event_metrics",
         "message_type": "event",
@@ -63,7 +63,7 @@
       }
     },
     {
-      "caso": "sem-payload",
+      "case": "missing-payload",
       "message": {
         "schema": "ods.s5.event_metrics",
         "message_type": "event",
@@ -71,7 +71,7 @@
       }
     },
     {
-      "caso": "payload-sem-event_type",
+      "case": "payload-missing-event_type",
       "message": {
         "schema": "ods.s5.event_metrics",
         "message_type": "event",
@@ -86,7 +86,7 @@
       }
     },
     {
-      "caso": "payload-sem-window_start_at",
+      "case": "payload-missing-window_start_at",
       "message": {
         "schema": "ods.s5.event_metrics",
         "message_type": "event",
@@ -101,7 +101,7 @@
       }
     },
     {
-      "caso": "payload-sem-window_end_at",
+      "case": "payload-missing-window_end_at",
       "message": {
         "schema": "ods.s5.event_metrics",
         "message_type": "event",
@@ -116,7 +116,7 @@
       }
     },
     {
-      "caso": "payload-sem-granularity",
+      "case": "payload-missing-granularity",
       "message": {
         "schema": "ods.s5.event_metrics",
         "message_type": "event",
@@ -131,7 +131,7 @@
       }
     },
     {
-      "caso": "payload-sem-count",
+      "case": "payload-missing-count",
       "message": {
         "schema": "ods.s5.event_metrics",
         "message_type": "event",
@@ -146,7 +146,7 @@
       }
     },
     {
-      "caso": "payload-sem-uncertain_count",
+      "case": "payload-missing-uncertain_count",
       "message": {
         "schema": "ods.s5.event_metrics",
         "message_type": "event",
@@ -161,7 +161,7 @@
       }
     },
     {
-      "caso": "producer-tipo-errado",
+      "case": "producer-wrong-type",
       "message": {
         "schema": "ods.s5.event_metrics",
         "message_type": "event",
@@ -177,7 +177,7 @@
       }
     },
     {
-      "caso": "schema-trocado",
+      "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
         "message_type": "event",
@@ -193,7 +193,7 @@
       }
     },
     {
-      "caso": "payload-nao-objeto",
+      "case": "payload-not-object",
       "message": {
         "schema": "ods.s5.event_metrics",
         "message_type": "event",
@@ -202,7 +202,7 @@
       }
     },
     {
-      "caso": "raiz-array",
+      "case": "root-array",
       "message": []
     }
   ]

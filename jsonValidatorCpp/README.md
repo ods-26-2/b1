@@ -1,4 +1,4 @@
-# ods-validador (C++)
+# ods-validator (C++)
 
 Valida mensagens do barramento contra os JSON Schemas da Especificação 1.0
 (pasta `schemas/` deste repositório). A mensagem fora do contrato é barrada
@@ -15,7 +15,7 @@ Com o clone do `b1` ao lado do código do componente:
 
 ```cmake
 add_subdirectory(caminho/para/b1/jsonValidatorCpp ods)
-target_link_libraries(meu_componente PRIVATE ods::validador)
+target_link_libraries(my_component PRIVATE ods::validator)
 ```
 
 Os schemas embutidos são os de `../schemas` do clone no momento do build. Para
@@ -28,10 +28,10 @@ com download; o caminho offline ainda precisa ser conferido numa Jetson.
 #include <ods/validator.hpp>
 
 ods::Validator val;                                // usa os schemas embutidos
-val.validar("ods.p7.move.command", msg);           // vector<string>; vazio = válida
-val.validar_mensagem(msg);                         // descobre o tópico pelo campo "schema"
+val.find_errors("ods.p7.move.command", msg);       // vector<string>; vazio = válida
+val.find_message_errors(msg);                     // descobre o tópico pelo campo "schema"
 val.validate(msg);                                 // lança ods::ContractError se inválida
-val.schemas_version();                             // origem, commit do b1, quantidade
+val.schemas_version();                             // origin, commit do b1, count
 ```
 
 `msg` é um `nlohmann::json`.
@@ -42,31 +42,31 @@ Quem já publica direto no Kafka só acrescenta uma linha antes do envio:
 
 ```cpp
 val.validate(msg);                                 // barra a mensagem fora do contrato
-produtor.enviar("ods.p7.move.command", msg.dump());   // como já era
+producer.send("ods.p7.move.command", msg.dump());     // como já era
 ```
 
 ### Ou publicar já com validação
 
-`publish` aceita qualquer função `enviar(topico, bytes)`:
+`publish` aceita qualquer função `send(topic, bytes)`:
 
 ```cpp
-ods::publish([&](const std::string& t, const std::string& b) { produtor.enviar(t, b); },
+ods::publish([&](const std::string& t, const std::string& b) { producer.send(t, b); },
              val, msg);
 ```
 
-Mensagem inválida lança `ods::ContractError` (método `erros()`) e nada é enviado.
+Mensagem inválida lança `ods::ContractError` (método `errors()`) e nada é enviado.
 
 ### Linha de comando
 
 ```bash
-ods-validar mensagem.json             # exit 0 = válida, 1 = inválida
-ods-validar --topico ods.p4.frame -   # lê da entrada padrão
-ods-validar --info                    # de onde vêm os schemas
+ods-validate mensagem.json             # exit 0 = válida, 1 = inválida
+ods-validate --topic ods.p4.frame -   # lê da entrada padrão
+ods-validate --info                    # de onde vêm os schemas
 ```
 
 ## Onde os schemas são procurados
 
-Nesta ordem: argumento `ods::Validator("pasta")`; variável `ODS_SCHEMAS_DIR`;
+Nesta ordem: argumento `ods::Validator("caminho/dos/schemas")`; variável `ODS_SCHEMAS_DIR`;
 cópia embutida. Os dois primeiros servem para testar um schema ainda não
 publicado. O tópico é o `properties.schema.const` de cada schema; só
 `*.schema.json` é lido.

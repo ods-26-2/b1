@@ -1,51 +1,49 @@
-# Embute os schemas do repositório b1 em um cabeçalho C++ (configure time).
-#   ods_embed_schemas(<pasta dos schemas> <cabeçalho de saída>)
-# Só CMake: o build (inclusive na Jetson) não precisa de Python nem de Node.
+# ods_embed_schemas(<schemas dir> <output header>)
+# Gera um cabeçalho com os schemas embutidos, só com CMake (sem Python ou Node).
 function(ods_embed_schemas SCHEMAS_DIR OUT_HEADER)
-  file(GLOB_RECURSE arquivos RELATIVE "${SCHEMAS_DIR}" "${SCHEMAS_DIR}/*.schema.json")
-  list(SORT arquivos)
-  list(LENGTH arquivos n)
-  if(n EQUAL 0)
+  file(GLOB_RECURSE files RELATIVE "${SCHEMAS_DIR}" "${SCHEMAS_DIR}/*.schema.json")
+  list(SORT files)
+  list(LENGTH files count)
+  if(count EQUAL 0)
     message(FATAL_ERROR "ods: nenhum *.schema.json em ${SCHEMAS_DIR}. "
                         "Use -DODS_SCHEMAS_DIR=<pasta> ou compile de dentro do clone do b1.")
   endif()
 
   find_package(Git QUIET)
   set(commit "")
-  set(descricao "")
+  set(description "")
   if(GIT_FOUND)
     execute_process(COMMAND "${GIT_EXECUTABLE}" rev-parse HEAD
       WORKING_DIRECTORY "${SCHEMAS_DIR}" OUTPUT_VARIABLE commit
       OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_QUIET)
     execute_process(COMMAND "${GIT_EXECUTABLE}" describe --tags --always --dirty
-      WORKING_DIRECTORY "${SCHEMAS_DIR}" OUTPUT_VARIABLE descricao
+      WORKING_DIRECTORY "${SCHEMAS_DIR}" OUTPUT_VARIABLE description
       OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_QUIET)
   endif()
-  string(TIMESTAMP agora "%Y-%m-%dT%H:%M:%SZ" UTC)
+  string(TIMESTAMP now "%Y-%m-%dT%H:%M:%SZ" UTC)
 
-  set(c "// GERADO por cmake/EmbedSchemas.cmake. Não edite.\n#pragma once\nnamespace ods::embedded {\n")
-  string(APPEND c "struct Item { const char* arquivo; const char* json; };\n")
-  string(APPEND c "inline constexpr const char* kCommit = \"${commit}\";\n")
-  string(APPEND c "inline constexpr const char* kDescricao = \"${descricao}\";\n")
-  string(APPEND c "inline constexpr const char* kGeradoEm = \"${agora}\";\n")
-  string(APPEND c "inline constexpr Item kSchemas[] = {\n")
-  foreach(f IN LISTS arquivos)
-    file(READ "${SCHEMAS_DIR}/${f}" corpo)
-    string(APPEND c "{\"${f}\", R\"ODSJSON(${corpo})ODSJSON\"},\n")
-    # mudou um schema -> o CMake reconfigura e o cabeçalho é regerado
-    set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${SCHEMAS_DIR}/${f}")
+  set(out "// GERADO por cmake/EmbedSchemas.cmake. Não edite.\n#pragma once\nnamespace ods::embedded {\n")
+  string(APPEND out "struct Item { const char* file; const char* json; };\n")
+  string(APPEND out "inline constexpr const char* kCommit = \"${commit}\";\n")
+  string(APPEND out "inline constexpr const char* kDescription = \"${description}\";\n")
+  string(APPEND out "inline constexpr const char* kGeneratedAt = \"${now}\";\n")
+  string(APPEND out "inline constexpr Item kSchemas[] = {\n")
+  foreach(file IN LISTS files)
+    file(READ "${SCHEMAS_DIR}/${file}" body)
+    string(APPEND out "{\"${file}\", R\"ODSJSON(${body})ODSJSON\"},\n")
+    set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${SCHEMAS_DIR}/${file}")
   endforeach()
-  string(APPEND c "};\ninline constexpr unsigned kQuantidade = ${n};\n}  // namespace ods::embedded\n")
+  string(APPEND out "};\ninline constexpr unsigned kCount = ${count};\n}  // namespace ods::embedded\n")
 
-  # reescreve só se mudou (evita recompilar tudo à toa); ignora o carimbo de hora
-  set(antigo "")
+  # só reescreve se mudou (ignora o carimbo de hora), para não recompilar à toa
+  set(previous "")
   if(EXISTS "${OUT_HEADER}")
-    file(READ "${OUT_HEADER}" antigo)
+    file(READ "${OUT_HEADER}" previous)
   endif()
-  string(REGEX REPLACE "kGeradoEm = \"[^\"]*\"" "kGeradoEm = \"\"" c_cmp "${c}")
-  string(REGEX REPLACE "kGeradoEm = \"[^\"]*\"" "kGeradoEm = \"\"" a_cmp "${antigo}")
-  if(NOT c_cmp STREQUAL a_cmp)
-    file(WRITE "${OUT_HEADER}" "${c}")
+  string(REGEX REPLACE "kGeneratedAt = \"[^\"]*\"" "kGeneratedAt = \"\"" out_cmp "${out}")
+  string(REGEX REPLACE "kGeneratedAt = \"[^\"]*\"" "kGeneratedAt = \"\"" previous_cmp "${previous}")
+  if(NOT out_cmp STREQUAL previous_cmp)
+    file(WRITE "${OUT_HEADER}" "${out}")
   endif()
-  message(STATUS "ods: ${n} schemas embutidos (${descricao})")
+  message(STATUS "ods: ${count} schemas embutidos (${description})")
 endfunction()

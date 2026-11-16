@@ -3,7 +3,7 @@
 ```
 schemas/            os contratos: um JSON Schema por mensagem (B5/, I1/, ... S6/)
 examples/           um arquivo por tópico com mensagens válidas e inválidas (GERADO)
-tools/              gerar_exemplos.py: gera examples/ a partir dos schemas
+tools/              generate_examples.py: gera examples/ a partir dos schemas
 jsonValidatorPy/    biblioteca Python
 jsonValidatorTs/    biblioteca TypeScript
 jsonValidatorCpp/   biblioteca C++
@@ -24,7 +24,7 @@ divirjam, as três rodam os mesmos `examples/*.json` nos testes: todo exemplo
 ## Mudou um schema?
 
 ```bash
-python tools/gerar_exemplos.py        # regera examples/ (rode com a lib Python instalada)
+python tools/generate_examples.py      # regera examples/ (rode com a lib Python instalada)
 (cd jsonValidatorPy  && pip install -e ".[dev]" && pytest)
 (cd jsonValidatorTs  && npm install && npm test)
 (cd jsonValidatorCpp && cmake -S . -B build && cmake --build build -j && ctest --test-dir build)

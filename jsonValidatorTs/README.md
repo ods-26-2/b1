@@ -1,4 +1,4 @@
-# ods-validador (TypeScript)
+# ods-validator (TypeScript)
 
 Valida mensagens do barramento contra os JSON Schemas da Especificação 1.0
 (pasta `schemas/` deste repositório). A mensagem fora do contrato é barrada
@@ -14,13 +14,13 @@ Gere o pacote uma vez, de dentro do clone do `b1`, e entregue o `.tgz`:
 ```bash
 cd b1/jsonValidatorTs
 npm install
-npm run pack                      # -> ods-validador-0.1.0.tgz
+npm run pack                      # -> ods-validator-0.1.0.tgz
 ```
 
 Nos componentes:
 
 ```bash
-npm install ./ods-validador-0.1.0.tgz
+npm install ./ods-validator-0.1.0.tgz
 ```
 
 Requer Node 18 ou mais novo. Mudou um schema? Gere um `.tgz` novo; a versão do
@@ -29,13 +29,13 @@ contrato de cada componente é a do pacote instalado.
 ## Usar
 
 ```ts
-import { Validator, publish, ContractError } from "ods-validador";
+import { Validator, publish, ContractError } from "ods-validator";
 
 const val = new Validator();                        // usa os schemas do pacote
-val.validar("ods.p7.move.command", msg);            // [] se válida, senão lista de erros
-val.validarMensagem(msg);                           // descobre o tópico pelo campo "schema"
+val.findErrors("ods.p7.move.command", msg);          // [] se válida, senão lista de erros
+val.findMessageErrors(msg);                         // descobre o tópico pelo campo "schema"
 val.validate(msg);                                  // lança ContractError se inválida
-val.schemasVersion;                                 // origem, commit do b1, quantidade
+val.schemasVersion;                                 // origin, commit do b1, count
 ```
 
 ### Sem mudar o jeito de publicar
@@ -49,29 +49,29 @@ await producer.send({ topic: "ods.p7.move.command", messages: [{ value: JSON.str
 
 ### Ou publicar já com validação
 
-`publish` aceita qualquer função `enviar(topico, bytes)`, síncrona ou `async`:
+`publish` aceita qualquer função `send(topic, bytes)`, síncrona ou `async`:
 
 ```ts
 await publish(
-  (topico, bytes) => producer.send({ topic: topico, messages: [{ value: bytes }] }),  // kafkajs
+  (topic, bytes) => producer.send({ topic, messages: [{ value: bytes }] }),  // kafkajs
   val,
   msg,
 );
 ```
 
-Mensagem inválida rejeita com `ContractError` (campo `.erros`) e nada é enviado.
+Mensagem inválida rejeita com `ContractError` (campo `.errors`) e nada é enviado.
 
 ### Linha de comando
 
 ```bash
-npx ods-validar mensagem.json             # exit 0 = válida, 1 = inválida
-npx ods-validar --topico ods.p4.frame -   # lê da entrada padrão
-npx ods-validar --info                    # de onde vêm os schemas
+npx ods-validate mensagem.json             # exit 0 = válida, 1 = inválida
+npx ods-validate --topic ods.p4.frame -   # lê da entrada padrão
+npx ods-validate --info                    # de onde vêm os schemas
 ```
 
 ## Onde os schemas são procurados
 
-Nesta ordem: opção `new Validator({ dir: "pasta" })`; variável `ODS_SCHEMAS_DIR`;
+Nesta ordem: opção `new Validator({ dir: "caminho/dos/schemas" })`; variável `ODS_SCHEMAS_DIR`;
 cópia embutida no pacote. Os dois primeiros servem para testar um schema ainda
 não publicado. O tópico é o `properties.schema.const` de cada schema; só
 `*.schema.json` é lido.

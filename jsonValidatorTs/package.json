@@ -1,11 +1,11 @@
 {
-  "name": "ods-validador",
+  "name": "ods-validator",
   "version": "0.1.0",
   "description": "Validador de mensagens do barramento ODS 2026/2 (JSON Schemas da Especificação 1.0)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "ods-validar": "dist/cli.js"
+    "ods-validate": "dist/cli.js"
   },
   "files": [
     "dist"
@@ -14,8 +14,8 @@
     "node": ">=18"
   },
   "scripts": {
-    "gerar": "node scripts/gerar-schemas.mjs",
-    "prebuild": "node scripts/gerar-schemas.mjs",
+    "generate": "node scripts/generate-schemas.mjs",
+    "prebuild": "node scripts/generate-schemas.mjs",
     "build": "tsc",
     "pretest": "npm run build",
     "test": "node --test",

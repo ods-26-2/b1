@@ -21,7 +21,7 @@
   ],
   "invalid": [
     {
-      "caso": "sem-schema",
+      "case": "missing-schema",
       "message": {
         "message_type": "event",
         "producer": "x",
@@ -39,7 +39,7 @@
       }
     },
     {
-      "caso": "sem-message_type",
+      "case": "missing-message_type",
       "message": {
         "schema": "ods.s3.alert",
         "producer": "x",
@@ -57,7 +57,7 @@
       }
     },
     {
-      "caso": "sem-producer",
+      "case": "missing-producer",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -75,7 +75,7 @@
       }
     },
     {
-      "caso": "sem-artifact_version",
+      "case": "missing-artifact_version",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -93,7 +93,7 @@
       }
     },
     {
-      "caso": "sem-payload",
+      "case": "missing-payload",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -102,7 +102,7 @@
       }
     },
     {
-      "caso": "payload-sem-alert_id",
+      "case": "payload-missing-alert_id",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -120,7 +120,7 @@
       }
     },
     {
-      "caso": "payload-sem-title",
+      "case": "payload-missing-title",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -138,7 +138,7 @@
       }
     },
     {
-      "caso": "payload-sem-message",
+      "case": "payload-missing-message",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -156,7 +156,7 @@
       }
     },
     {
-      "caso": "payload-sem-severity",
+      "case": "payload-missing-severity",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -174,7 +174,7 @@
       }
     },
     {
-      "caso": "payload-sem-recipients",
+      "case": "payload-missing-recipients",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -192,7 +192,7 @@
       }
     },
     {
-      "caso": "payload-sem-channels",
+      "case": "payload-missing-channels",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -210,7 +210,7 @@
       }
     },
     {
-      "caso": "payload-sem-state",
+      "case": "payload-missing-state",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -228,7 +228,7 @@
       }
     },
     {
-      "caso": "payload-sem-created_at",
+      "case": "payload-missing-created_at",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -246,7 +246,7 @@
       }
     },
     {
-      "caso": "producer-tipo-errado",
+      "case": "producer-wrong-type",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -265,7 +265,7 @@
       }
     },
     {
-      "caso": "schema-trocado",
+      "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
         "message_type": "event",
@@ -284,7 +284,7 @@
       }
     },
     {
-      "caso": "payload-nao-objeto",
+      "case": "payload-not-object",
       "message": {
         "schema": "ods.s3.alert",
         "message_type": "event",
@@ -294,7 +294,7 @@
       }
     },
     {
-      "caso": "raiz-array",
+      "case": "root-array",
       "message": []
     }
   ]
