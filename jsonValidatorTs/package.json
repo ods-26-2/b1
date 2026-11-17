@@ -2,6 +2,22 @@
   "name": "ods-validator",
   "version": "0.1.0",
   "description": "Validador de mensagens do barramento ODS 2026/2 (JSON Schemas da Especificação 1.0)",
+  "keywords": [
+    "json-schema",
+    "validation",
+    "kafka",
+    "ods"
+  ],
+  "homepage": "https://github.com/ods-26-2/b1#readme",
+  "bugs": {
+    "url": "https://github.com/ods-26-2/b1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ods-26-2/b1.git",
+    "directory": "jsonValidatorTs"
+  },
+  "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
@@ -19,10 +35,11 @@
     "build": "tsc",
     "pretest": "npm run build",
     "test": "node --test",
-    "pack": "npm run build && npm pack"
+    "prepack": "npm run build"
   },
-  "license": "UNLICENSED",
-  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@types/node": "^26.6.6",
     "typescript": "^7.0.2"

@@ -14,6 +14,8 @@ DESTINATION = HERE / "src" / "_schemas"
 
 
 def _git(*args):
+    if not (REPO / ".git").exists():
+        return None
     try:
         result = subprocess.run(
             ["git", *args], cwd=REPO, capture_output=True, text=True, check=True
@@ -32,11 +34,15 @@ def sync_schemas():
             "setup.py: nenhum *.schema.json em ../schemas nem em src/_schemas. "
             "Rode o build de dentro do clone do repositório b1."
         )
+    names = [source.name for source in sources]
+    duplicates = sorted({n for n in names if names.count(n) > 1})
+    if duplicates:
+        raise SystemExit(f"setup.py: nomes de schema repetidos em pastas diferentes: {duplicates}")
     shutil.rmtree(DESTINATION, ignore_errors=True)
+    DESTINATION.mkdir(parents=True)
+    (DESTINATION / "__init__.py").write_text("")
     for source in sources:
-        target = DESTINATION / source.parent.name / source.name
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(source, target)
+        shutil.copy2(source, DESTINATION / source.name)
     meta = {
         "commit": _git("rev-parse", "HEAD"),
         "description": _git("describe", "--tags", "--always", "--dirty"),

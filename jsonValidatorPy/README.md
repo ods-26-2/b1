@@ -1,7 +1,7 @@
 # ods-validator
 
 Valida mensagens do barramento contra os JSON Schemas da Especificação 1.0
-(este repositório, `b1`). Entregável B1 da TRA-1: a mensagem fora do contrato
+(repositório [ods-26-2/b1](https://github.com/ods-26-2/b1)). Entregável B1 da TRA-1: a mensagem fora do contrato
 é barrada **antes** de chegar ao Kafka.
 
 Os schemas vão **dentro do pacote**: quem instala não precisa clonar nada
@@ -10,21 +10,17 @@ nem definir variável de ambiente.
 ## Instalar
 
 ```bash
-git clone https://github.com/ods-26-2/b1.git
-pip install ./b1/jsonValidatorPy
+pip install ods-validator
 ```
 
-No `pip install`, o `setup.py` copia `../schemas/*/*.schema.json` para dentro do
-pacote e grava o commit do `b1` de onde vieram. Para distribuir sem exigir o
-clone, gere o wheel uma vez e entregue o arquivo às equipes:
+Os schemas vêm dentro do pacote. Fixe a versão nos componentes
+(`ods-validator==0.1.0`): a versão do pacote é a versão do contrato.
+
+Para desenvolver a biblioteca, a partir do clone do `b1`:
 
 ```bash
-pip wheel ./b1/jsonValidatorPy --no-deps -w dist/    # -> dist/ods_validator-*.whl
-pip install dist/ods_validator-*.whl                 # nas equipes / imagens
+pip install -e "./jsonValidatorPy[dev]"
 ```
-
-Mudou um schema? Gere um novo wheel. A versão do contrato que cada
-componente usa é a do wheel instalado.
 
 ## Usar
 

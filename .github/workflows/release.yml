@@ -1,0 +1,123 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  check-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: tag e versões dos três pacotes batem
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          py=$(python3 -c "import tomllib; print(tomllib.load(open('jsonValidatorPy/pyproject.toml','rb'))['project']['version'])")
+          js=$(node -p "require('./jsonValidatorTs/package.json').version")
+          cpp=$(grep -oP 'project\(ods_validator VERSION \K[0-9.]+' jsonValidatorCpp/CMakeLists.txt)
+          echo "tag=$tag python=$py typescript=$js cpp=$cpp"
+          if [ "$tag" != "$py" ] || [ "$tag" != "$js" ] || [ "$tag" != "$cpp" ]; then
+            echo "::error::a tag e as versões de pyproject.toml, package.json e CMakeLists.txt precisam ser iguais"
+            exit 1
+          fi
+
+  build-python:
+    needs: [ci, check-version]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install build twine
+      - run: python -m build --outdir dist jsonValidatorPy
+      - run: twine check dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: python-dist
+          path: dist/
+
+  build-npm:
+    needs: [ci, check-version]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm ci
+        working-directory: jsonValidatorTs
+      - run: mkdir -p ../npm-dist && npm pack --pack-destination ../npm-dist
+        working-directory: jsonValidatorTs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: npm-dist
+          path: npm-dist/
+
+  publish-pypi:
+    needs: [build-python]
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/ods-validator
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: python-dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
+
+  publish-npm:
+    needs: [build-npm]
+    runs-on: ubuntu-latest
+    environment:
+      name: npm
+      url: https://www.npmjs.com/package/ods-validator
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: npm install -g "npm@>=11.5.1"
+      - run: npm ci
+        working-directory: jsonValidatorTs
+      - name: publica (pula se esta versão já existe)
+        working-directory: jsonValidatorTs
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if npm view "ods-validator@${version}" version >/dev/null 2>&1; then
+            echo "ods-validator@${version} já está no npm; nada a publicar"
+          else
+            npm publish --provenance --access public
+          fi
+
+  github-release:
+    needs: [publish-pypi, publish-npm]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: python-dist
+          path: assets/
+      - uses: actions/download-artifact@v4
+        with:
+          name: npm-dist
+          path: assets/
+      - name: cria a release com os pacotes anexados
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release create "$GITHUB_REF_NAME" assets/* --repo "$GITHUB_REPOSITORY" --verify-tag --generate-notes

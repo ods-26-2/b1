@@ -14,6 +14,17 @@ mensagem contra o schema do seu tópico **antes** de ela ir para o Kafka. Cada
 uma leva os schemas embutidos, então quem instala não precisa clonar este
 repositório.
 
+## Instalar
+
+| Linguagem | Comando |
+|---|---|
+| Python | `pip install ods-validator` |
+| TypeScript | `npm install ods-validator` |
+| C++ | `FetchContent` com a tag do repositório (veja `jsonValidatorCpp/README.md`) |
+
+A versão do pacote é a versão do contrato: fixe-a nos componentes
+(`ods-validator==0.1.0`). Os três pacotes saem com o mesmo número de versão.
+
 ## Como as três ficam iguais
 
 O que vale como contrato é aceitar ou recusar a mensagem. As bibliotecas usam
@@ -30,8 +41,8 @@ python tools/generate_examples.py      # regera examples/ (rode com a lib Python
 (cd jsonValidatorCpp && cmake -S . -B build && cmake --build build -j && ctest --test-dir build)
 ```
 
-Depois gere de novo o pacote de cada linguagem (wheel, `.tgz`) e redistribua:
-a versão do contrato que um componente usa é a do pacote que ele instalou.
-Os `examples/` são gerados: não edite à mão.
+Depois publique uma versão nova (veja `RELEASING.md`): a versão do contrato que
+um componente usa é a do pacote que ele instalou. Os `examples/` são gerados:
+não edite à mão.
 
 Cada biblioteca tem o seu README com a instalação e o uso.

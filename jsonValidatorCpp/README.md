@@ -1,28 +1,42 @@
 # ods-validator (C++)
 
 Valida mensagens do barramento contra os JSON Schemas da Especificação 1.0
-(pasta `schemas/` deste repositório). A mensagem fora do contrato é barrada
+(pasta `schemas/` do repositório [ods-26-2/b1](https://github.com/ods-26-2/b1)). A mensagem fora do contrato é barrada
 **antes** de chegar ao Kafka. Mesma API das bibliotecas Python e TypeScript.
 
-Requer C++17 e CMake 3.16 ou mais novo. Dependências, baixadas pelo CMake se
-não existirem no sistema: [nlohmann/json](https://github.com/nlohmann/json)
-3.11.3 e [json-schema-validator](https://github.com/pboettch/json-schema-validator)
-2.3.0.
+Requer C++17 e CMake 3.16 ou mais novo.
 
-## Usar no seu componente
+## Instalar no seu componente
 
-Com o clone do `b1` ao lado do código do componente:
+Não há registro de pacotes para C++: o CMake baixa a biblioteca do GitHub, numa
+versão fixa (tag), e a compila junto com o seu componente. O build precisa só de
+`cmake` e de um compilador, sem `git`.
 
 ```cmake
-add_subdirectory(caminho/para/b1/jsonValidatorCpp ods)
+include(FetchContent)
+FetchContent_Declare(ods
+  URL https://github.com/ods-26-2/b1/archive/refs/tags/v0.1.0.tar.gz
+  SOURCE_SUBDIR jsonValidatorCpp)
+FetchContent_MakeAvailable(ods)
 target_link_libraries(my_component PRIVATE ods::validator)
 ```
 
-Os schemas embutidos são os de `../schemas` do clone no momento do build. Para
-outra pasta: `-DODS_SCHEMAS_DIR=/caminho`. Offline (Jetson sem internet),
-instale `nlohmann_json` e `nlohmann_json_schema_validator` no sistema: o
-`CMakeLists.txt` tenta `find_package` antes de baixar. Só testei o caminho
-com download; o caminho offline ainda precisa ser conferido numa Jetson.
+Troque `v0.1.0` pela versão do contrato que o componente usa. Já tem o clone do
+`b1`? `add_subdirectory(caminho/para/b1/jsonValidatorCpp ods)` faz o mesmo.
+
+Os schemas embutidos são os do arquivo da tag (ou de `../schemas` no clone). Para
+outra pasta: `-DODS_SCHEMAS_DIR=/caminho`. As dependências
+([nlohmann/json](https://github.com/nlohmann/json) 3.11.3 e
+[json-schema-validator](https://github.com/pboettch/json-schema-validator) 2.3.0)
+também são baixadas como arquivos; se estiverem instaladas no sistema, o
+`CMakeLists.txt` as usa (`find_package`) em vez de baixar.
+
+Testei o consumo com um arquivo local equivalente ao que o GitHub gera para uma
+tag, inclusive num ambiente sem `git`. O endereço acima passa a funcionar quando
+a tag existir. Sem internet (por exemplo, uma Jetson offline), instale as duas
+dependências no sistema; esse caminho ainda precisa ser conferido numa Jetson.
+
+## Usar
 
 ```cpp
 #include <ods/validator.hpp>

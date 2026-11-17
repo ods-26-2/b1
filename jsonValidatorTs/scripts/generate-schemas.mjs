@@ -1,5 +1,5 @@
 import { execSync } from "node:child_process";
-import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -16,6 +16,7 @@ function listFiles(dir) {
 }
 
 function git(...args) {
+  if (!existsSync(join(repo, ".git"))) return null;
   try {
     return execSync(`git ${args.join(" ")}`, { cwd: repo, stdio: ["ignore", "pipe", "ignore"] })
       .toString()

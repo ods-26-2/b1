@@ -1,7 +1,7 @@
 # ods-validator (TypeScript)
 
 Valida mensagens do barramento contra os JSON Schemas da Especificação 1.0
-(pasta `schemas/` deste repositório). A mensagem fora do contrato é barrada
+(pasta `schemas/` do repositório [ods-26-2/b1](https://github.com/ods-26-2/b1)). A mensagem fora do contrato é barrada
 **antes** de chegar ao Kafka. Mesma API da biblioteca Python.
 
 Os schemas vão **dentro do pacote**: quem instala não precisa clonar nada nem
@@ -9,22 +9,19 @@ definir variável de ambiente.
 
 ## Instalar
 
-Gere o pacote uma vez, de dentro do clone do `b1`, e entregue o `.tgz`:
-
 ```bash
-cd b1/jsonValidatorTs
-npm install
-npm run pack                      # -> ods-validator-0.1.0.tgz
+npm install ods-validator
 ```
 
-Nos componentes:
+Requer Node 18 ou mais novo. Os schemas vêm dentro do pacote. Fixe a versão
+nos componentes (`"ods-validator": "0.1.0"`): a versão do pacote é a versão do
+contrato.
+
+Para desenvolver a biblioteca, a partir do clone do `b1`:
 
 ```bash
-npm install ./ods-validator-0.1.0.tgz
+cd jsonValidatorTs && npm install && npm test
 ```
-
-Requer Node 18 ou mais novo. Mudou um schema? Gere um `.tgz` novo; a versão do
-contrato de cada componente é a do pacote instalado.
 
 ## Usar
 

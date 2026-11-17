@@ -1,5 +1,6 @@
-# ods_embed_schemas(<schemas dir> <output header>)
+# ods_embed_schemas(<schemas dir> <output header> [<fallback version>])
 # Gera um cabeçalho com os schemas embutidos, só com CMake (sem Python ou Node).
+# A versão fica no git do repositório dos schemas; sem ele, usa a versão de fallback.
 function(ods_embed_schemas SCHEMAS_DIR OUT_HEADER)
   file(GLOB_RECURSE files RELATIVE "${SCHEMAS_DIR}" "${SCHEMAS_DIR}/*.schema.json")
   list(SORT files)
@@ -12,13 +13,18 @@ function(ods_embed_schemas SCHEMAS_DIR OUT_HEADER)
   find_package(Git QUIET)
   set(commit "")
   set(description "")
-  if(GIT_FOUND)
+  # só consulta o git se os schemas estão num repositório próprio (e não num de quem consome)
+  get_filename_component(repo_root "${SCHEMAS_DIR}" DIRECTORY)
+  if(GIT_FOUND AND EXISTS "${repo_root}/.git")
     execute_process(COMMAND "${GIT_EXECUTABLE}" rev-parse HEAD
       WORKING_DIRECTORY "${SCHEMAS_DIR}" OUTPUT_VARIABLE commit
       OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_QUIET)
     execute_process(COMMAND "${GIT_EXECUTABLE}" describe --tags --always --dirty
       WORKING_DIRECTORY "${SCHEMAS_DIR}" OUTPUT_VARIABLE description
       OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_QUIET)
+  endif()
+  if(description STREQUAL "")
+    set(description "${ARGV2}")
   endif()
   string(TIMESTAMP now "%Y-%m-%dT%H:%M:%SZ" UTC)
 

@@ -20,13 +20,15 @@ set(ODS_EXAMPLES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../examples" CACHE PATH
 
 # dependências: usa as do sistema se houver; senão baixa (versões fixas)
 include(FetchContent)
+if(POLICY CMP0135)
+  cmake_policy(SET CMP0135 NEW)
+endif()
 find_package(nlohmann_json 3.9 QUIET)
 if(NOT nlohmann_json_FOUND)
   set(JSON_BuildTests OFF CACHE INTERNAL "")
   set(JSON_Install OFF CACHE INTERNAL "")
   FetchContent_Declare(nlohmann_json
-    GIT_REPOSITORY https://github.com/nlohmann/json.git
-    GIT_TAG v3.11.3 GIT_SHALLOW TRUE)
+    URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz)
   FetchContent_MakeAvailable(nlohmann_json)
 endif()
 
@@ -36,8 +38,7 @@ if(NOT nlohmann_json_schema_validator_FOUND)
   set(JSON_VALIDATOR_BUILD_TESTS OFF CACHE INTERNAL "")
   set(JSON_VALIDATOR_BUILD_EXAMPLES OFF CACHE INTERNAL "")
   FetchContent_Declare(json_schema_validator
-    GIT_REPOSITORY https://github.com/pboettch/json-schema-validator.git
-    GIT_TAG 2.3.0 GIT_SHALLOW TRUE)
+    URL https://github.com/pboettch/json-schema-validator/archive/refs/tags/2.3.0.tar.gz)
   FetchContent_MakeAvailable(json_schema_validator)
 endif()
 if(TARGET nlohmann_json_schema_validator::validator)
@@ -48,7 +49,7 @@ endif()
 
 include(cmake/EmbedSchemas.cmake)
 set(ODS_GEN_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
-ods_embed_schemas("${ODS_SCHEMAS_DIR}" "${ODS_GEN_DIR}/ods_schemas.hpp")
+ods_embed_schemas("${ODS_SCHEMAS_DIR}" "${ODS_GEN_DIR}/ods_schemas.hpp" "${PROJECT_VERSION}")
 
 add_library(ods_validator STATIC src/validator.cpp)
 add_library(ods::validator ALIAS ods_validator)

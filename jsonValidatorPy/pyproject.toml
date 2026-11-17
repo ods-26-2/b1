@@ -1,13 +1,25 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "ods-validator"
 version = "0.1.0"
 description = "Validador de mensagens do barramento ODS 2026/2 (JSON Schemas da Especificação 1.0)"
+readme = "README.md"
 requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["json-schema", "validation", "kafka", "ods"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Developers",
+]
 dependencies = ["jsonschema[format-nongpl]>=4.20"]
+
+[project.urls]
+Homepage = "https://github.com/ods-26-2/b1"
+Issues = "https://github.com/ods-26-2/b1/issues"
 
 [project.optional-dependencies]
 dev = ["pytest"]
@@ -17,11 +29,11 @@ ods-validate = "ods_validator.__main__:main"
 
 # src/ instala como o pacote "ods_validator"
 [tool.setuptools]
-packages = ["ods_validator"]
+packages = ["ods_validator", "ods_validator._schemas"]
 
 [tool.setuptools.package-dir]
 ods_validator = "src"
 
 # _schemas/ é gerada pelo setup.py (não vai ao git)
 [tool.setuptools.package-data]
-ods_validator = ["_schemas/**/*.json"]
+"ods_validator._schemas" = ["*.json"]
