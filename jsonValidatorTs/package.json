@@ -1,6 +1,6 @@
 {
   "name": "ods-validator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Validador de mensagens do barramento ODS 2026/2 (JSON Schemas da Especificação 1.0)",
   "keywords": [
     "json-schema",
