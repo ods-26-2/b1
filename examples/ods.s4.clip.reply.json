@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.s4.clip.reply",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "reply",
       "producer": "x",
       "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -17,6 +18,20 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "clips": []
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.s4.clip.reply",
         "message_type": "reply",
         "producer": "x",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -30,6 +45,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.s4.clip.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
         "payload": {
@@ -42,6 +58,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.s4.clip.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
         "payload": {
@@ -54,6 +71,7 @@
       "case": "missing-correlation_id",
       "message": {
         "schema": "ods.s4.clip.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": "x",
         "payload": {
@@ -66,6 +84,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.s4.clip.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": "x",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000"
@@ -75,6 +94,7 @@
       "case": "payload-missing-status",
       "message": {
         "schema": "ods.s4.clip.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": "x",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -87,6 +107,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.s4.clip.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": 123,
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -100,6 +121,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": "x",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -113,6 +135,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.s4.clip.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": "x",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -124,9 +147,24 @@
       "message": []
     },
     {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.s4.clip.reply",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "clips": []
+        }
+      }
+    },
+    {
       "case": "correlation_id-not-uuid",
       "message": {
         "schema": "ods.s4.clip.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": "x",
         "correlation_id": "isto-nao-e-uuid",

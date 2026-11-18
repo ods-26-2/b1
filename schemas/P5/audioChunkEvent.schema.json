@@ -7,6 +7,10 @@
       "type": "string",
       "const": "ods.p5.audio_chunk"
     },
+    "message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
     "producer": {
       "type": "string"
     },
@@ -55,6 +59,7 @@
   },
   "required": [
     "schema",
+    "message_id",
     "producer",
     "captured_at",
     "source_id",

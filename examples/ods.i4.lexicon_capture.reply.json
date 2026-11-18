@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.i4.lexicon_capture.reply",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "reply",
       "producer": "x",
       "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -22,6 +23,25 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "sign_label": "x",
+          "captured_from": "2026-11-14T12:00:00Z",
+          "captured_until": "2026-11-14T12:00:00Z",
+          "fps": 0,
+          "frame_count": 0,
+          "sequence_ref": "https://exemplo.local/recurso"
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.reply",
         "message_type": "reply",
         "producer": "x",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -40,6 +60,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.i4.lexicon_capture.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
         "payload": {
@@ -57,6 +78,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.i4.lexicon_capture.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
         "payload": {
@@ -74,6 +96,7 @@
       "case": "missing-correlation_id",
       "message": {
         "schema": "ods.i4.lexicon_capture.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": "x",
         "payload": {
@@ -91,6 +114,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.i4.lexicon_capture.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": "x",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000"
@@ -100,6 +124,7 @@
       "case": "payload-missing-status",
       "message": {
         "schema": "ods.i4.lexicon_capture.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": "x",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -117,6 +142,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.i4.lexicon_capture.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": 123,
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -135,6 +161,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": "x",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -153,6 +180,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.i4.lexicon_capture.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": "x",
         "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -164,9 +192,29 @@
       "message": []
     },
     {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.i4.lexicon_capture.reply",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "reply",
+        "producer": "x",
+        "correlation_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "status": "OK",
+          "sign_label": "x",
+          "captured_from": "2026-11-14T12:00:00Z",
+          "captured_until": "2026-11-14T12:00:00Z",
+          "fps": 0,
+          "frame_count": 0,
+          "sequence_ref": "https://exemplo.local/recurso"
+        }
+      }
+    },
+    {
       "case": "correlation_id-not-uuid",
       "message": {
         "schema": "ods.i4.lexicon_capture.reply",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "reply",
         "producer": "x",
         "correlation_id": "isto-nao-e-uuid",

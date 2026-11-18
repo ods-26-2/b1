@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.i9.ppe_compliance",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "event",
       "producer": "x",
       "source_id": "x",
@@ -28,6 +29,31 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -52,6 +78,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "source_id": "x",
         "artifact_version": "x",
@@ -75,6 +102,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "source_id": "x",
         "artifact_version": "x",
@@ -98,6 +126,7 @@
       "case": "missing-source_id",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x",
@@ -121,6 +150,7 @@
       "case": "missing-artifact_version",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -144,6 +174,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -154,6 +185,7 @@
       "case": "payload-missing-frame_index",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -177,6 +209,7 @@
       "case": "payload-missing-detection_id",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -200,6 +233,7 @@
       "case": "payload-missing-bbox",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -218,6 +252,7 @@
       "case": "payload-missing-calibrated",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -241,6 +276,7 @@
       "case": "payload-missing-catalog_version",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -264,6 +300,7 @@
       "case": "payload-missing-items",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -287,6 +324,7 @@
       "case": "payload-missing-uncertain",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -310,6 +348,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": 123,
         "source_id": "x",
@@ -334,6 +373,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -358,6 +398,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.i9.ppe_compliance",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -368,6 +409,31 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.i9.ppe_compliance",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "frame_index": 0,
+          "detection_id": 0,
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "calibrated": false,
+          "catalog_version": "x",
+          "items": [],
+          "uncertain": false
+        }
+      }
     }
   ]
 }

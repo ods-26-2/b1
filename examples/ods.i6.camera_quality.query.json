@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.i6.camera_quality.query",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "query",
       "producer": "x",
       "target": "x",
@@ -16,6 +17,19 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x"
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.i6.camera_quality.query",
         "message_type": "query",
         "producer": "x",
         "target": "x",
@@ -28,6 +42,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.i6.camera_quality.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "target": "x",
         "payload": {
@@ -39,6 +54,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.i6.camera_quality.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "target": "x",
         "payload": {
@@ -50,6 +66,7 @@
       "case": "missing-target",
       "message": {
         "schema": "ods.i6.camera_quality.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": "x",
         "payload": {
@@ -61,6 +78,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.i6.camera_quality.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": "x",
         "target": "x"
@@ -70,6 +88,7 @@
       "case": "payload-missing-source_id",
       "message": {
         "schema": "ods.i6.camera_quality.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": "x",
         "target": "x",
@@ -80,6 +99,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.i6.camera_quality.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": 123,
         "target": "x",
@@ -92,6 +112,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": "x",
         "target": "x",
@@ -104,6 +125,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.i6.camera_quality.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": "x",
         "target": "x",
@@ -113,6 +135,19 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.i6.camera_quality.query",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "source_id": "x"
+        }
+      }
     }
   ]
 }

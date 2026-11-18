@@ -7,6 +7,10 @@
       "type": "string",
       "const": "ods.p6.record.command"
     },
+    "message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
     "message_type": {
       "type": "string",
       "const": "command"
@@ -68,5 +72,5 @@
       ]
     }
   },
-  "required": ["schema", "message_type", "producer", "target", "payload"]
+  "required": ["schema", "message_id", "message_type", "producer", "target", "payload"]
 }

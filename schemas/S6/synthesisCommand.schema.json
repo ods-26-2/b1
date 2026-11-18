@@ -7,6 +7,10 @@
       "type": "string",
       "const": "ods.s6.synthesis.command"
     },
+    "message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
     "message_type": {
       "type": "string",
       "const": "command"
@@ -57,5 +61,5 @@
       "required": ["glosses", "speed_factor", "lexicon_version"]
     }
   },
-  "required": ["schema", "message_type", "producer", "target", "payload"]
+  "required": ["schema", "message_id", "message_type", "producer", "target", "payload"]
 }

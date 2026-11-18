@@ -7,6 +7,10 @@
       "type": "string",
       "const": "ods.i4.lexicon_capture.reply"
     },
+    "message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
     "message_type": {
       "type": "string",
       "const": "reply"
@@ -102,6 +106,7 @@
   },
   "required": [
     "schema",
+    "message_id",
     "message_type",
     "producer",
     "correlation_id",

@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.s1.zone_transition",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "event",
       "producer": "x",
       "source_id": "x",
@@ -21,6 +22,24 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "track_id": "x",
+          "class": "x",
+          "zone_id": "x",
+          "transition": "ENTER",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.s1.zone_transition",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -38,6 +57,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.s1.zone_transition",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "source_id": "x",
         "artifact_version": "x",
@@ -54,6 +74,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.s1.zone_transition",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "source_id": "x",
         "artifact_version": "x",
@@ -70,6 +91,7 @@
       "case": "missing-source_id",
       "message": {
         "schema": "ods.s1.zone_transition",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x",
@@ -86,6 +108,7 @@
       "case": "missing-artifact_version",
       "message": {
         "schema": "ods.s1.zone_transition",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -102,6 +125,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.s1.zone_transition",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -112,6 +136,7 @@
       "case": "payload-missing-track_id",
       "message": {
         "schema": "ods.s1.zone_transition",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -128,6 +153,7 @@
       "case": "payload-missing-class",
       "message": {
         "schema": "ods.s1.zone_transition",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -144,6 +170,7 @@
       "case": "payload-missing-zone_id",
       "message": {
         "schema": "ods.s1.zone_transition",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -160,6 +187,7 @@
       "case": "payload-missing-transition",
       "message": {
         "schema": "ods.s1.zone_transition",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -176,6 +204,7 @@
       "case": "payload-missing-entered_at",
       "message": {
         "schema": "ods.s1.zone_transition",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -192,6 +221,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.s1.zone_transition",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": 123,
         "source_id": "x",
@@ -209,6 +239,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -226,6 +257,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.s1.zone_transition",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -236,6 +268,24 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.s1.zone_transition",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "track_id": "x",
+          "class": "x",
+          "zone_id": "x",
+          "transition": "ENTER",
+          "entered_at": "2026-11-14T12:00:00Z"
+        }
+      }
     }
   ]
 }

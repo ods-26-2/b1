@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.s2.rules.command",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "command",
       "producer": "x",
       "target": "x",
@@ -17,6 +18,20 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "artifact_version": "x",
+          "rules": []
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.s2.rules.command",
         "message_type": "command",
         "producer": "x",
         "target": "x",
@@ -30,6 +45,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.s2.rules.command",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "target": "x",
         "payload": {
@@ -42,6 +58,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.s2.rules.command",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "command",
         "target": "x",
         "payload": {
@@ -54,6 +71,7 @@
       "case": "missing-target",
       "message": {
         "schema": "ods.s2.rules.command",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "command",
         "producer": "x",
         "payload": {
@@ -66,6 +84,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.s2.rules.command",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "command",
         "producer": "x",
         "target": "x"
@@ -75,6 +94,7 @@
       "case": "payload-missing-artifact_version",
       "message": {
         "schema": "ods.s2.rules.command",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "command",
         "producer": "x",
         "target": "x",
@@ -87,6 +107,7 @@
       "case": "payload-missing-rules",
       "message": {
         "schema": "ods.s2.rules.command",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "command",
         "producer": "x",
         "target": "x",
@@ -99,6 +120,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.s2.rules.command",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "command",
         "producer": 123,
         "target": "x",
@@ -112,6 +134,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "command",
         "producer": "x",
         "target": "x",
@@ -125,6 +148,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.s2.rules.command",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "command",
         "producer": "x",
         "target": "x",
@@ -134,6 +158,20 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.s2.rules.command",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "command",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "artifact_version": "x",
+          "rules": []
+        }
+      }
     }
   ]
 }

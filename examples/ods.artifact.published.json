@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.artifact.published",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "event",
       "producer": "x",
       "payload": {
@@ -22,6 +23,25 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "uri": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.artifact.published",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -40,6 +60,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "payload": {
           "artifact_id": "x",
@@ -57,6 +78,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "payload": {
           "artifact_id": "x",
@@ -74,6 +96,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x"
       }
@@ -82,6 +105,7 @@
       "case": "payload-missing-artifact_id",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -99,6 +123,7 @@
       "case": "payload-missing-artifact_version",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -116,6 +141,7 @@
       "case": "payload-missing-kind",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -133,6 +159,7 @@
       "case": "payload-missing-owner",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -150,6 +177,7 @@
       "case": "payload-missing-uri",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -167,6 +195,7 @@
       "case": "payload-missing-hash_sha256",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -184,6 +213,7 @@
       "case": "payload-missing-valid_from",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -201,6 +231,7 @@
       "case": "payload-missing-schema_version",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -218,6 +249,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": 123,
         "payload": {
@@ -236,6 +268,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -254,6 +287,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.artifact.published",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": "texto"
@@ -262,6 +296,25 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.artifact.published",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "artifact_id": "x",
+          "artifact_version": "x",
+          "kind": "MODEL",
+          "owner": "x",
+          "uri": "x",
+          "hash_sha256": "x",
+          "valid_from": "2026-11-14T12:00:00Z",
+          "schema_version": "x"
+        }
+      }
     }
   ]
 }

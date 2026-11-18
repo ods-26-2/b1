@@ -7,6 +7,10 @@
       "type": "string",
       "const": "ods.p7.move.command"
     },
+    "message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
     "message_type": {
       "type": "string",
       "const": "command"
@@ -41,5 +45,5 @@
       "required": ["source_id", "pan_deg", "tilt_deg"]
     }
   },
-  "required": ["schema", "message_type", "producer", "target", "payload"]
+  "required": ["schema", "message_id", "message_type", "producer", "target", "payload"]
 }

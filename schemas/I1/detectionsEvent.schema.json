@@ -7,6 +7,10 @@
       "type": "string",
       "const": "ods.i1.detections"
     },
+    "message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
     "message_type": {
       "type": "string",
       "const": "event"
@@ -67,6 +71,7 @@
   },
   "required": [
     "schema",
+    "message_id",
     "message_type",
     "producer",
     "artifact_version",

@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.i3.calibration",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "event",
       "producer": "x",
       "source_id": "x",
@@ -56,6 +57,59 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.i3.calibration",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -108,6 +162,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "source_id": "x",
         "artifact_version": "x",
@@ -159,6 +214,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "source_id": "x",
         "artifact_version": "x",
@@ -210,6 +266,7 @@
       "case": "missing-source_id",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x",
@@ -261,6 +318,7 @@
       "case": "missing-artifact_version",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -312,6 +370,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -322,6 +381,7 @@
       "case": "payload-missing-valid_from",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -373,6 +433,7 @@
       "case": "payload-missing-image_width",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -424,6 +485,7 @@
       "case": "payload-missing-image_height",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -475,6 +537,7 @@
       "case": "payload-missing-intrinsics",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -521,6 +584,7 @@
       "case": "payload-missing-distortion",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -566,6 +630,7 @@
       "case": "payload-missing-homography_px_to_m",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -601,6 +666,7 @@
       "case": "payload-missing-reference_frame",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -648,6 +714,7 @@
       "case": "payload-missing-reprojection_rms_cm",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -699,6 +766,7 @@
       "case": "payload-missing-holdout_points",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -750,6 +818,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": 123,
         "source_id": "x",
@@ -802,6 +871,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -854,6 +924,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.i3.calibration",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -864,6 +935,59 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.i3.calibration",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "valid_from": "2026-11-14T12:00:00Z",
+          "image_width": 1,
+          "image_height": 1,
+          "intrinsics": {
+            "fx": 0,
+            "fy": 0,
+            "cx": 0,
+            "cy": 0
+          },
+          "distortion": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "homography_px_to_m": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference_frame": {
+            "space_id": "x",
+            "origin": "x",
+            "axes": "x"
+          },
+          "reprojection_rms_cm": 0,
+          "holdout_points": 0
+        }
+      }
     }
   ]
 }

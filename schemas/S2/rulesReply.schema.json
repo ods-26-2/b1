@@ -7,6 +7,10 @@
       "type": "string",
       "const": "ods.s2.rules.reply"
     },
+    "message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
     "message_type": {
       "type": "string",
       "const": "reply"
@@ -78,6 +82,7 @@
   },
   "required": [
     "schema",
+    "message_id",
     "message_type",
     "producer",
     "correlation_id",

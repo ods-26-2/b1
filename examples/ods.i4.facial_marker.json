@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.i4.facial_marker",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "event",
       "producer": "x",
       "artifact_version": "x",
@@ -19,6 +20,22 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "marker": "x",
+          "confidence": 0,
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.i4.facial_marker",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x",
@@ -34,6 +51,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.i4.facial_marker",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "artifact_version": "x",
         "payload": {
@@ -48,6 +66,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.i4.facial_marker",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "artifact_version": "x",
         "payload": {
@@ -62,6 +81,7 @@
       "case": "missing-artifact_version",
       "message": {
         "schema": "ods.i4.facial_marker",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -76,6 +96,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.i4.facial_marker",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x"
@@ -85,6 +106,7 @@
       "case": "payload-missing-marker",
       "message": {
         "schema": "ods.i4.facial_marker",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x",
@@ -99,6 +121,7 @@
       "case": "payload-missing-confidence",
       "message": {
         "schema": "ods.i4.facial_marker",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x",
@@ -113,6 +136,7 @@
       "case": "payload-missing-start_at",
       "message": {
         "schema": "ods.i4.facial_marker",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x",
@@ -127,6 +151,7 @@
       "case": "payload-missing-end_at",
       "message": {
         "schema": "ods.i4.facial_marker",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x",
@@ -141,6 +166,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.i4.facial_marker",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": 123,
         "artifact_version": "x",
@@ -156,6 +182,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x",
@@ -171,6 +198,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.i4.facial_marker",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x",
@@ -180,6 +208,22 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.i4.facial_marker",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "event",
+        "producer": "x",
+        "artifact_version": "x",
+        "payload": {
+          "marker": "x",
+          "confidence": 0,
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z"
+        }
+      }
     }
   ]
 }

@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.p6.replay.state",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "event",
       "producer": "x",
       "payload": {
@@ -20,6 +21,23 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "recording_id": "x",
+          "state": "PLAYING",
+          "position_ms": 0,
+          "duration_ms": 0,
+          "speed_factor": 1,
+          "loop": false
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.p6.replay.state",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -36,6 +54,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.p6.replay.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "payload": {
           "recording_id": "x",
@@ -51,6 +70,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.p6.replay.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "payload": {
           "recording_id": "x",
@@ -66,6 +86,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.p6.replay.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x"
       }
@@ -74,6 +95,7 @@
       "case": "payload-missing-recording_id",
       "message": {
         "schema": "ods.p6.replay.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -89,6 +111,7 @@
       "case": "payload-missing-state",
       "message": {
         "schema": "ods.p6.replay.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -104,6 +127,7 @@
       "case": "payload-missing-position_ms",
       "message": {
         "schema": "ods.p6.replay.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -119,6 +143,7 @@
       "case": "payload-missing-duration_ms",
       "message": {
         "schema": "ods.p6.replay.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -134,6 +159,7 @@
       "case": "payload-missing-speed_factor",
       "message": {
         "schema": "ods.p6.replay.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -149,6 +175,7 @@
       "case": "payload-missing-loop",
       "message": {
         "schema": "ods.p6.replay.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -164,6 +191,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.p6.replay.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": 123,
         "payload": {
@@ -180,6 +208,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -196,6 +225,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.p6.replay.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": "texto"
@@ -204,6 +234,23 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.p6.replay.state",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "recording_id": "x",
+          "state": "PLAYING",
+          "position_ms": 0,
+          "duration_ms": 0,
+          "speed_factor": 1,
+          "loop": false
+        }
+      }
     }
   ]
 }

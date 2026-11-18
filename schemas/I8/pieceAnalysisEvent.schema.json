@@ -7,6 +7,10 @@
       "type": "string",
       "const": "ods.i8.piece_analysis"
     },
+    "message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
     "message_type": {
       "type": "string",
       "const": "event"
@@ -88,6 +92,7 @@
   },
   "required": [
     "schema",
+    "message_id",
     "message_type",
     "producer",
     "source_id",

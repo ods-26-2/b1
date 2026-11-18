@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.s5.heatmap.query",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "query",
       "producer": "x",
       "target": "x",
@@ -19,6 +20,22 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "space_id": "x",
+          "cell_size_m": 1
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.s5.heatmap.query",
         "message_type": "query",
         "producer": "x",
         "target": "x",
@@ -34,6 +51,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.s5.heatmap.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "target": "x",
         "payload": {
@@ -48,6 +66,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.s5.heatmap.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "target": "x",
         "payload": {
@@ -62,6 +81,7 @@
       "case": "missing-target",
       "message": {
         "schema": "ods.s5.heatmap.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": "x",
         "payload": {
@@ -76,6 +96,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.s5.heatmap.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": "x",
         "target": "x"
@@ -85,6 +106,7 @@
       "case": "payload-missing-period_start_at",
       "message": {
         "schema": "ods.s5.heatmap.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": "x",
         "target": "x",
@@ -99,6 +121,7 @@
       "case": "payload-missing-period_end_at",
       "message": {
         "schema": "ods.s5.heatmap.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": "x",
         "target": "x",
@@ -113,6 +136,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.s5.heatmap.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": 123,
         "target": "x",
@@ -128,6 +152,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": "x",
         "target": "x",
@@ -143,6 +168,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.s5.heatmap.query",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "query",
         "producer": "x",
         "target": "x",
@@ -152,6 +178,22 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.s5.heatmap.query",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "query",
+        "producer": "x",
+        "target": "x",
+        "payload": {
+          "period_start_at": "2026-11-14T12:00:00Z",
+          "period_end_at": "2026-11-14T12:00:00Z",
+          "space_id": "x",
+          "cell_size_m": 1
+        }
+      }
     }
   ]
 }

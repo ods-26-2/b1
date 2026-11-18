@@ -7,6 +7,10 @@
       "type": "string",
       "const": "ods.s3.alerts.query"
     },
+    "message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
     "message_type": {
       "type": "string",
       "const": "query"
@@ -45,5 +49,5 @@
       "required": []
     }
   },
-  "required": ["schema", "message_type", "producer", "target", "payload"]
+  "required": ["schema", "message_id", "message_type", "producer", "target", "payload"]
 }

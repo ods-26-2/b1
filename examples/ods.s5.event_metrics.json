@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.s5.event_metrics",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "event",
       "producer": "x",
       "payload": {
@@ -20,6 +21,23 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "event_type": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "count": 0,
+          "uncertain_count": 0
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.s5.event_metrics",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -36,6 +54,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.s5.event_metrics",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "payload": {
           "event_type": "x",
@@ -51,6 +70,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.s5.event_metrics",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "payload": {
           "event_type": "x",
@@ -66,6 +86,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.s5.event_metrics",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x"
       }
@@ -74,6 +95,7 @@
       "case": "payload-missing-event_type",
       "message": {
         "schema": "ods.s5.event_metrics",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -89,6 +111,7 @@
       "case": "payload-missing-window_start_at",
       "message": {
         "schema": "ods.s5.event_metrics",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -104,6 +127,7 @@
       "case": "payload-missing-window_end_at",
       "message": {
         "schema": "ods.s5.event_metrics",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -119,6 +143,7 @@
       "case": "payload-missing-granularity",
       "message": {
         "schema": "ods.s5.event_metrics",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -134,6 +159,7 @@
       "case": "payload-missing-count",
       "message": {
         "schema": "ods.s5.event_metrics",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -149,6 +175,7 @@
       "case": "payload-missing-uncertain_count",
       "message": {
         "schema": "ods.s5.event_metrics",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -164,6 +191,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.s5.event_metrics",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": 123,
         "payload": {
@@ -180,6 +208,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -196,6 +225,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.s5.event_metrics",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": "texto"
@@ -204,6 +234,23 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.s5.event_metrics",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "event",
+        "producer": "x",
+        "payload": {
+          "event_type": "x",
+          "window_start_at": "2026-11-14T12:00:00Z",
+          "window_end_at": "2026-11-14T12:00:00Z",
+          "granularity": "1m",
+          "count": 0,
+          "uncertain_count": 0
+        }
+      }
     }
   ]
 }

@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.s2.event",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "event",
       "producer": "x",
       "source_id": "x",
@@ -25,6 +26,28 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "event_id": "123e4567-e89b-42d3-a456-426614174000",
+          "event_type": "x",
+          "rule_id": "x",
+          "status": "CONFIRMED",
+          "phase": "STARTED",
+          "confidence": 0,
+          "started_at": "2026-11-14T12:00:00Z",
+          "duration_ms": 0,
+          "source_ids": []
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.s2.event",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -46,6 +69,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "source_id": "x",
         "artifact_version": "x",
@@ -66,6 +90,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "source_id": "x",
         "artifact_version": "x",
@@ -86,6 +111,7 @@
       "case": "missing-source_id",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x",
@@ -106,6 +132,7 @@
       "case": "missing-artifact_version",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -126,6 +153,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -136,6 +164,7 @@
       "case": "payload-missing-event_id",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -156,6 +185,7 @@
       "case": "payload-missing-event_type",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -176,6 +206,7 @@
       "case": "payload-missing-rule_id",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -196,6 +227,7 @@
       "case": "payload-missing-status",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -216,6 +248,7 @@
       "case": "payload-missing-phase",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -236,6 +269,7 @@
       "case": "payload-missing-confidence",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -256,6 +290,7 @@
       "case": "payload-missing-started_at",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -276,6 +311,7 @@
       "case": "payload-missing-duration_ms",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -296,6 +332,7 @@
       "case": "payload-missing-source_ids",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -316,6 +353,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": 123,
         "source_id": "x",
@@ -337,6 +375,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -358,6 +397,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.s2.event",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -368,6 +408,28 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.s2.event",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "event_id": "123e4567-e89b-42d3-a456-426614174000",
+          "event_type": "x",
+          "rule_id": "x",
+          "status": "CONFIRMED",
+          "phase": "STARTED",
+          "confidence": 0,
+          "started_at": "2026-11-14T12:00:00Z",
+          "duration_ms": 0,
+          "source_ids": []
+        }
+      }
     }
   ]
 }

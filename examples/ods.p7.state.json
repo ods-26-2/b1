@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.p7.state",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "event",
       "producer": "x",
       "source_id": "x",
@@ -19,6 +20,22 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.p7.state",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -34,6 +51,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.p7.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "source_id": "x",
         "payload": {
@@ -48,6 +66,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.p7.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "source_id": "x",
         "payload": {
@@ -62,6 +81,7 @@
       "case": "missing-source_id",
       "message": {
         "schema": "ods.p7.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "payload": {
@@ -76,6 +96,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.p7.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x"
@@ -85,6 +106,7 @@
       "case": "payload-missing-pan_deg",
       "message": {
         "schema": "ods.p7.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -99,6 +121,7 @@
       "case": "payload-missing-tilt_deg",
       "message": {
         "schema": "ods.p7.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -113,6 +136,7 @@
       "case": "payload-missing-state",
       "message": {
         "schema": "ods.p7.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -127,6 +151,7 @@
       "case": "payload-missing-is_homed",
       "message": {
         "schema": "ods.p7.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -141,6 +166,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.p7.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": 123,
         "source_id": "x",
@@ -156,6 +182,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -171,6 +198,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.p7.state",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -180,6 +208,22 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.p7.state",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "payload": {
+          "pan_deg": 0,
+          "tilt_deg": 0,
+          "state": "IDLE",
+          "is_homed": false
+        }
+      }
     }
   ]
 }

@@ -7,6 +7,10 @@
       "type": "string",
       "const": "ods.artifact.published"
     },
+    "message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
     "message_type": {
       "type": "string",
       "const": "event"
@@ -66,5 +70,5 @@
       ]
     }
   },
-  "required": ["schema", "message_type", "producer", "payload"]
+  "required": ["schema", "message_id", "message_type", "producer", "payload"]
 }

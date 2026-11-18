@@ -7,6 +7,10 @@
       "type": "string",
       "const": "ods.p4.frame"
     },
+    "message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
     "producer": {
       "type": "string"
     },
@@ -59,6 +63,7 @@
   },
   "required": [
     "schema",
+    "message_id",
     "producer",
     "captured_at",
     "source_id",

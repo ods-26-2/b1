@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.p5.audio_chunk",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "producer": "x",
       "captured_at": "2026-11-14T12:00:00Z",
       "source_id": "x",
@@ -21,6 +22,24 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",
@@ -38,6 +57,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",
         "session_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -54,6 +74,7 @@
       "case": "missing-captured_at",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "source_id": "x",
         "session_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -70,6 +91,7 @@
       "case": "missing-source_id",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
         "session_id": "123e4567-e89b-42d3-a456-426614174000",
@@ -86,6 +108,7 @@
       "case": "missing-session_id",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",
@@ -102,6 +125,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",
@@ -112,6 +136,7 @@
       "case": "payload-missing-chunk_index",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",
@@ -128,6 +153,7 @@
       "case": "payload-missing-sample_rate",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",
@@ -144,6 +170,7 @@
       "case": "payload-missing-channels",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",
@@ -160,6 +187,7 @@
       "case": "payload-missing-sample_format",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",
@@ -176,6 +204,7 @@
       "case": "payload-missing-duration_ms",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",
@@ -192,6 +221,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": 123,
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",
@@ -209,6 +239,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",
@@ -226,6 +257,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",
@@ -238,9 +270,28 @@
       "message": []
     },
     {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.p5.audio_chunk",
+        "message_id": "isto-nao-e-uuid",
+        "producer": "x",
+        "captured_at": "2026-11-14T12:00:00Z",
+        "source_id": "x",
+        "session_id": "123e4567-e89b-42d3-a456-426614174000",
+        "payload": {
+          "chunk_index": 0,
+          "sample_rate": 1,
+          "channels": 1,
+          "sample_format": "x",
+          "duration_ms": 1
+        }
+      }
+    },
+    {
       "case": "captured_at-invalid-date",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "ontem as 10h",
         "source_id": "x",
@@ -258,6 +309,7 @@
       "case": "captured_at-no-timezone",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00",
         "source_id": "x",
@@ -275,6 +327,7 @@
       "case": "captured_at-date-only",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14",
         "source_id": "x",
@@ -292,6 +345,7 @@
       "case": "session_id-not-uuid",
       "message": {
         "schema": "ods.p5.audio_chunk",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "captured_at": "2026-11-14T12:00:00Z",
         "source_id": "x",

@@ -4,6 +4,7 @@
   "valid": [
     {
       "schema": "ods.i5.transcript",
+      "message_id": "123e4567-e89b-42d3-a456-426614174000",
       "message_type": "event",
       "producer": "x",
       "source_id": "x",
@@ -22,6 +23,25 @@
     {
       "case": "missing-schema",
       "message": {
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
+    },
+    {
+      "case": "missing-message_id",
+      "message": {
+        "schema": "ods.i5.transcript",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -40,6 +60,7 @@
       "case": "missing-message_type",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "producer": "x",
         "source_id": "x",
         "artifact_version": "x",
@@ -57,6 +78,7 @@
       "case": "missing-producer",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "source_id": "x",
         "artifact_version": "x",
@@ -74,6 +96,7 @@
       "case": "missing-source_id",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "artifact_version": "x",
@@ -91,6 +114,7 @@
       "case": "missing-artifact_version",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -108,6 +132,7 @@
       "case": "missing-payload",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -118,6 +143,7 @@
       "case": "payload-missing-start_at",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -135,6 +161,7 @@
       "case": "payload-missing-end_at",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -152,6 +179,7 @@
       "case": "payload-missing-transcribed_text",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -169,6 +197,7 @@
       "case": "payload-missing-normalized_text",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -186,6 +215,7 @@
       "case": "payload-missing-confidence",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -203,6 +233,7 @@
       "case": "payload-missing-uncertain",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -220,6 +251,7 @@
       "case": "producer-wrong-type",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": 123,
         "source_id": "x",
@@ -238,6 +270,7 @@
       "case": "schema-swapped",
       "message": {
         "schema": "ods.outro.topico",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -256,6 +289,7 @@
       "case": "payload-not-object",
       "message": {
         "schema": "ods.i5.transcript",
+        "message_id": "123e4567-e89b-42d3-a456-426614174000",
         "message_type": "event",
         "producer": "x",
         "source_id": "x",
@@ -266,6 +300,25 @@
     {
       "case": "root-array",
       "message": []
+    },
+    {
+      "case": "message_id-not-uuid",
+      "message": {
+        "schema": "ods.i5.transcript",
+        "message_id": "isto-nao-e-uuid",
+        "message_type": "event",
+        "producer": "x",
+        "source_id": "x",
+        "artifact_version": "x",
+        "payload": {
+          "start_at": "2026-11-14T12:00:00Z",
+          "end_at": "2026-11-14T12:00:00Z",
+          "transcribed_text": "x",
+          "normalized_text": "x",
+          "confidence": 0,
+          "uncertain": false
+        }
+      }
     }
   ]
 }
