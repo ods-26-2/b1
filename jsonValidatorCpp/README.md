@@ -1,123 +1,145 @@
 # ods-validator (C++)
 
-Valida mensagens do barramento contra os JSON Schemas da Especificação 1.0
-(pasta `schemas/` do repositório [ods-26-2/b1](https://github.com/ods-26-2/b1)). A mensagem fora do contrato é barrada
-**antes** de chegar ao Kafka. Mesma API das bibliotecas Python e TypeScript.
+Biblioteca para validar mensagens do barramento ODS conforme os contratos definidos nos JSON Schemas da Especificação 1.0.
 
-Requer C++17 e CMake 3.16 ou mais novo.
+A validação permite identificar mensagens inválidas antes de seu envio ao Kafka, garantindo que os dados estejam de acordo com o contrato esperado pelos componentes.
 
-## Instalar no seu componente
+Os JSON Schemas são **incorporados à biblioteca**, portanto não é necessário baixar ou gerenciar os schemas separadamente.
 
-Não há registro de pacotes para C++: o CMake baixa a biblioteca do GitHub, numa
-versão fixa (tag), e a compila junto com o seu componente. O build precisa só de
-`cmake` e de um compilador, sem `git`.
+**Requisitos:** C++17 e CMake 3.16 ou superior.
+
+## Instalação
+
+A biblioteca pode ser incorporada diretamente ao projeto utilizando o CMake e `FetchContent`. Dessa forma, o CMake baixa e compila a biblioteca junto com o componente.
+
+Adicione ao `CMakeLists.txt`:
 
 ```cmake
 include(FetchContent)
-FetchContent_Declare(ods
-  URL https://github.com/ods-26-2/b1/archive/refs/tags/v0.1.0.tar.gz
-  SOURCE_SUBDIR jsonValidatorCpp)
+
+FetchContent_Declare(
+    ods
+    URL https://github.com/ods-26-2/b1/archive/refs/tags/v0.1.0.tar.gz
+    SOURCE_SUBDIR jsonValidatorCpp
+)
+
 FetchContent_MakeAvailable(ods)
+
 target_link_libraries(my_component PRIVATE ods::validator)
 ```
 
-Troque `v0.1.0` pela versão do contrato que o componente usa. Já tem o clone do
-`b1`? `add_subdirectory(caminho/para/b1/jsonValidatorCpp ods)` faz o mesmo.
+Substitua `v0.1.0` pela versão do contrato utilizada pelo componente.
 
-Os schemas embutidos são os do arquivo da tag (ou de `../schemas` no clone). Para
-outra pasta: `-DODS_SCHEMAS_DIR=/caminho`. As dependências
-([nlohmann/json](https://github.com/nlohmann/json) 3.11.3 e
-[json-schema-validator](https://github.com/pboettch/json-schema-validator) 2.3.0)
-também são baixadas como arquivos; se estiverem instaladas no sistema, o
-`CMakeLists.txt` as usa (`find_package`) em vez de baixar.
+As dependências necessárias são baixadas automaticamente pelo CMake quando não estão instaladas no sistema.
 
-Testei o consumo com um arquivo local equivalente ao que o GitHub gera para uma
-tag, inclusive num ambiente sem `git`. O endereço acima passa a funcionar quando
-a tag existir. Sem internet (por exemplo, uma Jetson offline), instale as duas
-dependências no sistema; esse caminho ainda precisa ser conferido numa Jetson.
+Caso já possua um clone do repositório, também é possível incorporar a biblioteca diretamente:
 
-## Usar
+```cmake
+add_subdirectory(caminho/para/b1/jsonValidatorCpp ods)
+
+target_link_libraries(my_component PRIVATE ods::validator)
+```
+
+## Utilização
+
+### Inicialização
 
 ```cpp
 #include <ods/validator.hpp>
 
-ods::Validator val;                                // usa os schemas embutidos
-val.find_errors("ods.p7.move.command", msg);       // vector<string>; vazio = válida
-val.find_message_errors(msg);                     // descobre o tópico pelo campo "schema"
-val.validate(msg);                                 // lança ods::ContractError se inválida
-val.schemas_version();                             // origin, commit do b1, count
+ods::Validator val;
 ```
 
-`msg` é um `nlohmann::json`.
+Por padrão, a biblioteca utiliza os JSON Schemas incorporados à versão instalada.
 
-### Sem mudar o jeito de publicar
+As mensagens devem ser representadas utilizando `nlohmann::json`.
 
-Quem já publica direto no Kafka só acrescenta uma linha antes do envio:
+### Validar uma mensagem
+
+A biblioteca disponibiliza diferentes métodos de validação:
 
 ```cpp
-val.validate(msg);                                 // barra a mensagem fora do contrato
-producer.send("ods.p7.move.command", msg.dump());     // como já era
+// Valida uma mensagem a partir do tópico
+auto errors = val.find_errors("ods.p7.move.command", msg);
+
+// Identifica o tópico pelo campo "schema" da mensagem
+auto message_errors = val.find_message_errors(msg);
+
+// Valida a mensagem e lança ods::ContractError caso seja inválida
+try {
+    val.validate(msg);
+} catch (const ods::ContractError& error) {
+    for (const auto& detail : error.errors()) {
+        std::cerr << detail << std::endl;
+    }
+}
 ```
 
-### Ou publicar já com validação
+Os métodos `find_errors` e `find_message_errors` retornam um `std::vector<std::string>`. Um vetor vazio indica que a mensagem é válida.
 
-`publish` aceita qualquer função `send(topic, bytes)`:
+O método `validate` lança uma exceção `ods::ContractError` quando a mensagem não atende ao contrato. O método `errors()` disponibiliza os erros encontrados durante a validação.
+
+### Integrar a validação ao envio para o Kafka
+
+Se o componente já realiza o envio diretamente ao Kafka, basta validar a mensagem antes da publicação:
 
 ```cpp
-ods::publish([&](const std::string& t, const std::string& b) { producer.send(t, b); },
-             val, msg);
+val.validate(msg);
+
+producer.send("ods.p7.move.command", msg.dump());
 ```
 
-Mensagem inválida lança `ods::ContractError` (método `errors()`) e nada é enviado.
+Dessa forma, mensagens inválidas são barradas antes de serem enviadas ao Kafka, sem exigir alterações adicionais na lógica de publicação existente.
 
-### Linha de comando
+Também é possível utilizar a função `ods::publish`, que realiza a validação antes de chamar a função responsável pelo envio:
+
+```cpp
+ods::publish(
+    [&](const std::string& topic, const std::string& bytes) {
+        producer.send(topic, bytes);
+    },
+    val,
+    msg
+);
+```
+
+A função aceita operações de envio síncronas ou assíncronas, desde que sejam compatíveis com a interface esperada. Caso a mensagem seja inválida, uma exceção `ods::ContractError` é lançada e o envio não é executado.
+
+## Interface de linha de comando
+
+A biblioteca também disponibiliza o comando `ods-validate` para validar mensagens diretamente pelo terminal.
 
 ```bash
-ods-validate mensagem.json             # exit 0 = válida, 1 = inválida
-ods-validate --topic ods.p4.frame -   # lê da entrada padrão
-ods-validate --info                    # de onde vêm os schemas
+# Validar um arquivo JSON
+ods-validate mensagem.json
+
+# Validar uma mensagem recebida pela entrada padrão
+cat mensagem.json | ods-validate --topic ods.p4.frame -
+
+# Consultar a origem e as informações dos schemas
+ods-validate --info
 ```
 
-## Onde os schemas são procurados
+O comando retorna código de saída `0` quando a mensagem é válida e `1` quando é inválida.
 
-Nesta ordem: argumento `ods::Validator("caminho/dos/schemas")`; variável `ODS_SCHEMAS_DIR`;
-cópia embutida. Os dois primeiros servem para testar um schema ainda não
-publicado. O tópico é o `properties.schema.const` de cada schema; só
-`*.schema.json` é lido.
+## Compatibilidade entre as bibliotecas
 
-## Compilar e testar
+As bibliotecas Python, TypeScript e C++ utilizam os mesmos JSON Schemas como referência para a validação das mensagens.
 
-```bash
-cd jsonValidatorCpp
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build -j
-ctest --test-dir build --output-on-failure
-```
+Os exemplos compartilhados entre as implementações são utilizados para verificar a consistência dos resultados, garantindo que as três bibliotecas concordem quanto à aceitação ou rejeição das mensagens.
 
-O teste roda os mesmos `examples/*.json` que as bibliotecas Python e
-TypeScript (todo válido precisa passar, todo inválido precisa falhar) e
-confere que `uuid` e `date-time` são checados de verdade.
+Embora utilizem bibliotecas de validação diferentes, as implementações mantêm o mesmo comportamento esperado em relação aos contratos.
 
-## Detalhes de implementação
+## Limitações
 
-- **A biblioteca de validação em C++ implementa o JSON Schema draft-07**,
-  enquanto os schemas declaram 2020-12. Hoje funciona porque os schemas só
-  usam palavras que existem nos dois (`type`, `required`, `properties`,
-  `const`, `enum`, `if/then`, `allOf`, `oneOf`, `anyOf`, `pattern`, limites e
-  `format`). Se alguém passar a usar uma palavra só do 2020-12
-  (`prefixItems`, `$defs`, `unevaluatedProperties` etc.), a carga falha com o
-  nome do arquivo e da palavra, em vez de o C++ ignorá-la e divergir.
-- `format` só vale com um verificador explícito, que a biblioteca passa:
-  `date-time`, `date`, `time`, `uri`, `email`, `ipv4`, `ipv6`, `uuid` e
-  `hostname`. Outros formatos são ignorados, como no Python.
-- O texto das mensagens de erro difere entre as linguagens. O que vale como
-  contrato é aceitar ou recusar a mensagem, e os `examples/` garantem que as
-  três concordam.
-- Não testei o uso do mesmo `Validator` por várias threads ao mesmo tempo;
-  se precisar, crie um por thread ou valide antes.
+- A validação considera uma mensagem individualmente. Regras que dependem da relação entre mensagens, como correspondência de `correlation_id` entre requisições e respostas ou continuidade de `sequence`, não são verificadas.
+- Schemas que não definem `additionalProperties: false` permitem campos adicionais na mensagem.
+- A biblioteca utiliza uma implementação de JSON Schema draft-07. Os schemas atuais utilizam apenas recursos compatíveis com essa versão, embora declarem 2020-12. O uso de recursos exclusivos de versões posteriores não é suportado.
+- O suporte a `format` contempla `date-time`, `date`, `time`, `uri`, `email`, `ipv4`, `ipv6`, `uuid` e `hostname`.
+- O uso simultâneo da mesma instância de `Validator` por múltiplas threads não foi testado.
 
-## Limites conhecidos
+## Repositório
 
-- Valida **uma** mensagem.
-- Schemas sem `additionalProperties: false` aceitam campos desconhecidos.
-- Só há build com CMake; não gera pacote instalável (`install`/`find_package`).
+Código-fonte, documentação e especificações dos contratos:
+
+[ods-26-2/b1](https://github.com/ods-26-2/b1)

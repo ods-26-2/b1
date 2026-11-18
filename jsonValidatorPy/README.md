@@ -1,91 +1,114 @@
-# ods-validator
+# ods-validator (Python)
 
-Valida mensagens do barramento contra os JSON Schemas da Especificação 1.0
-(repositório [ods-26-2/b1](https://github.com/ods-26-2/b1)). Entregável B1 da TRA-1: a mensagem fora do contrato
-é barrada **antes** de chegar ao Kafka.
+Biblioteca para validar mensagens do barramento ODS conforme os contratos definidos nos JSON Schemas da Especificação 1.0.
 
-Os schemas vão **dentro do pacote**: quem instala não precisa clonar nada
-nem definir variável de ambiente.
+A validação permite identificar mensagens inválidas antes de seu envio ao Kafka, garantindo que os dados estejam de acordo com o contrato esperado pelos componentes.
 
-## Instalar
+Os JSON Schemas são **incorporados ao pacote**, portanto não é necessário clonar o repositório, baixar os schemas separadamente ou configurar variáveis de ambiente.
+
+## Instalação
 
 ```bash
 pip install ods-validator
 ```
 
-Os schemas vêm dentro do pacote. Fixe a versão nos componentes
-(`ods-validator==0.1.0`): a versão do pacote é a versão do contrato.
+**Requisitos:** Python 3.10 ou superior.
 
-Para desenvolver a biblioteca, a partir do clone do `b1`:
+Recomenda-se fixar a versão da biblioteca nas dependências do componente:
 
-```bash
-pip install -e "./jsonValidatorPy[dev]"
+```txt
+ods-validator==0.1.0
 ```
 
-## Usar
+A versão do pacote identifica a versão do contrato utilizada na validação.
+
+## Utilização
+
+### Inicialização
 
 ```python
 from ods_validator import Validator, publish, ContractError
 
-val = Validator()                         # usa os schemas do pacote
-val.find_errors("ods.p7.move.command", msg)   # [] se válida, senão lista de erros
-val.find_message_errors(msg)                 # descobre o tópico pelo campo "schema"
-val.validate(msg)                         # levanta ContractError se inválida
-val.schemas_version                       # origin, commit do b1, count
+val = Validator()
 ```
 
-### Sem mudar o jeito de publicar
+### Validar uma mensagem
 
-Quem já publica direto no Kafka só acrescenta uma linha antes do envio:
+A biblioteca disponibiliza diferentes métodos de validação:
 
 ```python
-val.validate(msg)                      # barra a mensagem fora do contrato
-producer.send("ods.p7.move.command", payload_bytes)   # como já era
+# Valida uma mensagem a partir do tópico
+errors = val.find_errors("ods.p7.move.command", msg)
+
+# Identifica o tópico pelo campo "schema" da mensagem
+message_errors = val.find_message_errors(msg)
+
+# Valida a mensagem e lança ContractError caso seja inválida
+try:
+    val.validate(msg)
+except ContractError as error:
+    print("Mensagem inválida:", error.errors)
 ```
 
-### Ou publicar já com validação
+Os métodos `find_errors` e `find_message_errors` retornam uma lista de erros. Uma lista vazia indica que a mensagem é válida.
 
-`publish` aceita qualquer função `send(topic, bytes)`.
+O método `validate` lança uma exceção `ContractError` quando a mensagem não atende ao contrato. O campo `errors` contém os erros encontrados durante a validação.
+
+### Integrar a validação ao envio para o Kafka
+
+Se o componente já realiza o envio diretamente ao Kafka, basta validar a mensagem antes da publicação:
 
 ```python
-publish(lambda t, b: producer.send(t, b), val, msg)      # kafka-python
-publish(lambda t, b: producer.produce(t, b), val, msg)   # confluent-kafka
+val.validate(msg)
+
+producer.send("ods.p7.move.command", payload_bytes)
 ```
 
-Mensagem inválida levanta `ContractError` (com `.errors`) e nada é enviado.
+Dessa forma, mensagens inválidas são barradas antes de serem enviadas ao Kafka, sem exigir alterações adicionais na lógica de publicação existente.
 
-### Linha de comando
+Também é possível utilizar a função `publish`, que realiza a validação antes de chamar a função responsável pelo envio:
+
+```python
+# kafka-python
+publish(lambda topic, data: producer.send(topic, data), val, msg)
+
+# confluent-kafka
+publish(lambda topic, data: producer.produce(topic, data), val, msg)
+```
+
+A função aceita qualquer operação de envio com os argumentos `send(topic, bytes)`, síncrona ou assíncrona. Caso a mensagem seja inválida, a publicação é interrompida e uma exceção `ContractError` é lançada. O envio não é executado.
+
+### Interface de linha de comando
+
+A biblioteca também disponibiliza o comando `ods-validate` para validar mensagens diretamente pelo terminal.
 
 ```bash
-ods-validate mensagem.json             # exit 0 = válida, 1 = inválida
-ods-validate --topic ods.p4.frame -   # lê da entrada padrão
-ods-validate --info                    # de onde vêm os schemas
+# Validar um arquivo JSON
+ods-validate mensagem.json
+
+# Validar uma mensagem recebida pela entrada padrão
+cat mensagem.json | ods-validate --topic ods.p4.frame -
+
+# Consultar a origem e as informações dos schemas
+ods-validate --info
 ```
 
-## Onde os schemas são procurados
+O comando retorna código de saída `0` quando a mensagem é válida e `1` quando é inválida.
 
-Nesta ordem: argumento `Validator("caminho/dos/schemas")`; variável `ODS_SCHEMAS_DIR`;
-a pasta `schemas/` do clone do `b1` (quando o código roda de dentro dele, como
-na instalação editável); cópia embutida no pacote (quem instalou o wheel). Os
-dois primeiros servem para testar um schema ainda não publicado. O tópico é o
-`properties.schema.const` de cada schema; nome de arquivo e pasta não entram
-na busca, mas só `*.schema.json` é lido.
+## Compatibilidade entre as bibliotecas
 
-## Desenvolvimento e testes
+As bibliotecas Python, TypeScript e C++ utilizam os mesmos JSON Schemas como referência para a validação das mensagens.
 
-```bash
-cd jsonValidatorPy
-pip install -e ".[dev]"
-pytest
-```
+Os exemplos compartilhados entre as implementações são utilizados para verificar a consistência dos resultados, garantindo que as três bibliotecas concordem quanto à aceitação ou rejeição das mensagens.
 
-Para cada schema o teste gera um exemplo válido, confere que passa, remove
-cada campo obrigatório (envelope e payload), troca o tipo e o tópico, e
-verifica que falha. Também confere que `uuid` e `date-time` são checados de
-verdade (o `jsonschema` ignora `format` por padrão).
+## Limitações
 
-## Limites conhecidos
+- A validação considera uma mensagem individualmente. Regras que dependem da relação entre mensagens, como correspondência de `correlation_id` entre requisições e respostas ou continuidade de `sequence`, não são verificadas.
+- Schemas que não definem `additionalProperties: false` permitem campos adicionais na mensagem.
+- O conteúdo e as regras de validação correspondem à versão dos schemas incorporada à versão instalada da biblioteca.
 
-- Valida **uma** mensagem. Regras entre mensagens (`correlation_id` da reply,
-  lacuna em `sequence`) ficam para a TRA-2.
-- Schemas sem `additionalProperties: false` aceitam campos desconhecidos.
+## Repositório
+
+Código-fonte, documentação e especificações dos contratos:
+
+[ods-26-2/b1](https://github.com/ods-26-2/b1)
